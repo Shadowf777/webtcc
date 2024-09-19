@@ -138,6 +138,7 @@ header{
     line-height: 2em;
     padding: 15px 10px 15px 25px;
     border-radius: 15px;
+    border-top-right-radius: 0px;
     z-index: 1;
     font-weight: none;
     position: fixed;
