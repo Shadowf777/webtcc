@@ -23,6 +23,7 @@ body{
     height:100%;
     background-color: white;
     display: flex;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -61,11 +62,15 @@ header{
 
 .introducao{
     display: flex;
-    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
+<<<<<<< HEAD
     padding: 5%;
+=======
+    margin-top:50px;
+    margin-left: 10%;
+>>>>>>> 46613c331b8b258769584eada54d9808527e39d7
 }
 
 .introducao div{
@@ -82,8 +87,21 @@ header{
 
 .introducao1
 {
-
     width: 60%;
+    padding-right: 40px;
+}
+
+.introducao2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introducao2 a{
+    text-decoration: none;
+    background-color: ;
+    margin: 15px 30px;
+    border-radius: 30px;
 }
 
 .cabecalhoTexto
