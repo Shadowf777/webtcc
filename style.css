@@ -38,6 +38,7 @@ body{
     padding: 8px;
     padding-left:10px;
     padding-right:10px;
+    position: fixed;
 }
 
 .cabecalho img{
