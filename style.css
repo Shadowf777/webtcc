@@ -62,12 +62,11 @@ header{
 
 .introducao{
     display: flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
     padding: 5%;
-    margin-top:50px;
-    margin-left: 10%;
 }
 
 .introducao div{
