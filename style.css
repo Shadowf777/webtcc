@@ -23,7 +23,6 @@ body{
     height:100%;
     background-color: white;
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -62,11 +61,12 @@ header{
 
 .introducao{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
     margin-top:50px;
-    margin-left: 0px;
+    margin-left: 10%;
 }
 
 .introducao div{
@@ -83,9 +83,8 @@ header{
 
 .introducao1
 {
-    
+
     width: 60%;
-    padding-right: 40px;
 }
 
 .cabecalhoTexto
