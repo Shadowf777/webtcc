@@ -133,13 +133,19 @@ header{
 .popUp
 {
     background-color: #a4c4af;
-    width: 150px;
-    font-size: 20px;
+    width: 160px;
+    font-size: 19px;
     line-height: 2em;
     padding: 15px 10px 15px 25px;
     border-radius: 15px;
     z-index: 1;
     font-weight: none;
+    position: fixed;
+    align-items: right;
+
+    /*botar a div na extrema direita
+    botar uma margenzinha no top e right
+    fazer o ngc da pontinha*/
 }
 
 .popUp a
