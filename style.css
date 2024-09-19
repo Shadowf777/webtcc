@@ -104,6 +104,11 @@ header{
     border-radius: 30px;
 }
 
+.introducao2 a:hover{
+    transform: scale(1.05);
+    background: rgb(73, 97, 77);
+}
+
 .cabecalhoTexto
 {
     font-size: 20px;
