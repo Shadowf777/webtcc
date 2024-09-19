@@ -101,6 +101,10 @@ header{
     margin: 0px;
 }
 
+.introducao2 img
+{
+    max-width: 70%;
+}
 .introducao2 a{
     text-decoration: none;
     color: white;
