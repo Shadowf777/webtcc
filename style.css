@@ -34,9 +34,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 8px;
-    padding-left:10px;
-    padding-right:10px;
+    padding: 11px 15px 10px 15px;
     position: fixed;
 }
 
@@ -51,11 +49,18 @@ body{
     color: white;
 }
 
+.cabecalhoTexto
+{
+    font-size: 24px;
+    color: white;
+
+}
+
 header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 /*------------------------------------------------------------*/
@@ -109,13 +114,7 @@ header{
     background: rgb(73, 97, 77);
 }
 
-.cabecalhoTexto
-{
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
 
-}
 
 .tituloInicio
 {
