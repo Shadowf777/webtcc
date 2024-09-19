@@ -65,8 +65,14 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
+<<<<<<< HEAD
     margin-top:50px;
     margin-left: -130px;
+=======
+    padding: 5%;
+    margin-top:50px;
+    margin-left: 10%;
+>>>>>>> 3a6d148cb2516338b8f5925e025b18479e7494c7
 }
 
 .introducao div{
