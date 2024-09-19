@@ -81,7 +81,7 @@ header{
 }
 
 .introducao div p{
-    max-width: 700px;
+    max-width: 600px;
     line-height: 2em;
     font-size:  22px;
     margin-top: 20px;
@@ -98,6 +98,7 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px;
 }
 
 .introducao2 a{
@@ -113,8 +114,6 @@ header{
     transform: scale(1.05);
     background: rgb(73, 97, 77);
 }
-
-
 
 .tituloInicio
 {
