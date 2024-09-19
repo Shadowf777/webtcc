@@ -62,7 +62,7 @@ header{
 
 .introducao{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
@@ -85,6 +85,21 @@ header{
 {
     width: 60%;
     padding-right: 40px;
+}
+
+.introducao2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introducao2 a{
+    text-decoration: none;
+    color: white;
+    background: #628067;
+    margin: 20px 0px;
+    padding: 10px 30px;
+    border-radius: 30px;
 }
 
 .cabecalhoTexto
