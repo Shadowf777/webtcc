@@ -65,8 +65,12 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: start;
+<<<<<<< HEAD
+    padding: 5%;
+=======
     margin-top:50px;
     margin-left: 10%;
+>>>>>>> 46613c331b8b258769584eada54d9808527e39d7
 }
 
 .introducao div{
@@ -75,8 +79,8 @@ header{
 
 .introducao div p{
     max-width: 700px;
-    line-height: 1.5em;
-    font-size:  17px;
+    line-height: 2em;
+    font-size:  22px;
     margin-top: 20px;
     text-align: justify;
 }
@@ -111,7 +115,8 @@ header{
 
 .tituloInicio
 {
-    font-size: 45px;
+    font-size: 60px;
     font-weight: bold;
     margin-left: -20px;
+    color: rgb(85, 77, 71)
 }
