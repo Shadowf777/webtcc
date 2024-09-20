@@ -137,15 +137,17 @@ header{
     font-size: 19px;
     line-height: 2em;
     padding: 15px 10px 15px 25px;
-    border-radius: 15px;
+    border-radius: 20px;
     border-top-right-radius: 0px;
     z-index: 1;
     font-weight: none;
-    position: fixed;
-    align-items: right;
+    position: absolute;
+    right: 0;
+    margin: 90px 45px;
+    /*display: none;
+    
 
-    /*botar a div na extrema direita
-    botar uma margenzinha no top e right
+    
     fazer o ngc da pontinha*/
 }
 
