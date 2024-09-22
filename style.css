@@ -78,10 +78,10 @@ header{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-around;
+    gap: 15%;
     align-items: start;
-    padding: 5%;
-    padding-top: 100px;
+    margin: 5%;
+    margin-top: 100px;
     
 }
 
@@ -90,10 +90,9 @@ header{
 }
 
 .introducao div p{
-    max-width: 900px;
-    min-width: 300px;
+    
     line-height: 2.3em;
-    font-size:  22px;
+    font-size:  25px;
     margin-top: 20px;
     text-align: justify;
 }
@@ -101,6 +100,8 @@ header{
 .introducao1
 {
     width: 50%;
+    max-width: 900px;
+    min-width: 450px;
 }
 
 .introducao2{
@@ -108,6 +109,7 @@ header{
     flex-direction: column;
     align-items: center;
     width: 30%;
+    padding-top: 80px;
 }
 
 .introducao2 img{
@@ -147,13 +149,21 @@ header{
     margin: 90px 45px;
     /*display: none;
     
-
-    
-    fazer o ngc da pontinha*/
+fazer o ngc da pontinha*/
 }
 
 .popUp a
 {
     color: black;
     text-decoration: none;
+}
+
+
+@media (max-width: 714px)
+
+{
+    .introducao2
+    {
+        width: 80%;
+    }
 }
