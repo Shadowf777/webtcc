@@ -7,8 +7,8 @@
 }
 
 body{
+    background-image: url(imagens/fundo.png);
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
     background-size: cover;
     display: flex;
@@ -21,7 +21,6 @@ body{
 .container_{
     width:100%;
     height:100%;
-    background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
 }
@@ -36,6 +35,7 @@ body{
     justify-content: space-between;
     padding: 11px 15px 10px 15px;
     position: fixed;
+    z-index: 1;
 }
 
 .cabecalho img{
@@ -169,17 +169,47 @@ fazer o ngc da pontinha*/
 }
 
 
+/*------------------------------------------------------------*/
 
-
-
-#carouselExampleAutoplaying
+.plantas
 {
-    align-items: center;
-    
-
+    margin: 5%;
 }
 
-#carouselExampleAutoplaying img
+.tituloPlantas
 {
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(53, 46, 42);
+}
 
+
+.carrosel
+{
+    margin-top: 100px;
+}
+
+.car_planta
+{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 400px;
+    background-color: #807668;
+    margin: 0 auto;
+    border-radius: 30px;
+    padding:35px;
+    color: white;
+    
+    justify-content: center;
+}
+
+.car_planta .texto{
+    margin: auto;
+    font-size: 20px;
+}
+
+.car_planta img{
+    border-radius: 20px;
+    margin: auto;
 }
