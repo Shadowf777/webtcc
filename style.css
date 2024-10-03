@@ -233,3 +233,54 @@ e javascript ne*/
 .smaller {
     transform: scale(0.8);
 }
+
+/*------------------------------------------------------------*/
+
+.rodape
+{
+    background-color: #a29787;
+    width: 100%;
+    margin:200px 0px 0px 0px;
+    padding: 50px 5% 50px 5%;
+
+}
+
+.tituloRodape
+{
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.rodape .descricao
+{
+    font-size: 25px;
+}
+
+.desenvolvedores
+{
+    margin-top:100px;
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.single
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom:10px;
+}
+
+.nomeDes
+{
+    font-size: 22px;
+    font-weight: bold;;
+}
