@@ -90,7 +90,6 @@ header{
 }
 
 .introducao div p{
-    
     line-height: 2.3em;
     font-size:  25px;
     margin-top: 20px;
@@ -115,6 +114,7 @@ header{
 .introducao2 img{
     width: 100%;
     min-width: 200px;
+    border-radius: 30px;
 }
 
 .introducao2 a{
@@ -124,6 +124,7 @@ header{
     margin: 20px 0px;
     padding: 10px 30px;
     border-radius: 30px;
+    font-size: 20px;
 }
 
 .introducao2 a:hover{
@@ -179,7 +180,7 @@ e javascript ne*/
 
 .tituloPlantas
 {
-    font-size: 40px;
+    font-size: 55px;
     font-weight: bold;
     color: rgb(53, 46, 42);
 }
@@ -188,43 +189,58 @@ e javascript ne*/
 .carrosel
 {
     margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .car_planta
 {
     display: flex;
     flex-direction: column;
-    height: 500px;
-    width: 400px;
+    height: 600px;
+    width: 500px;
     background-color: #807668;
     margin: 0 auto;
     border-radius: 30px;
     padding:20px;
     color: white;
-    justify-content: center;
     align-items:center;
 }
 
-.car_planta .texto{
-    margin: 0 auto auto auto;
-    font-size: 22px;
-    text-align:center;
-}
-
-.car_planta .tituloCar
-
+#car_lados
 {
-    font-size: 29px;
-    margin:auto auto 0 auto;
+    height: 400px;
+    width: 300px;
 }
+
+.car_planta .texto{
+    margin: -15px;
+    padding: 0;
+    font-size: 1.3em;
+    text-align:center;
+    color: rgb(208, 208, 208);
+}
+.car_planta .tituloCar
+{
+    font-size:3em;
+}
+#tituloMeio
+{
+    font-size: 5em;
+}
+
+#textoMeio
+{
+    margin: -30px;
+font-size: 2em;
+}
+
 .car_planta img{
     border-radius: 20px;
-    margin: auto;
-    height: auto;
-    max-height: 320px;
-    width: auto;
-    max-width: 320px;
-
+    margin: 5% 5% 0;
+    height: 70%;  
+    width: 90%;
 }
 
 .carousel-item {
@@ -234,34 +250,36 @@ e javascript ne*/
     transform: scale(0.8);
 }
 
-/*------------------------------------------------------------*/
 
-.rodape
-{
+
+
+/*---------------------------------------------------*/
+
+#rodape{
     background-color: #a29787;
+    height: max-content;
     width: 100%;
     margin:200px 0px 0px 0px;
     padding: 50px 5% 50px 5%;
-
 }
 
-.tituloRodape
-{
-    font-size: 45px;
+#tituloRodape{
+    font-size: 70px;
     font-weight: bold;
 }
 
-.rodape .descricao
-{
-    font-size: 25px;
+#rodape p{
+    line-height: 1.7em;
+    font-size:  25px;
+    text-align: justify;
 }
 
-.desenvolvedores
-{
-    margin-top:100px;
-    display:flex;
+.desenvolvedores{
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-
+    margin-top: 60px;
+    flex-wrap: wrap;
 }
 
 .single
@@ -284,3 +302,4 @@ e javascript ne*/
     font-size: 22px;
     font-weight: bold;;
 }
+
