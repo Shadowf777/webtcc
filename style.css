@@ -251,7 +251,42 @@ font-size: 2em;
 }
 
 
+/*---------------------------------------------------*/
 
+.comprar{
+    margin:5%;
+    
+}
+
+.corpo
+{
+    margin: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 180px;
+}
+
+.comprar img
+{
+    height: 650px;
+    border-radius: 30px;
+}
+
+.tituloComprar
+{
+    font-size: 65px;
+    font-weight: bold;
+    margin: 0px 50px 50px 0px;
+    text-align: end;
+}
+
+.comprar p
+{
+    line-height: 2.3em;
+    font-size:  25px;
+    text-align: end;
+    margin: 50px 50px 0px 0px;
+}
 
 /*---------------------------------------------------*/
 
