@@ -276,7 +276,7 @@ font-size: 2em;
 {
     font-size: 65px;
     font-weight: bold;
-    margin: 0px 50px 50px 0px;
+    margin: 0px 100px 50px 0px;
     text-align: end;
 }
 
@@ -287,6 +287,18 @@ font-size: 2em;
     text-align: end;
     margin: 50px 50px 0px 0px;
 }
+
+.comprar a
+{
+    text-decoration: none;
+    color: white;
+    background: #628067;
+    margin: 20px 0px;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
 
 /*---------------------------------------------------*/
 
