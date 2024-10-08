@@ -16,15 +16,17 @@
             </header>
             <header>
                 <a href="#"><div class="cabecalhoTexto">Fale Conosco</div></a>
-                <a href="#" class="imgConta"><img src="imagens/pessoinha2.png"></a>
+                <a href="#" id="imgConta"><img src="imagens/pessoinha2.png"></a>
             </header>
         </div>
-        
-        <div class="popUp"><div style="font-weight: bold;"><a href="#">Fazer login</a><br></div>
-            <div style="font-weight: bold;"><a href="#">Cadastro</a><br></div>
+        <div id="popUp" class ="hidden">
+        <div class="triangulo"></div>
+        <div id="popup"><div style="font-weight: bold;"><a href="#">Fazer login</a><br></div>
+            <div style="font-weight: bold;"><a href="https://www.mercadolivre.com.br/">Cadastro</a><br></div>
             <div style="font-weight: bold;"><a href="#">Minha conta</a><br></div>
             <a href="#">Sair</a>
-        </div><br>
+        </div></div>
+        <br>
         <div class="introducao">
             <div class="introducao1">
                 <div class="tituloInicio">EcoStuff</div>
@@ -67,8 +69,6 @@
 
 
         <div class="comprar">
-          
-        <div class="corpo">
           <img src="imagens/planta.jfif">
           <div class="comprar2">
             <div class="tituloComprar">Tenha uma EcoStuff</div>
@@ -82,11 +82,12 @@
                      felis ut adipiscing
           </p>
 
-          <a href="">Compre já!</a></div>
-        </div></div>
+          <a href="">Compre já!</a>
+        </div>
+        </div>
 
 
-
+        
 
         <div id="rodape">
           <div id = "tituloRodape">EcoStuff</div>
@@ -135,6 +136,22 @@
 
 
     
-    
+    <script>
+          const toggleLink = document.getElementById('imgConta');
+          const popup = document.getElementById('popUp');
+
+          // Show the div when the link is clicked
+          toggleLink.addEventListener('click', (event) => {
+              event.preventDefault(); // Prevent the default link behavior
+              popup.classList.toggle('hidden'); // Toggle visibility of the div
+          });
+
+          // Hide the div when clicking anywhere else in the document
+          document.addEventListener('click', (event) => {
+              if (!toggleLink.contains(event.target) && !popup.contains(event.target)) {
+                  popup.classList.add('hidden'); // Hide the div
+              }
+          });
+      </script>
     </body>
 </html>

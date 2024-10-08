@@ -25,6 +25,11 @@ body{
     flex-direction: column;
 }
 
+img
+{
+    object-fit: cover;
+}
+
 /*-----------------------------------------------------------*/
 
 .cabecalho{
@@ -133,8 +138,20 @@ header{
 }
 
 /*------------------------------------------------------------*/
+.triangulo
+{
+    width: 0; 
+    height: 0; 
+    border-left: 50px solid transparent; /* Color of the triangle */
+    border-top: 50px solid transparent; /* Top side is transparent */
+    border-bottom: 50px solid #a4c4af; /* Bottom side is transparent */
+    position:absolute;
+    z-index: 1;
+    right: 0;
+    margin: 10px 45px;
+}
 
-.popUp
+#popup
 {
     background-color: #a4c4af;
     width: 160px;
@@ -148,13 +165,18 @@ header{
     position: absolute;
     right: 0;
     margin: 90px 45px;
-    /*display: none;
+    /*
     
 fazer o ngc da pontinha
 e javascript ne*/
 }
 
-.popUp a
+.hidden
+{
+    display: none;
+}
+
+#popup a
 {
     color: black;
     text-decoration: none;
@@ -263,15 +285,15 @@ font-size: 2em;
 
 .comprar{
     margin:10% 8% 5% 5%;
+    display: flex;
+    flex-direction: row;
+    gap: 180px;
     
 }
 
 .corpo
 {
-    margin: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 180px;
+    
 }
 
 .comprar img
@@ -355,6 +377,7 @@ font-size: 2em;
     justify-content: space-around;
     margin-top: 60px;
     flex-wrap: wrap;
+    gap: 30px;
 }
 
 .single
@@ -378,3 +401,76 @@ font-size: 2em;
     font-weight: bold;;
 }
 
+
+/*---------------------------------------------------*/
+
+@media (max-width: 1340px) and (min-width:1042px)
+{
+    .introducao div p
+    {
+        font-size: 23px;
+    }
+
+    
+}
+
+@media (max-width: 1042px)
+{
+    .introducao
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .introducao1
+    {
+        width: 80%;
+    }
+
+    .introducao2
+    {
+        width: 80%;
+        gap:20px;
+    }
+
+    .plantas{
+        margin: 10%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tituloPlantas
+    {
+        text-align: center;
+    }
+    
+    #car_lados
+    {
+        display: none;
+    }
+
+    .comprar
+    {
+        flex-direction: column;
+        width:80%;
+        margin: 0% 10% 0% 10%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .comprar img
+    {
+        display:none;
+    }
+
+    .comprar2
+    {
+        align-items:center;
+        justify-content: center;
+    }
+
+    .comprar2 p
+    {
+        text-align: justify;
+    }
+}
