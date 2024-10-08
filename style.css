@@ -411,11 +411,57 @@ font-size: 2em;
         font-size: 23px;
     }
 
+    .comprar{
+        width: 70%;
+        margin: 10% auto;
+
+    }
+    
+    .comprar img
+    {
+        display:none;
+    }
+
+    .car_planta
+    {
+        
+        height: 400px;
+        width: 300px;
+        
+    }
+
+    #car_lados
+    {
+        height: 300px;
+        width: 225px;
+    }
+
+    .car_planta .texto{
+        font-size: 1.2em;
+    }
+    .car_planta .tituloCar
+    {
+        font-size:1.5em;
+    }
+    #tituloMeio
+    {
+        font-size: 2.5em;
+    }
+    
+    #textoMeio
+    {
+        font-size: 1.7em;
+    }
+
     
 }
 
 @media (max-width: 1042px)
 {
+    p 
+    {
+        font-size: 23px;
+    }
     .introducao
     {
         flex-direction: column;
