@@ -43,28 +43,29 @@
             </div>
         </div>
         <div class="plantas">
-            <div class="tituloPlantas">Algumas de nossas plantas</div>
-            <div class="carrosel">   
-              <span class="seta"><</span>
-              <div class="car_planta" id="car_lados">
-                  <img src="imagens/planta.jfif">
-                  <div class="tituloCar">Orquidea</div> 
-                    <div class="texto">ela é bonita</div>
+          <div class="tituloPlantas">Algumas de nossas plantas</div>
+          <div class="carrossel">
+              <span class="seta" id="prev">&lt;</span>
+              <div class="carrossel-inner">
+                  <div class="car_planta" id="item-1">
+                      <img src="imagens/planta.jfif" alt="Orquidea">
+                      <div class="tituloCar">Orquídea</div>
+                      <div class="texto">Ela é bonita</div>
+                  </div>
+                  <div class="car_planta" id="item-2">
+                      <img src="imagens/planta.jfif" alt="Tomate">
+                      <div class="tituloCar">Tomate</div>
+                      <div class="texto">Ele é saudável</div>
+                  </div>
+                  <div class="car_planta" id="item-3">
+                      <img src="imagens/planta.jfif" alt="Rosa">
+                      <div class="tituloCar">Rosa</div>
+                      <div class="texto">Rosa gallica L.</div>
+                  </div>
               </div>
-              <div class="car_planta">
-                    <img src="imagens/planta.jfif">
-                    <div class="tituloCar" id = "tituloMeio">Tomate</div>
-                    <div class="texto" id = "textoMeio">queria</div>
-              </div>
-              <div class="car_planta" id = "car_lados">
-                  <img src="imagens/planta.jfif">
-                  <div class="tituloCar">Rosa</div> 
-                  <div class="texto">Rosa gallica L.</div>
-                  
-              </div>
-              <span class="seta">></span>
-            </div>
-        </div>
+              <span class="seta" id="next">&gt;</span>
+          </div>
+      </div>
 
 
         <div class="comprar">
@@ -152,5 +153,45 @@
               }
           });
     </script>
+
+    <script>
+      const items = [
+          document.getElementById('item-1'),
+          document.getElementById('item-2'),
+          document.getElementById('item-3')
+      ];
+      let currentIndex = 1;
+
+      function updateCarrossel() {
+          items.forEach((item, index) => {
+              item.classList.remove('central');
+              item.style.transform = '';
+              item.style.opacity = '0.6';
+          });
+
+          const prevIndex = (currentIndex - 1 + items.length) % items.length;
+          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+          
+          const nextIndex = (currentIndex + 1) % items.length;
+          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+
+          items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
+          items[currentIndex].style.opacity = '1';
+          items[currentIndex].classList.add('central');
+      }
+
+      document.getElementById('next').addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % items.length;
+          updateCarrossel();
+      });
+
+      document.getElementById('prev').addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + items.length) % items.length;
+          updateCarrossel();
+      });
+
+      updateCarrossel();
+    </script>
+
     </body>
 </html>

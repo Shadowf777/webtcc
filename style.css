@@ -195,53 +195,92 @@ e javascript ne*/
 
 /*------------------------------------------------------------*/
 
-.plantas
-{
-    margin: 5%;
+.plantas {
+    text-align: center;
+    margin-top: 30px;
 }
 
-.tituloPlantas
-{
+.tituloPlantas {
     font-size: 55px;
     font-weight: bold;
     color: rgb(53, 46, 42);
+    margin-bottom: 20px;
 }
 
-
-.carrosel
-{
-    margin-top: 100px;
+.carrossel {
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: center;
-    gap:50px;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
 }
 
-.seta
-{
-    font-size: 50px;
+.carrossel-inner {
+    display: flex;
+    position: relative;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    gap: 50px;
 }
 
-.car_planta
-{
+.car_planta {
+    background-color: #807668;
+    border-radius: 30px;
+    padding: 0px 20px;
+    width: 370px;
+    height: 470px;
+    color: white;
     display: flex;
     flex-direction: column;
-    height: 600px;
-    width: 450px;
-    background-color: #807668;
-    margin: 0;
-    border-radius: 30px;
-    padding:20px;
-    color: white;
-    align-items:center;
-    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0.6;
 }
 
-#car_lados
-{
-    height: 400px;
-    width: 300px;
+.car_planta img {
+    width: 90%;
+    height: 75%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.car_planta.central {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+#item-1 {
+    transform: translateX(-350px) scale(0.8);
+}
+
+#item-2 {
+    transform: translateX(0px) scale(1.2);
+    opacity: 1;
+}
+
+#item-3 {
+    transform: translateX(350px) scale(0.8);
+}
+
+.seta {
+    font-size: 50px;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+}
+
+.seta#prev {
+    margin-right: 200px;
+}
+
+.seta#next {
+    margin-left: 200px;
 }
 
 .car_planta .texto{
@@ -255,31 +294,6 @@ e javascript ne*/
 {
     font-size:2em;
 }
-#tituloMeio
-{
-    font-size: 4em;
-}
-
-#textoMeio
-{
-    margin: -30px;
-font-size: 2em;
-}
-
-.car_planta img{
-    border-radius: 20px;
-    margin: 5% 5% 0;
-    height: 70%;  
-    width: 90%;
-}
-
-.carousel-item {
-    transition: transform 0.5s;
-}
-.smaller {
-    transform: scale(0.8);
-}
-
 
 /*---------------------------------------------------*/
 
