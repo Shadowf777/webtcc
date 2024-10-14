@@ -142,9 +142,9 @@ header{
 {
     width: 0; 
     height: 0; 
-    border-left: 50px solid transparent; /* Color of the triangle */
-    border-top: 50px solid transparent; /* Top side is transparent */
-    border-bottom: 50px solid #a4c4af; /* Bottom side is transparent */
+    border-left: 50px solid transparent; 
+    border-top: 50px solid transparent; 
+    border-bottom: 50px solid #a4c4af; 
     position:absolute;
     z-index: 1;
     right: 0;
@@ -462,6 +462,7 @@ e javascript ne*/
         font-size: 1.7em;
     }
 
+
     
 }
 
@@ -528,4 +529,6 @@ e javascript ne*/
     {
         text-align: justify;
     }
+
+    
 }
