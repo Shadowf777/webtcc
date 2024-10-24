@@ -45,27 +45,36 @@
         <div class="plantas">
           <div class="tituloPlantas">Algumas de nossas plantas</div>
           <div class="carrossel">
-              <span class="seta" id="prev">&lt;</span>
-              <div class="carrossel-inner">
-                  <div class="car_planta" id="item-1">
-                      <img src="imagens/planta.jfif" alt="Orquidea">
-                      <div class="tituloCar">Orquídea</div>
-                      <div class="texto">Ela é bonita</div>
-                  </div>
-                  <div class="car_planta" id="item-2">
-                      <img src="imagens/planta.jfif" alt="Tomate">
-                      <div class="tituloCar">Tomate</div>
-                      <div class="texto">Ele é saudável</div>
-                  </div>
-                  <div class="car_planta" id="item-3">
-                      <img src="imagens/planta.jfif" alt="Rosa">
-                      <div class="tituloCar">Rosa</div>
-                      <div class="texto">Rosa gallica L.</div>
-                  </div>
+            <div class="carrossel-inner">
+              <div class="car_planta" id="item-1">
+                <img src="imagens/planta.jfif" alt="Orquídea">
+                <div class="tituloCar">Orquídea</div>
+                <div class="texto">Ela é bonita</div>
               </div>
-              <span class="seta" id="next">&gt;</span>
+              <div class="car_planta" id="item-2">
+                <img src="imagens/planta.jfif" alt="Tomate">
+                <div class="tituloCar">Tomate</div>
+                <div class="texto">Ele é saudável</div>
+              </div>
+              <div class="car_planta" id="item-3">
+                <img src="imagens/planta.jfif" alt="Rosa">
+                <div class="tituloCar">Rosa</div>
+                <div class="texto">Rosa gallica L.</div>
+              </div>
+              <div class="car_planta" id="item-3">
+                  <img src="imagens/planta.jfif" alt="Preto">
+                  <div class="tituloCar">Preto</div>
+                  <div class="texto">Preto giratório</div>
+                </div>
+                <div class="car_planta" id="item-3">
+                  <img src="imagens/planta.jfif" alt="Branco">
+                  <div class="tituloCar">Branco</div>
+                  <div class="texto">Branco bravo</div>
+                </div>
+              <!-- Adicione quantas imagens precisar -->
+            </div>
           </div>
-      </div>
+        </div>
 
 
         <div class="comprar">
@@ -155,39 +164,54 @@
     </script>
 
     <script>
-      const items = [
-          document.getElementById('item-1'),
-          document.getElementById('item-2'),
-          document.getElementById('item-3')
-      ];
-      let currentIndex = 1;
+      let items = Array.from(document.querySelectorAll('.car_planta'));
+      let currentIndex = 0;
+      let isMobile = window.innerWidth < 1042;
 
       function updateCarrossel() {
-          items.forEach((item, index) => {
-              item.classList.remove('central');
-              item.style.transform = '';
-              item.style.opacity = '0';
-          });
-
-          const prevIndex = (currentIndex - 1 + items.length) % items.length;
-          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+        items.forEach((item, index) => {
+          item.classList.remove('central');
+          item.style.transform = '';
           
-          const nextIndex = (currentIndex + 1) % items.length;
-          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+          item.style.opacity = '0';
+        });
 
+        if (isMobile) {
+          const prevIndex = (currentIndex - 1 + items.length) % items.length;
+          const nextIndex = (currentIndex + 1) % items.length;
+
+          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
           items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
           items[currentIndex].style.opacity = '1';
           items[currentIndex].classList.add('central');
+
+          items[prevIndex].style.opacity = '0';
+          items[nextIndex].style.opacity = '0';
+        } else {
+          const prevIndex = (currentIndex - 1 + items.length) % items.length;
+          const nextIndex = (currentIndex + 1) % items.length;
+
+          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+          items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
+          items[currentIndex].style.opacity = '1';
+          items[currentIndex].classList.add('central');
+
+          items[prevIndex].style.opacity = '1';
+          items[nextIndex].style.opacity = '1';
+        }
       }
 
-      document.getElementById('next').addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % items.length;
-          updateCarrossel();
-      });
+      function autoRotate() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarrossel();
+      }
+      let rotateInterval = setInterval(autoRotate, 3000);
 
-      document.getElementById('prev').addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + items.length) % items.length;
-          updateCarrossel();
+      window.addEventListener('resize', () => {
+        isMobile = window.innerWidth < 1042;
+        updateCarrossel();
       });
 
       updateCarrossel();
