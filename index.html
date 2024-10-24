@@ -163,59 +163,50 @@
           });
     </script>
 
-    <script>
-      let items = Array.from(document.querySelectorAll('.car_planta'));
-      let currentIndex = 0;
-      let isMobile = window.innerWidth < 1042;
+<script>
+  let items = Array.from(document.querySelectorAll('.car_planta'));
+  let currentIndex = 0;
 
-      function updateCarrossel() {
-        items.forEach((item, index) => {
-          item.classList.remove('central');
-          item.style.transform = '';
-          
-          item.style.opacity = '0';
-        });
+  function updateCarrossel() {
+    items.forEach((item) => {
+      item.classList.remove('central');
+      item.style.transform = '';
+      item.style.opacity = '0';
+    });
 
-        if (isMobile) {
-          const prevIndex = (currentIndex - 1 + items.length) % items.length;
-          const nextIndex = (currentIndex + 1) % items.length;
+    const prevIndex = (currentIndex - 1 + items.length) % items.length;
+    const nextIndex = (currentIndex + 1) % items.length;
 
-          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
-          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
-          items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
-          items[currentIndex].style.opacity = '1';
-          items[currentIndex].classList.add('central');
+    // Lógica para telas menores ou maiores que 1042 pixels
+    if (window.innerWidth < 1042) {
+      items[prevIndex].style.transform = 'translateX(-200px) scale(0.8)';
+      items[nextIndex].style.transform = 'translateX(200px) scale(0.8)';
+    } else {
+      items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+      items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+    }
 
-          items[prevIndex].style.opacity = '0';
-          items[nextIndex].style.opacity = '0';
-        } else {
-          const prevIndex = (currentIndex - 1 + items.length) % items.length;
-          const nextIndex = (currentIndex + 1) % items.length;
+    items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
+    items[currentIndex].style.opacity = '1';
+    items[currentIndex].classList.add('central');
 
-          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
-          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
-          items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
-          items[currentIndex].style.opacity = '1';
-          items[currentIndex].classList.add('central');
+    // Definindo a opacidade dos itens anterior e seguinte
+    items[prevIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
+    items[nextIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
+  }
 
-          items[prevIndex].style.opacity = '1';
-          items[nextIndex].style.opacity = '1';
-        }
-      }
+  function autoRotate() {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateCarrossel();
+  }
 
-      function autoRotate() {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarrossel();
-      }
-      let rotateInterval = setInterval(autoRotate, 3000);
+  let rotateInterval = setInterval(autoRotate, 3000);
 
-      window.addEventListener('resize', () => {
-        isMobile = window.innerWidth < 1042;
-        updateCarrossel();
-      });
+  window.addEventListener('resize', updateCarrossel);
 
-      updateCarrossel();
-    </script>
+  updateCarrossel();
+</script>
+
 
     </body>
 </html>
