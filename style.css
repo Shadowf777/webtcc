@@ -85,7 +85,7 @@ header{
     flex-direction: row;
     gap: 15%;
     align-items: start;
-    margin: 5%;
+    margin: 15%;
     margin-top: 100px;
     
 }
@@ -165,10 +165,6 @@ header{
     position: absolute;
     right: 0;
     margin: 90px 45px;
-    /*
-    
-fazer o ngc da pontinha
-e javascript ne*/
 }
 
 .hidden
@@ -391,6 +387,11 @@ e javascript ne*/
     .introducao div p
     {
         font-size: 23px;
+        
+    }
+    .introducao
+    {
+        margin:5%;
     }
 
     .comprar{
@@ -416,6 +417,8 @@ e javascript ne*/
     {
         flex-direction: column;
         align-items: center;
+        margin:5%;
+        gap: 0px;
     }
 
     .introducao1
