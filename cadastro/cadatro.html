@@ -17,7 +17,7 @@
             <a href="../index.html" target="_blank" class="cabecalhoTexto">EcoStuff</a>
         </header>
         <header>
-            <a href="#"><div class="cabecalhoTexto">Fale Conosco</div></a>
+            <a href="../contato.html"><div class="cabecalhoTexto">Fale Conosco</div></a>
             <a href="#" id="imgConta"><img src="../imagens/pessoinha2.png"></a>
         </header>
     </div>
@@ -69,23 +69,7 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        const toggleLink = document.getElementById('imgConta');
-        const popup = document.getElementById('popUp');
-
-        // Show the div when the link is clicked
-        toggleLink.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent the default link behavior
-            popup.classList.toggle('escondido'); // Toggle visibility of the div
-        });
-
-        // Hide the div when clicking anywhere else in the document
-        document.addEventListener('click', (event) => {
-            if (!toggleLink.contains(event.target) && !popup.contains(event.target)) {
-                popup.classList.add('escondido'); // Hide the div
-            }
-        });
-  </script>
+    <script src="scriptPopUp.js"></script>
 
 </body>
 
