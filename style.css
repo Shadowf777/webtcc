@@ -95,7 +95,7 @@ header{
 }
 
 .introducao div p{
-    line-height: 2.3em;
+    line-height: 2.2em;
     font-size:  25px;
     margin-top: 20px;
     text-align: justify;
@@ -480,3 +480,124 @@ header{
 
     
 }
+
+
+
+/*--------------CONTATO----------------------------------------------------------*/
+
+.contato{
+    margin: 8% 15% 0% 15%;
+    display: flex;
+    flex-direction: column;
+
+}
+.contato strong{
+    font-size: 50px;
+    color: rgb(57, 50, 43);
+
+}
+.contato p
+{
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.contato h3{
+    font-size: 20px;
+    font-weight:normal;
+}
+
+.formulario
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+input
+{
+    width: 500px;
+    height: 40px;
+    border-radius: 16px;
+    padding: 15px;
+    background-color: rgba(223, 242, 230, 0.6);
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+}
+
+input::placeholder
+{
+    color:#628067;
+    font-size: 15px;
+}
+
+input:focus
+{
+    border: none;
+    border-bottom: 2px solid #000;
+    background-color: rgba(223, 242, 230, 1);
+    outline: none;
+}
+
+#msg input
+{
+    height: 90px;
+    padding: 15px;
+}
+
+#msg input::placeholder
+{
+    position: absolute;
+    top: 13px;
+}
+
+#enviar
+{
+    width: 250px;
+    background-color: rgba(77, 113, 76, 1);
+    margin-top: 25px;
+    color: white;
+    font-size: 17px;
+    padding: 0px;
+}
+
+#enviar:active
+{
+    background-color: rgb(65, 95, 64);
+}
+
+
+.formas
+{
+    display: flex;
+    
+    flex-direction:row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 40px;
+
+}
+span{
+    margin-left: 10%;
+}
+span h2
+{
+    font-size: 25px;
+    color:black;
+    
+}
+
+span h4
+{
+    font-size: 18px;
+    margin: 5px 0px 20px 0px;
+    font-weight: normal;
+}
+
+.frente
+{
+    margin-left: 30px;
+}
+
