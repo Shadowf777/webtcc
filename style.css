@@ -673,3 +673,56 @@ span h4
 .informacoesPessoais p{
     font-size: 1.8em;
 }
+
+.tituloConta{
+    font-size: 55px;
+    font-weight: bold;
+    color: rgb(53, 46, 42);
+    margin: -90px auto -120px auto;
+}
+
+/*--------------CARROSSEL----------*/
+
+.carrosselConta {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    gap: 50px;
+    transition: transform 0.5s ease;
+}
+
+.car_Conta {
+    background-color: #807668;
+    border-radius: 30px;
+    padding: 0px 20px;
+    width: 450px;
+    height: 225px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.car_Conta:hover {
+    transform: scale(1.05);
+}
+
+.car_Conta img {
+    width: 170px;
+    height: 75%;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.car_Conta_Informacoes .tituloCar{
+    font-size: 2em;
+    margin-bottom: 20px;
+}
