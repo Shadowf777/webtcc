@@ -608,7 +608,10 @@ span h4
 
 .compree
 {
-    margin: 8% 10% 0% 10%;
+    margin: 10% 10% 0% 10%;
+    display:flex;
+    flex-direction: row;
+    gap: 17%;
 }
 
 .compree strong
@@ -622,24 +625,66 @@ span h4
 {
     font-size: 24px;
     line-height: 2em;
-    width: 50%;
     margin-top: 20px;
     text-align: justify;
 }
 
+.compreTxt
+{
+    width: 50%
+}
+
+.imgCompre
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compree .imgCompre
+
+{
+    width: 30%;
+}
+
+.imgCompre img
+{
+    height: 480px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.imgCompre a
+{
+    width: 180px;
+    height: 45px;
+    color:white;
+    background-color: #628067;
+    font-size: 20px;
+    border-radius: 30px;
+    border:none;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.imgCompre a:hover{
+    transform: scale(1.05);
+    background: rgb(73, 97, 77);
+}
+
+
 /*--------------MINHA CONTA---------------------------------------------------------------------------------------*/
 
 .minhaConta{
-    margin: 8% 10% 0% 10%;
+    margin: 13% 10% 15% 11%;
     display: flex;
     flex-direction: column;
     align-items: start;
-    margin: 15%;
-    margin-top: 150px;
 }
 
 .minhaConta .titulo{
-    font-size: 4em;
+    font-size: 3em;
     color: #5d5445;
 }
 
@@ -647,17 +692,15 @@ span h4
     margin-top: 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .informacoes div img{
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom:10px;
-    margin-right: 70px;
+    margin-right: 50px;
 }
 
 .informacoesPessoais{
@@ -666,13 +709,34 @@ span h4
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    gap: 10%;
+    line-height: 3em;
+    margin-top: 20px;
 }
 
 .informacoesPessoais p{
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
+
+
+.infos
+{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.endereco
+{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+.informacoesPessoais .lapis
+{
+    text-align: end;
+    height: 30px;
+} 
 
 .tituloConta{
     font-size: 55px;
