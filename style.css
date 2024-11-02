@@ -378,7 +378,9 @@ header{
 .nomeDes
 {
     font-size: 22px;
-    font-weight: bold;;
+    font-weight: bold;
+    text-align: center;
+    margin: 0
 }
 
 
@@ -792,3 +794,5 @@ span h4
     font-size: 2em;
     margin-bottom: 20px;
 }
+
+/*----------ESQUECEU SUA SENHA ------------------------------*/
