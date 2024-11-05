@@ -1,0 +1,128 @@
+/*--------------MINHA CONTA---------------------------------------------------------------------------------------*/
+
+.minhaConta{
+    margin: 10% 10% 15% 11%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.minhaConta .titulo{
+    font-size: 3em;
+    color: #5d5445;
+}
+
+.informacoes{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.informacoes div img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom:10px;
+    margin-right: 50px;
+}
+
+.informacoesPessoais{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 15%;
+    line-height: 3em;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.informacoesPessoais p{
+    font-size: 1.3em;
+}
+
+
+.infos
+{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+}
+
+.endereco
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.informacoesPessoais .lapis
+{
+    text-align: end;
+    height: 30px;
+} 
+
+.tituloConta{
+    font-size: 55px;
+    font-weight: bold;
+    color: rgb(53, 46, 42);
+    margin: -90px auto -120px auto;
+}
+
+/*--------------CARROSSEL----------*/
+
+.carrossel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+  }
+
+.carrosselConta {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    gap: 50px;
+    transition: transform 0.5s ease;
+}
+
+.car_Conta {
+    background-color: #807668;
+    border-radius: 30px;
+    padding: 0px 20px;
+    width: 450px;
+    height: 225px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 1;
+}
+
+.car_Conta:hover {
+    transform: scale(1.05);
+}
+
+.car_Conta img {
+    width: 170px;
+    height: 75%;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.car_Conta_Informacoes .tituloCar{
+    font-size: 2em;
+    margin-bottom: 20px;
+}

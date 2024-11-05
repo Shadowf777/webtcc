@@ -1,0 +1,68 @@
+/*--------------COMPRAR---------------------------------------------------------------------------------------*/
+
+.compree
+{
+    margin: 10% 10% 0% 10%;
+    display:flex;
+    flex-direction: row;
+    gap: 17%;
+}
+
+.compree strong
+{
+    font-size: 50px;
+    color: rgb(69, 52, 44);
+
+}
+
+.compree p
+{
+    font-size: 24px;
+    line-height: 2em;
+    margin-top: 20px;
+    text-align: justify;
+}
+
+.compreTxt
+{
+    width: 50%
+}
+
+.imgCompre
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compree .imgCompre
+
+{
+    width: 30%;
+}
+
+.imgCompre img
+{
+    height: 480px;
+    width: 400px;
+    border-radius: 20px;
+}
+
+.imgCompre a
+{
+    width: 180px;
+    height: 45px;
+    color:white;
+    background-color: #628067;
+    font-size: 20px;
+    border-radius: 30px;
+    border:none;
+    margin-top: 30px;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.imgCompre a:hover{
+    transform: scale(1.05);
+    background: rgb(73, 97, 77);
+}
