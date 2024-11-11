@@ -9,7 +9,7 @@
 body{
     background-image: url(imagens/fundo_enhanced.png);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: start;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -186,104 +186,12 @@ header{
 
 /*---------------------------------------------------*/
 
-@media (max-width: 1340px) and (min-width:1042px)
-{
-    .introducao div p
-    {
-        font-size: 23px;
-        
-    }
-    .introducao
-    {
-        margin:5%;
-    }
 
-    .comprar{
-        width: 70%;
-        margin: 10% auto;
 
-    }
-    
-    .comprar img
-    {
-        display:none;
-    }
 
-}
 
-@media (max-width: 1042px)
-{
-    p 
-    {
-        font-size: 23px;
-    }
-    .introducao
-    {
-        flex-direction: column;
-        align-items: center;
-        margin:5%;
-        gap: 0px;
-    }
 
-    .introducao1
-    {
-        width: 80%;
-    }
 
-    .introducao2
-    {
-        width: 80%;
-        gap:20px;
-    }
-
-    .plantas{
-        margin: 10%;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .car_planta{
-        max-width: 600px;
-
-    }
-
-    .tituloPlantas
-    {
-        text-align: center;
-    }
-    
-    #car_lados
-    {
-        display: none;
-    }
-
-    .comprar
-    {
-        flex-direction: column;
-        width:80%;
-        margin: 0% 10% 0% 10%;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .comprar img
-    {
-        display:none;
-    }
-
-    .comprar2
-    {
-        align-items:center;
-        justify-content: center;
-    }
-
-    .comprar2 p
-    {
-        text-align: justify;
-    }
-
-    
-}
 
 
 
