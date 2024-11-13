@@ -43,8 +43,9 @@
     padding-top: 80px;
 }
 
-.introducao2 img{
-    width: 100%;
+.introducao2 #modelo{
+    width: 300px;
+    height: 400px;
     min-width: 200px;
     border-radius: 30px;
 }
@@ -101,22 +102,23 @@
   .car_planta {
     background-color: #807668;
     border-radius: 30px;
-    padding: 0px 20px;
     width: 370px;
     height: 470px;
     color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 30px 20px 20px 20px;
     position: absolute;
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0.6;
+
   }
   
   .car_planta img {
     width: 90%;
-    height: 75%;
+    height: 70%;
     border-radius: 20px;
     object-fit: cover;
   }
@@ -137,6 +139,15 @@
 {
     font-size:2em;
 } 
+
+.txtCaro
+{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 150px;
+
+}
 
 /*---------------------------------------------------*/
 
@@ -204,6 +215,9 @@
     transform: scale(1.05);
     background: rgb(73, 97, 77);
 }
+
+
+
 
 
 @media (max-width: 1340px) and (min-width:1042px)
