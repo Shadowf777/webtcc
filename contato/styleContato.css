@@ -1,0 +1,90 @@
+/*--------------CONTATO----------------------------------------------------------------------*/
+
+.contato{
+    margin: 10% 15% 0% 20%;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100vh;
+    
+}
+.contato strong{
+    font-size: 50px;
+    color: rgb(57, 50, 43);
+
+}
+.contato p
+{
+    font-size: 23px;
+    margin-top: 10px;
+}
+
+.contato h3{
+    font-size: 20px;
+    font-weight:normal;
+}
+
+.formulario
+{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+#msg input
+{
+    height: 90px;
+    padding: 15px;
+}
+
+#msg input::placeholder
+{
+    position: absolute;
+    top: 13px;
+}
+
+#enviar
+{
+    width: 250px;
+    background-color: rgba(77, 113, 76, 1);
+    margin-top: 25px;
+    color: white;
+    font-size: 17px;
+    padding: 0px;
+}
+
+#enviar:active
+{
+    background-color: rgb(65, 95, 64);
+}
+
+
+.formas
+{
+    display: flex;
+    
+    flex-direction:row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    gap: 40px;
+
+}
+
+
+.contato .span{
+    margin-left: 10%;
+}
+.contato .span h2
+{
+    font-size: 25px;
+    color:black;
+    
+}
+
+.contato .span h4
+{
+    font-size: 18px;
+    margin: 5px 0px 20px 30px;
+    font-weight: normal;
+}

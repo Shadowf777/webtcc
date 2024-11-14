@@ -1,0 +1,33 @@
+/*----------ESQUECEU SUA SENHA ------------------------------*/
+.esqueceu
+{
+    margin: 10% 10% 0% 10%;
+}
+
+.esqueceu strong
+{
+    font-size: 45px;
+    color: rgb(61, 44, 26);
+}
+
+.esqueceu p
+{
+    font-size: 22px;
+    line-height: 2em;
+}
+
+.esqueceu form
+{
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.esqueceu input[type="submit"]
+{
+    width: 130px;
+    background-color: #628067;
+    color: white;
+    padding: 10px;
+
+}

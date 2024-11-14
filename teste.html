@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário com Máscaras e Validação</title>
+    <link href="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.css" rel="stylesheet">
+    <style>
+        /* Estilos para mensagens de erro */
+        input:invalid {
+            border: 2px solid red;
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<form id="meuFormulario">
+    <label for="cpf">CPF:</label>
+    <input type="text" id="cpf" name="cpf" required>
+    <small id="cpf-error" class="error-message">CPF inválido. Por favor, insira um CPF válido no formato XXX.XXX.XXX-XX.</small>
+    <br><br>
+
+    <label for="rg">RG:</label>
+    <input type="text" id="rg" name="rg" required>
+    <small id="rg-error" class="error-message">RG inválido. O formato correto é XX.XXX.XXX-X.</small>
+    <br><br>
+
+    <label for="telefone">Telefone:</label>
+    <input type="text" id="telefone" name="telefone" required>
+    <small id="telefone-error" class="error-message">Telefone inválido. O formato correto é (XX) XXXX-XXXX.</small>
+    <br><br>
+
+    <label for="celular">Celular:</label>
+    <input type="text" id="celular" name="celular" required>
+    <small id="celular-error" class="error-message">Celular inválido. O formato correto é (XX) 9XXXX-XXXX.</small>
+    <br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+
+
+
+
+<iframe src='https://my.spline.design/piplantas-5b8c0112d638e3780370c5554249f600/' frameborder='0' width='100%' height='100%'></iframe>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/inputmask/dist/inputmask.min.js"></script>
+<script>
+    // Aplica as máscaras aos campos
+    const cpfMask = new Inputmask('999.999.999-99');
+    const rgMask = new Inputmask('99.999.999-9');
+    const telefoneMask = new Inputmask('(99) 9999-9999');
+    const celularMask = new Inputmask('(99) 9 9999-9999');
+
+    cpfMask.mask(document.getElementById('cpf'));
+    rgMask.mask(document.getElementById('rg'));
+    telefoneMask.mask(document.getElementById('telefone'));
+    celularMask.mask(document.getElementById('celular'));
+
+    // Função de validação personalizada
+    function validarFormulario(event) {
+        // Campos do formulário
+        const cpf = document.getElementById('cpf');
+        const rg = document.getElementById('rg');
+        const telefone = document.getElementById('telefone');
+        const celular = document.getElementById('celular');
+
+        let isValid = true;
+
+        // Validação CPF (com expressão regular simples)
+        const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+        if (!cpfRegex.test(cpf.value)) {
+            document.getElementById('cpf-error').style.display = 'block';
+            cpf.setCustomValidity('CPF inválido');
+            isValid = false;
+        } else {
+            document.getElementById('cpf-error').style.display = 'none';
+            cpf.setCustomValidity('');
+        }
+
+        // Validação RG
+        const rgRegex = /^\d{2}\.\d{3}\.\d{3}-\d{1}$/;
+        if (!rgRegex.test(rg.value)) {
+            document.getElementById('rg-error').style.display = 'block';
+            rg.setCustomValidity('RG inválido');
+            isValid = false;
+        } else {
+            document.getElementById('rg-error').style.display = 'none';
+            rg.setCustomValidity('');
+        }
+
+        // Validação Telefone (fixo)
+        const telefoneRegex = /^\(\d{2}\) \d{4}-\d{4}$/;
+        if (!telefoneRegex.test(telefone.value)) {
+            document.getElementById('telefone-error').style.display = 'block';
+            telefone.setCustomValidity('Telefone inválido');
+            isValid = false;
+        } else {
+            document.getElementById('telefone-error').style.display = 'none';
+            telefone.setCustomValidity('');
+        }
+
+        // Validação Celular
+        const celularRegex = /^\(\d{2}\) 9\d{4}-\d{4}$/;
+        if (!celularRegex.test(celular.value)) {
+            document.getElementById('celular-error').style.display = 'block';
+            celular.setCustomValidity('Celular inválido');
+            isValid = false;
+        } else {
+            document.getElementById('celular-error').style.display = 'none';
+            celular.setCustomValidity('');
+        }
+
+        // Impede o envio do formulário se alguma validação falhar
+        if (!isValid) {
+            event.preventDefault();
+        }
+    }
+
+    // Adiciona a validação ao formulário antes de ser enviado
+    document.getElementById('meuFormulario').addEventListener('submit', validarFormulario);
+</script>
+
+</body>
+</html>
+
+  
+  
+
+
+
