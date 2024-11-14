@@ -1,0 +1,17 @@
+.cadastro
+{
+    margin: 10% 15% 15% 15%;
+}
+
+.cadastro strong
+{
+    font-size: 50px;
+    
+}
+.cadastro .formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 40px;
+
+}
