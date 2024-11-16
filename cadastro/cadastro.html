@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="row">
-                    <input class="col-md-3 col-sm-12 item" type="text" id="telefone" placeholder="Telefone" oninput="validarTelefone(this); aplicarMascaraTelefone(this)" maxlength="14" required>
+                    <input class="col-md-3 col-sm-12 item" type="text" id="telefone" placeholder="Telefone(opcional)" oninput="validarTelefone(this); aplicarMascaraTelefone(this)" maxlength="14">
                   
                     <input class="col-md-3 col-sm-12 item" type="text" id="celular" placeholder="Celular" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
 
@@ -151,7 +151,9 @@
             
             function validarTelefone(telefoneField) {
                 const telefone = telefoneField.value.replace(/\D/g, "");
-                if (!/^\d{11}$/.test(telefone)) {
+                if (telefone === "") {
+                    telefoneField.setCustomValidity("");
+                } else if (!/^\d{10}$/.test(telefone)) {
                     telefoneField.setCustomValidity("Por favor, insira um número de telefone válido.");
                 } else {
                     telefoneField.setCustomValidity("");

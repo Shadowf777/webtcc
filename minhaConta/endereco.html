@@ -93,6 +93,46 @@ h2{
     font-weight: bold;
     color: black;
 }
+
+@media(max-width: 661px) {
+    .popupINF {
+    border-radius: 50px;
+    padding: 20px 55px;
+}
+
+    .popupINF div{
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+    .popupINF div label{
+        margin-left: -230px;
+    }
+    
+    .popupINF div input{
+    width: 90%;
+}
+}
+
+@media(max-width: 501px) {
+    .popupINF {
+    border-radius: 50px;
+    padding: 20px 55px;
+}
+
+    .popupINF div{
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+    .popupINF div label{
+        margin-left: -150px;
+    }
+    
+    .popupINF div input{
+    width: 70%;
+}
+}
     </style>
 </head>
 <body>
@@ -104,23 +144,23 @@ h2{
             <h2>Editar meus dados</h2>
             <form id="formEdicao">
                 <div>
-                    <label for="nome">Rua:</label>
-                    <input type="text" id="rua">
+                    <label for="Rua">Rua:</label>
+                    <input type="text" id="rua" required>
                 </div>
                 <div>
-                    <label for="email">Número:</label>
-                    <input type="email" id="numero">
+                    <label for="Numero">Número:</label>
+                    <input type="number" id="numero" required>
                 </div>
                 <div>
-                    <label for="cpf">Cidade:</label>
-                    <input type="text" id="cidade">
+                    <label for="Cidade">Cidade:</label>
+                    <input type="text" id="cidade" required>
                 </div>
                 <div>
-                    <label for="rg">Estado:</label>
-                    <input type="text" id="estado">
+                    <label for="Estado">Estado:</label>
+                    <input type="text" id="estado" required>
                 </div>
                 <div>
-                    <label for="telefone">Complemento:</label>
+                    <label for="Complemento">Complemento:</label>
                     <input type="text" id="complemento" placeholder="(opcional)">
                 </div>
                 <button type="submit">Salvar</button>

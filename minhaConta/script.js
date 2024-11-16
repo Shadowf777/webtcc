@@ -1,7 +1,7 @@
-const toggleLink = document.getElementById('dadosPessoais');
+const toggleLink1 = document.getElementById('dadosPessoais');
 const toggleLink2 = document.getElementById('enderecoPessoal');
 
-toggleLink.addEventListener('click', (event) => {
+toggleLink1.addEventListener('click', (event) => {
     event.preventDefault();
     window.location.href = 'dados.html';
 });

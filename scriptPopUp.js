@@ -1,4 +1,3 @@
-
           const toggleLink = document.getElementById('imgConta');
           const popup = document.getElementById('popUp');
 
