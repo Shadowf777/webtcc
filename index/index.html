@@ -179,6 +179,11 @@
       items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
     }
 
+    if (window.innerWidth < 700) {
+      items[prevIndex].style.transform = 'translateX(-50px) scale(0.8)';
+      items[nextIndex].style.transform = 'translateX(50px) scale(0.8)';
+    }
+
     //items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
     items[currentIndex].style.opacity = '1';
     items[currentIndex].classList.add('central');

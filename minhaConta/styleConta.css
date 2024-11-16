@@ -127,3 +127,66 @@
     font-size: 2em;
     margin-bottom: 20px;
 }
+
+@media(max-width: 1500px) and (min-width: 1041px){
+    .carrossel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 80%;
+        margin: auto;
+        margin-top: 200px;
+        margin-bottom: -100px;
+      }
+
+
+    .car_Conta{
+        flex-direction: column;
+        width: 300px;
+        height: fit-content;
+        padding: 20px;
+        padding-top: 35px;
+    }
+
+    .car_Conta img {
+        width: 220px;
+        height: 75%;
+        border-radius: 20px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+
+}
+
+@media(max-width: 550px){
+    .carrossel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 80%;
+        margin: auto;
+        margin-top: 200px;
+        margin-bottom: -100px;
+      }
+
+    .car_Conta{
+        flex-direction: column;
+        width: 300px;
+        height: fit-content;
+        padding: 20px;
+        padding-top: 35px;
+    }
+
+    .car_Conta img {
+        width: 220px;
+        height: 75%;
+        border-radius: 20px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+
+}
