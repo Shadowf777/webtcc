@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Dados</title>
+    <style>
+        .background-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            border: none;
+        }
+
+.overlay-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popupINF {
+    background: #a4c4af;
+    border-radius: 100px;
+    padding: 40px 110px;
+    box-shadow: -3px 3px 2px #628067;
+    width: 600px;
+    max-width: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popupINF div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 40% 20px auto;
+    width: 400px;
+    max-width: 100%;
+}
+
+.popupINF div input{
+    width: 70%;
+    border-radius: 16px;
+    padding: 10px 15px 5px 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    border-bottom: 2px solid #000;
+    font-size: 15px;
+}
+
+form button{
+    text-decoration: none;
+    color: white;
+    background: #628067;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 17px;
+    width: 200px;
+    text-align: center;
+    margin-left: 25%;
+}
+
+.close-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+}
+
+h2{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <iframe src="minhaConta.html" class="background-frame"></iframe>
+
+    <div id="overlay" class="overlay-popup">
+        <div class="popupINF">
+            <button id="closePopup" class="close-btn" onclick="closePopup()">x</button>
+            <h2>Editar meus dados</h2>
+            <form id="formEdicao">
+                <div>
+                    <label for="nome">Rua:</label>
+                    <input type="text" id="rua">
+                </div>
+                <div>
+                    <label for="email">Número:</label>
+                    <input type="email" id="numero">
+                </div>
+                <div>
+                    <label for="cpf">Cidade:</label>
+                    <input type="text" id="cidade">
+                </div>
+                <div>
+                    <label for="rg">Estado:</label>
+                    <input type="text" id="estado">
+                </div>
+                <div>
+                    <label for="telefone">Complemento:</label>
+                    <input type="text" id="complemento" placeholder="(opcional)">
+                </div>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function closePopup() {
+            window.location.href = "minhaConta.html";
+        }
+    </script>
+
+</body>
+</html>
