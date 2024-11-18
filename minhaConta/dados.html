@@ -22,7 +22,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -142,7 +142,7 @@ h2{
         <div class="popupINF">
             <button id="closePopup" class="close-btn" onclick="closePopup()">x</button>
             <h2>Editar meus dados</h2>
-            <form id="formEdicao">
+            <form action="minhaConta.html" id="formEdicao">
                 <div>
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" placeholder="Seu nome completo" required>
@@ -177,41 +177,36 @@ h2{
         }
     </script>
     <script>
-        // Função de máscara para CPF
         function aplicarMascaraCPF(cpfField) {
             cpfField.value = cpfField.value
-                .replace(/\D/g, "")            // Remove caracteres não numéricos
-                .replace(/(\d{3})(\d)/, "$1.$2")   // Coloca um ponto após os primeiros 3 dígitos
-                .replace(/(\d{3})(\d)/, "$1.$2")   // Coloca outro ponto após os próximos 3 dígitos
-                .replace(/(\d{3})(\d{1,2})$/, "$1-$2"); // Coloca um traço antes dos últimos 2 dígitos
+                .replace(/\D/g, "")
+                .replace(/(\d{3})(\d)/, "$1.$2")   
+                .replace(/(\d{3})(\d)/, "$1.$2")
+                .replace(/(\d{3})(\d{1,2})$/, "$1-$2");
         }
         
-        // Função de máscara para RG
         function aplicarMascaraRG(rgField) {
             rgField.value = rgField.value
-                .replace(/\D/g, "")           // Remove caracteres não numéricos
-                .replace(/(\d{2})(\d)/, "$1.$2")   // Coloca um ponto após os primeiros 2 dígitos
-                .replace(/(\d{3})(\d)/, "$1.$2")   // Coloca outro ponto após os próximos 3 dígitos
-                .replace(/(\d{3})(\d{1})$/, "$1-$2"); // Coloca um traço antes do último dígito
+                .replace(/\D/g, "")
+                .replace(/(\d{2})(\d)/, "$1.$2")
+                .replace(/(\d{3})(\d)/, "$1.$2")
+                .replace(/(\d{3})(\d{1})$/, "$1-$2");
         }
         
-        // Função de máscara para Telefone
         function aplicarMascaraTelefone(telefoneField) {
             telefoneField.value = telefoneField.value
-                .replace(/\D/g, "")                 // Remove caracteres não numéricos
-                .replace(/(\d{2})(\d)/, "($1) $2")  // Coloca parênteses em torno dos primeiros 2 dígitos
-                .replace(/(\d{4})(\d)/, "$1-$2");   // Coloca um traço após os 4 primeiros dígitos seguintes
+                .replace(/\D/g, "")                
+                .replace(/(\d{2})(\d)/, "($1) $2")
+                .replace(/(\d{4})(\d)/, "$1-$2");
         }
         
-        // Função de máscara para Celular
         function aplicarMascaraCelular(celularField) {
             celularField.value = celularField.value
-                .replace(/\D/g, "")                  // Remove caracteres não numéricos
-                .replace(/(\d{2})(\d)/, "($1) $2")   // Coloca parênteses em torno dos primeiros 2 dígitos
-                .replace(/(\d{5})(\d)/, "$1-$2");    // Coloca um traço após os 5 primeiros dígitos seguintes
+                .replace(/\D/g, "")
+                .replace(/(\d{2})(\d)/, "($1) $2")
+                .replace(/(\d{5})(\d)/, "$1-$2");
         }
         
-        // Funções de validação (mantidas as mesmas)
         function validarCPF(cpfField) {
             const cpf = cpfField.value.replace(/\D/g, "");
             if (!/^\d{11}$/.test(cpf)) {
