@@ -100,7 +100,6 @@ header{
         animation-duration: 1s;
         background-color: #628067;
         align-items: flex-start;
-        margin-top: -100vw;
     }
     .btn_icon_header{
         display: block;

@@ -11,16 +11,16 @@
 </head>
 <body>
 
-    <div class="cabecalho">
-        <header class="header" id="header">
+    <div class="cabecalho"id="header">
+        <header class="header">
             <img src="imagens/logo.png" class="imgLogo">
             <a href="index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
         </header>
             <header class="navegacao_header" id="navegacao_header">
-                <a href="#" class="cabecalhoTexto2" id="imgConta"><img src="imagens/pessoinha2.png"></a>
+                <a href="#" class="imgConta cabecalhoTexto2"><img src="imagens/pessoinha2.png"></a>
                 <a href="index/index.html" class="cabecalhoTexto2 cabecalhoTexto">EcoStuff</a>
                 <a href="contato/contato.html"><div class="cabecalhoTexto">Fale Conosco</div></a>
-                <a href="#" class="cabecalhoTexto1" id="imgConta"><img src="imagens/pessoinha2.png"></a>
+                <a href="#" class="imgConta cabecalhoTexto1"><img src="imagens/pessoinha2.png"></a>
                 <button onclick="toggleSidebar()" class="btn_icon_header">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -41,7 +41,7 @@
         <a href="#">Sair</a>
     </div></div>
 
-    <div class="container_" id="container_" onfocus="closeSidebar()">
+    <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
         
 
         <div class="cadastro">
@@ -181,7 +181,7 @@
                 } else {
                     celularField.setCustomValidity("");
                 }
-            }
+            }5
             </script>
 
 <script>
@@ -190,6 +190,7 @@
     var content          = document.getElementById('container_');
     var showSidebar      = false;
 
+
     function toggleSidebar()
     {
         showSidebar = !showSidebar;
@@ -197,32 +198,36 @@
         {
             navigationHeader.style.marginTop = '0';
             navigationHeader.style.animationName = 'showSidebar';
-            content.style.filter = 'blur(2px)';
         }
         else
         {
             navigationHeader.style.marginTop = '-100vw';
             navigationHeader.style.animationName = '';
-            content.style.filter = '';
         }
     }
 
     function closeSidebar()
     {
-        if(showSidebar)
+        if(window.innerWidth <= 450 && showSidebar)
         {
-            showSidebar = true;
             toggleSidebar();
         }
     }
 
-    window.addEventListener('resize', function(event) {
-        if(window.innerWidth > 450 && showSidebar) 
-        {  
-            showSidebar = true;
-            toggleSidebar();
-        }
-    });
+    function checkScreenSize() {
+    if (window.innerWidth > 450) {
+        navigationHeader.style.marginTop = '0';
+        navigationHeader.style.animationName = '';
+        showSidebar = true;
+    } else if (!showSidebar) {
+        navigationHeader.style.marginTop = '-100vw';
+    }
+}
+
+window.addEventListener('resize', checkScreenSize);
+
+window.addEventListener('load', checkScreenSize);
+;
 
 </script>
 </body>
