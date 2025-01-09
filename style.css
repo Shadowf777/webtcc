@@ -86,7 +86,7 @@ header{
 }
 
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 451px) {
     .navegacao_header{
         position: absolute;
         flex-direction: column !important;
@@ -244,7 +244,7 @@ header{
 
 input
 {
-    width: 500px;
+    max-width: 500px;
     height: 40px;
     border-radius: 16px;
     padding: 15px;
