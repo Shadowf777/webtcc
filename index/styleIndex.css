@@ -12,8 +12,7 @@
     flex-direction: row;
     gap: 15%;
     align-items: start;
-    margin: 15% 10% 15% 15%;
-    margin-top: 100px;
+    margin: 100px 10% 15% 15%;
     
 }
 
@@ -44,12 +43,6 @@
     padding-top: 80px;
 }
 
-.introducao2 #modelo{
-    width: 300px;
-    height: 400px;
-    min-width: 200px;
-    border-radius: 30px;
-}
 
 .introducao2 a{
     text-decoration: none;
@@ -70,9 +63,10 @@
 .introducao iframe
 {
     width: 100%;
-    min-width: 300px;
-    height: 400px;
+    min-width: 200px;
+    aspect-ratio: 3/4;
     border-radius: 20px;
+
 }
 
 
@@ -263,6 +257,13 @@
     }
 
 
+    .introducao2
+    {
+        margin: 0 20% 0 20% !important;
+        width: 60%;
+    }
+
+
     .plantas{
         margin: 10%;
         align-items: center;
@@ -331,6 +332,7 @@
     {
         width: 80%;
         margin: 10%;
+        margin-top: 80px;
         gap: 0%;
     }
 
@@ -347,9 +349,10 @@
 
     .introducao2
     {
-        margin: 10%;
-        width: 80%;
+        margin: 0 25% 0 25% !important;
+        width: 50%;
     }
+   
 
     .plantas
     {
@@ -359,11 +362,20 @@
 
     .car_planta 
     {
-        width: 52vw;
-        min-width: 250px;
-        height: calc(52vw / 0.78 );
-        min-height: 330px;
-        padding: 5%;
+        width: 50vw;
+        min-width: 240px;
+        height: calc(50vw / 0.78 );
+        min-height: 320px;
+        padding: 10% 5% 0 5%;
+    }
+
+    .car_planta .tituloCar
+    {
+        font-size:1.5em;
+    }
+
+    .car_planta .texto{
+        font-size: 1.3em;
     }
 
     .tituloComprar
