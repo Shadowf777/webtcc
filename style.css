@@ -228,6 +228,32 @@ header{
     margin: 0
 }
 
+@media (max-width:695px)
+{
+    #rodape
+    {
+        padding: 10%;
+    }
+    #tituloRodape
+    {
+        font-size: 55px;
+    }
+
+    #rodape p
+    {
+        line-height: 1.6em;
+        font-size:  20px;
+    }
+
+    .single img{
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom:10px;
+    }
+}
+
 
 /*---------------------------------------------------*/
 
