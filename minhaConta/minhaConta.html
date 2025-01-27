@@ -12,7 +12,7 @@
  
   <div class="cabecalho"id="header">
     <header class="header">
-      <a href="../index/index.html"><img src="../imagens/logo.png" class="imgLogo"></a>
+        <img src="../imagens/logo.png" class="imgLogo">
         <a href="../index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
     </header>
         <header class="navegacao_header" id="navegacao_header">
@@ -74,8 +74,8 @@
        
 
       
-        
-          <div class="carrossel"><div class="tituloConta">Suas Plantas</div>
+        <div class="tituloConta">Suas Plantas</div>
+          <div class="carrossel">
             <div class="carrosselConta">
               <div class="car_Conta">
                 <img src="../imagens/planta.jfif" alt="Orquídea">
@@ -168,57 +168,87 @@
     <script src="../scriptPopUp.js"></script>
     <script src="../menuResponsivo.js"></script>
     <script>
-      let items = Array.from(document.querySelectorAll('.car_Conta'));
-      let currentIndex = 0;
-    
-      function updateCarrossel() {
-        items.forEach((item) => {
-          item.classList.remove('central');
-          item.style.transform = '';
-          item.style.opacity = '0';
-        });
-    
-        const prevIndex = (currentIndex - 1 + items.length) % items.length;
-        const nextIndex = (currentIndex + 1) % items.length;
-    
-        // Lógica para telas menores ou maiores que 1042 pixels
-         if (window.innerWidth < 1500) {
-          items[prevIndex].style.transform = 'translateX(-380px) scale(0.8)';
-          items[nextIndex].style.transform = 'translateX(380px) scale(0.8)';
-        } else {
-          items[prevIndex].style.transform = 'translateX(-500px) scale(1)';
-          items[nextIndex].style.transform = 'translateX(500px) scale(1)';
-        }
+      document.addEventListener("DOMContentLoaded", () => {
+  const items = Array.from(document.querySelectorAll(".car_Conta")); // Itens do carrossel
+  let currentIndex = 0; // Índice do item atual
+  let rotateInterval;
 
-        if (window.innerWidth < 1042) {
-          items[prevIndex].style.transform = 'translateX(-100px) scale(1)';
-          items[nextIndex].style.transform = 'translateX(100px) scale(1)';
-        }else{}
+  // Atualiza o carrossel
+  const updateCarrossel = () => {
+    const prevIndex = (currentIndex - 1 + items.length) % items.length; // Índice do item anterior
+    const nextIndex = (currentIndex + 1) % items.length; // Índice do próximo item
 
-        if (window.innerWidth < 700) {
-          items[prevIndex].style.transform = 'translateX(-50px) scale(1)';
-          items[nextIndex].style.transform = 'translateX(50px) scale(1)';
-        }else{}
-    
-        items[currentIndex].style.transform = 'translateX(0px) scale(1)';
-        items[currentIndex].style.opacity = '1';
-        items[currentIndex].classList.add('central');
-    
-        // Definindo a opacidade dos itens anterior e seguinte
-        items[prevIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
-        items[nextIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
-      }
-    
-      function autoRotate() {
-        currentIndex = (currentIndex + 1) % items.length;
-        updateCarrossel();
-      }
-    
-      let rotateInterval = setInterval(autoRotate, 3000);
-    
-      window.addEventListener('resize', updateCarrossel);
-    
-      updateCarrossel();
+    // Resetar estilos de todos os itens
+    items.forEach((item) => {
+      item.classList.remove("central");
+      item.style.transform = "";
+      item.style.opacity = "0"; // Por padrão, todos ficam invisíveis
+    });
+
+    // Determina as larguras e transformações para cada item
+    const windowWidth = window.innerWidth;
+
+    const transformations = {
+      prev: windowWidth > 1499 ? "translateX(-500px)" :
+             windowWidth >= 1041 ? "translateX(-350px)" :
+             windowWidth >= 700  ? "translateX(-10px)" :
+             "translateX(-50px)",
+      next: windowWidth > 1499 ? "translateX(500px)" :
+             windowWidth >= 1041 ? "translateX(350px)" :
+             windowWidth >= 700  ? "translateX(10px)" :
+             "translateX(50px)",
+      center: "translateX(0px)",
+    };
+
+    // Determina a opacidade para telas pequenas
+    const isSmallScreen = windowWidth < 1041;
+    const opacityValue = isSmallScreen ? "0" : "1";
+
+    // Aplicar transformações e opacidade para os itens
+    items[prevIndex].style.transform = transformations.prev;
+    items[nextIndex].style.transform = transformations.next;
+
+    items[prevIndex].style.opacity = opacityValue;
+    items[nextIndex].style.opacity = opacityValue;
+
+    // Configurar o item atual
+    items[currentIndex].style.transform = transformations.center;
+    items[currentIndex].style.opacity = "1";
+    items[currentIndex].classList.add("central");
+  };
+
+  // Gira automaticamente o carrossel
+  const autoRotate = () => {
+    currentIndex = (currentIndex + 1) % items.length; // Avança o índice
+    updateCarrossel();
+  };
+
+  // Inicia o carrossel automático
+  const startAutoRotate = () => {
+    rotateInterval = setInterval(autoRotate, 3000);
+  };
+
+  // Para o carrossel automático
+  const stopAutoRotate = () => {
+    clearInterval(rotateInterval);
+  };
+
+  // Adicionar evento de redimensionamento
+  window.addEventListener("resize", () => {
+    updateCarrossel(); // Atualiza o carrossel ao redimensionar a tela
+  });
+
+  // Inicialização
+  updateCarrossel();
+  startAutoRotate();
+
+  // Pausar rotação ao interagir com o carrossel
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", stopAutoRotate);
+    item.addEventListener("mouseleave", startAutoRotate);
+  });
+});
+
     </script>
 </body>
 </html>

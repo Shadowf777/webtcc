@@ -130,16 +130,11 @@
     margin-bottom: 20px;
 }
 
-@media(max-width: 1500px) and (min-width: 1041px){
+@media(max-width: 1500px){
     .carrossel {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        width: 80%;
         margin: auto;
-        margin-top: 200px;
-        margin-bottom: -100px;
+        margin-top: 0px;
+        margin-bottom: -160px;
       }
 
 
@@ -154,10 +149,26 @@
     .car_Conta img {
         width: 220px;
         height: 75%;
-        border-radius: 20px;
-        object-fit: cover;
         margin-bottom: 20px;
         margin-left: 15px;
+    }
+
+}
+
+@media (max-width: 1041px){
+
+      .car_Conta {
+        padding: 0px 20px;
+        width: 450px;
+        height: 225px;
+        flex-direction: row;
+    }
+
+    .car_Conta img {
+        width: 170px;
+        height: 75%;
+        border-radius: 20px;
+        margin-right: 20px;
     }
 
 }
@@ -195,7 +206,7 @@
         position: relative;
         width: 80%;
         margin: auto;
-        margin-top: 200px;
+        margin-top: 0px;
         margin-bottom: -100px;
       }
 
@@ -209,6 +220,27 @@
 
     .car_Conta img {
         width: 220px;
+        height: 75%;
+        border-radius: 20px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        margin-left: 15px;
+    }
+
+}
+
+@media(max-width: 400px){
+
+    .car_Conta{
+        width: 220px;
+        height: fit-content;
+        padding: 20px;
+        padding-left: 24px;
+        padding-top: 26px;
+    }
+
+    .car_Conta img {
+        width: 180px;
         height: 75%;
         border-radius: 20px;
         object-fit: cover;
