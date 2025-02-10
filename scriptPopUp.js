@@ -8,10 +8,16 @@ toggleLinks.forEach(link => {
     });
 });
 
-document.addEventListener('click', (event) => {
-    if (window.innerWidth > 450) {
+function closePopUp(){
+    if (window.innerWidth < 451) {
         popup.classList.add('hidden');
-    }else if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
+    }
+}
+
+document.addEventListener('click', (event) => {
+    if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
         popup.classList.add('hidden');
     }
 });
+
+window.addEventListener('resize', closePopUp);

@@ -316,35 +316,3 @@ input:focus
         border-right: 50px solid transparent; 
     }
 }
-
-
-/*
-.triangulo
-{
-    width: 0; 
-    height: 0; 
-    border-left: 50px solid transparent; 
-    border-top: 50px solid transparent; 
-    border-bottom: 50px solid #a4c4af; 
-    position:fixed;
-    z-index: 1;
-    right: 0;
-    margin: 10px 45px;
-}
-
-#popup
-{
-    background-color: #a4c4af;
-    width: 160px;
-    font-size: 19px;
-    line-height: 2em;
-    padding: 15px 10px 15px 25px;
-    border-radius: 20px;
-    border-top-right-radius: 0px;
-    z-index: 1;
-    font-weight: none;
-    position: fixed;
-    right: 0;
-    margin: 90px 45px;
-    box-shadow: -3px 3px 2px #628067;
-}
