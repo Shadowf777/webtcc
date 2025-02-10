@@ -9,7 +9,9 @@ toggleLinks.forEach(link => {
 });
 
 document.addEventListener('click', (event) => {
-    if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
+    if (window.innerWidth > 450) {
+        popup.classList.add('hidden');
+    }else if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
         popup.classList.add('hidden');
     }
 });
