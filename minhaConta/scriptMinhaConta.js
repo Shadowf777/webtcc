@@ -14,7 +14,16 @@ var endereco = rua +" "+numero+" - "+bairro+", "+cidade+" - "+estado;
 document.getElementById("enderecoUsuario").textContent = endereco;
 
 
-//vuctcukttfuftfydrrycf
+// imagem
+
+var img = false; //pega do banco se tem uma imagem cadastrada ou nao
+
+
+if(!img){
+  document.getElementById('imagemCarregada').src = "../imagens/perfildefault.jpg";
+  document.getElementById('imagemCarregada').style.zIndex = "10";
+}
+
 
 function exibirImagem(event) {
     const input = event.target;

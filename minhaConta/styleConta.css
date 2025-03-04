@@ -5,32 +5,33 @@
 
 
 
-.minhaConta{
-    margin: 100px 10% 15% 11%;
+.minhaConta {
+    margin: 100px 7% 15% 11%;
     display: flex;
     flex-direction: column;
     align-items: start;
 }
 
-.minhaConta .titulo{
+.minhaConta .titulo {
     font-size: 3em;
     color: #5d5445;
 }
 
-.informacoes{
+.informacoes {
     margin-top: 60px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    gap: 7%;
 }
 
-.informacoes div img{
+.informacoes div img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     margin-right: 50px;
 }
 
@@ -39,79 +40,106 @@
 
 .image-container {
     position: relative;
-  }
+    display:inline-block;
+}
 
-.inputFoto
-{
-    position: static;
+.image-container:hover #editar{
     opacity: 1;
+    visibility: visible;
+    pointer-events: none;
+
+}
+
+.inputFoto {
+    position: static;
+    opacity: 0;
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    z-index: 6;
-  }
+    background-color: black;
+    z-index: 1;
 
- 
+}
 
-  .imagem-carregada {
+
+
+
+.imagem-carregada {
     position: absolute;
     width: 100% !important;
     height: 100% !important;
+    max-height: 200px;
     object-fit: cover;
     transform: translateX(-100%);
-    opacity: 0;
-    z-index: 5;
+    opacity: 1;
+    z-index: 2;
     transition: opacity 0.3s ease;
     pointer-events: none;
-  }
+}
 
-  .imagem-carregada.show {
+#editar {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
     opacity: 1;
-  }
+    visibility: hidden;
+    z-index: 999 !important;
+    pointer-events: none;
+    margin-top: -200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editar .material-symbols-outlined
+{
+    color:white;
+
+}
 
 
-  /*----------------------*/
+/*----------------------*/
 
 
 
-.informacoesPessoais{
+.informacoesPessoais {
     height: fit-content;
     width: fit-content;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: min(15%, 130px);
+    gap: min(10%, 130px);
     line-height: 3em;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 
-.informacoesPessoais p{
+.informacoesPessoais p {
     font-size: 1.3em;
 }
 
 
-.infos
-{
+.infos {
     display: flex;
     flex-direction: column;
-    width: 35%;
+    width: 40%;
     min-width: 150px;
 }
 
-.endereco
-{
+.endereco {
     display: flex;
     flex-direction: column;
     width: 50%;
     min-width: 200px;
 }
-.informacoesPessoais .lapis
-{
+
+.informacoesPessoais .lapis {
     text-align: end;
     height: 30px;
-} 
+}
 
-.tituloConta{
+.tituloConta {
     font-size: 55px;
     font-weight: bold;
     color: rgb(53, 46, 42);
@@ -129,7 +157,7 @@
     width: 80%;
     margin: auto;
     margin-bottom: -150px;
-  }
+}
 
 .carrosselConta {
     display: flex;
@@ -170,20 +198,20 @@
     margin-right: 20px;
 }
 
-.car_Conta_Informacoes .tituloCar{
+.car_Conta_Informacoes .tituloCar {
     font-size: 2em;
     margin-bottom: 20px;
 }
 
-@media(max-width: 1500px){
+@media(max-width: 1500px) {
     .carrossel {
         margin: auto;
         margin-top: 0px;
         margin-bottom: -160px;
-      }
+    }
 
 
-    .car_Conta{
+    .car_Conta {
         flex-direction: column;
         width: 300px;
         height: fit-content;
@@ -200,9 +228,9 @@
 
 }
 
-@media (max-width: 1041px){
+@media (max-width: 1041px) {
 
-      .car_Conta {
+    .car_Conta {
         padding: 0px 20px;
         width: 450px;
         height: 225px;
@@ -218,28 +246,24 @@
 
 }
 
-@media(max-width: 1110px)
-{
-    .minhaConta
-    {
+@media(max-width: 1110px) {
+    .minhaConta {
         margin-left: min(15%, 100px)
     }
 
-    .informacoesPessoais
-    {
+    .informacoesPessoais {
         gap: 70px;
     }
-    .informacoes div img
-    {
+
+    .informacoes div img {
         width: 160px;
         height: 160px;
     }
 }
 
-@media(max-width: 550px){
+@media(max-width: 550px) {
 
-    .informacoes div img
-    {
+    .informacoes div img {
         width: 130px;
         height: 130px;
     }
@@ -253,9 +277,9 @@
         margin: auto;
         margin-top: 0px;
         margin-bottom: -100px;
-      }
+    }
 
-    .car_Conta{
+    .car_Conta {
         flex-direction: column;
         width: 300px;
         height: fit-content;
@@ -274,9 +298,9 @@
 
 }
 
-@media(max-width: 400px){
+@media(max-width: 400px) {
 
-    .car_Conta{
+    .car_Conta {
         width: 220px;
         height: fit-content;
         padding: 20px;
@@ -295,8 +319,8 @@
 
 }
 
-@media(max-width: 336px){
-    .tituloConta{
+@media(max-width: 336px) {
+    .tituloConta {
         margin: 0px auto 50px 50px;
     }
 }
