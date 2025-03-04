@@ -24,6 +24,8 @@ if(!img){
   document.getElementById('imagemCarregada').style.zIndex = "10";
 }
 
+else
+// pega a img do bd msm
 
 function exibirImagem(event) {
     const input = event.target;
