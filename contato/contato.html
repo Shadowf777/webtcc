@@ -53,12 +53,18 @@
         <div class="formas">
         <form>
             <div class="formulario">
-            <input type="text" placeholder="Nome completo" required><br>
-            <input type="email" placeholder="Email" required><br>
-            <input type="text" placeholder="Assunto (não obrigatório)"><br>
+
+            <input id="nome" type="text" placeholder="Nome completo" required><br>
+
+            <input id="email" type="email" placeholder="Email" required><br>
+
+            <input id="assunto" type="text" placeholder="Assunto (não obrigatório)"><br>
+
             <div id="msg">
-            <input placeholder="Mensagem" required></div>
-            <input id="enviar" type="submit" value="Enviar"></div>
+
+            <input id="mensagem" placeholder="Mensagem" required></div>
+
+            <input onclick="formulario()" id="enviar" type="submit" value="Enviar"></div>
         </form>
         <div class="span">
             <div>
