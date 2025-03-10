@@ -145,6 +145,22 @@
     margin: 0px auto 50px auto;
 }
 
+#excluir
+{
+    color: red;
+    font-weight: bold;
+    background-color: rgb(232, 232, 232);
+    border: none;
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+#excluir:hover
+{
+    background-color: #d4d4d4;
+}
+
 /*--------------CARROSSEL----------*/
 
 .carrossel {

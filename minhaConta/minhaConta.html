@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="styleConta.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit_square" /> <title>Sua Conta</title>
-</head>
+    
+  </head>
 <body>
  
   <div class="cabecalho"id="header">
@@ -15,6 +16,7 @@
         <img src="../imagens/logo.png" class="imgLogo">
         <a href="../index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
     </header>
+
         <header class="navegacao_header" id="navegacao_header">
             <a href="#" class="imgConta cabecalhoTexto2"><img src="../imagens/pessoinha2.png"></a>
             <a href="../index/index.html" class="cabecalhoTexto2 cabecalhoTexto">EcoStuff</a>
@@ -26,19 +28,24 @@
                 </svg>
             </button>
         </header>
+
     <button onclick="toggleSidebar()" class="btn_icon_header">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
         </svg>
     </button>
+
 </div>
+
 <div id="popUp" class ="hidden">
 <div class="triangulo"></div>
+
 <div id="popup"><div style="font-weight: bold;"><a href="../cadastro/login.html">Fazer login</a><br></div>
     <div style="font-weight: bold;"><a href="../cadastro/cadastro.html">Cadastro</a><br></div>
     <div style="font-weight: bold;"><a href="../minhaConta/minhaConta.html">Minha conta</a><br></div>
     <a href="#">Sair</a>
-</div></div>
+</div>
+</div>
 
 
 <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
@@ -61,9 +68,6 @@
               </div>
 
 
-
-
-
                 <div class="informacoesPessoais">
                   <div class="infos">
                     <div class="lapis"><svg id="dadosPessoais" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -83,6 +87,8 @@
                   </div>
                     
                 </div>
+
+                <button id="excluir" onclick="excluir()">Excluir conta</button>
             </div>
           </div>
 
@@ -182,6 +188,7 @@
     <script src="script.js"></script>
     <script src="../scriptPopUp.js"></script>
     <script src="../menuResponsivo.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
   const items = Array.from(document.querySelectorAll(".car_Conta")); // Itens do carrossel
