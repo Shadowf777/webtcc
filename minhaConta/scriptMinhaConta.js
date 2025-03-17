@@ -1,21 +1,27 @@
+
 function excluir()
 {
-  const Swal = require('sweetalert2');
   Swal.fire({
-    title: "Está ação irá excluir sua conta permanentemente. Confirma a exlusão?",
+    title: "Está ação irá excluir sua conta permanentemente. Confirma a exclusão?",
     showDenyButton: true,
     showCancelButton: true,
     confirmButtonText: "Excluir",
     denyButtonText: `Não excluir`
   }).then((result) => {
-    /* Read more about isConfirmed, isDenied below */
+    
     if (result.isConfirmed) {
-      Swal.fire("Conta excluída!", "", "success");
+      Swal.fire("Conta excluída!", "", "success").then(() => {
+        window.location.href = '../index/index.html';
+      });
+      
     } else if (result.isDenied) {
       Swal.fire("Operação cancelada", "", "info");
     }
   });
+
+  
 }
+
 
 document.getElementById("nomeUsuario").textContent = "Seu nome";
 
