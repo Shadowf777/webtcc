@@ -6,3 +6,8 @@ function login()
     // ação de login
 
 }
+
+function mudar()
+{
+    window.location.href = "../minhaConta/minhaConta.html";
+}
