@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="styleSenha.css">
+    <link rel="stylesheet" href="../esqueceuASenha/styleSenha.css">
     <title>Esqueci minha senha</title>
 </head>
 <body>
@@ -48,7 +48,7 @@
             <p>Preencha com o código enviado.</p>
     
             <form action="senhaNova.html">
-                <input type="number" placeholder="Código" maxlength="6" required ><br>
+                <input type="text" maxlength="6" placeholder="Código" required ><br>
                 <input type="submit" value="Enviar">
             </form>
     
@@ -61,6 +61,18 @@
 
 <script src="../scriptPopUp.js"></script>
 <script src="../menuResponsivo.js"></script>
+<script>
+    function masked(codigo)
+    {
+        if(codigo.lengh>6)
+        {
+            codigo.slice(0,6);
+        }
+        codigo.value = codigo.value
+                .replace(/(\d{4})(\d)/, "$1");
+                
+    }
+</script>
 
 </body>
 </html>

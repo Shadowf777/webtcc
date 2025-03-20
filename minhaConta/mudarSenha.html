@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="styleSenha.css">
+    <link rel="stylesheet" href="../esqueceuASenha/styleSenha.css">
+    <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
     <title>Esqueci minha senha</title>
 </head>
 <body>
@@ -42,25 +43,23 @@
 
     <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
 
+    <div class="esqueceu">
+        <strong>Alterar sua senha</strong>
+        <p>Preencha com seu e-mail, e um código de verificação será enviado.</p>
 
-        <div class="esqueceu">
-            <strong>Esqueceu sua senha?</strong>
-            <p>Preencha com o código enviado.</p>
-    
-            <form action="senhaNova.html">
-                <input type="number" placeholder="Código" maxlength="6" required ><br>
-                <input type="submit" value="Enviar">
-            </form>
-    
-        </div>
-    
+        <form action="codigo.html">
+            <input type="email" placeholder="Seu email" required><br>
+            <input type="submit" value="Enviar">
+        </form>
 
-</div>    
-    
+    </div>
 
 
-<script src="../scriptPopUp.js"></script>
-<script src="../menuResponsivo.js"></script>
 
+    </div>
+
+
+    <script src="../scriptPopUp.js"></script>
+    <script src="../menuResponsivo.js"></script>
 </body>
 </html>

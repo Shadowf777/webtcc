@@ -2,7 +2,7 @@
 
 
 .minhaConta {
-    margin: 100px 7% 15% 11%;
+    margin: 100px 5% 15% 11%;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -148,6 +148,13 @@
     margin: 0px auto 50px auto;
 }
 
+#mais
+{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #excluir
 {
     color: red;
@@ -160,6 +167,23 @@
 }
 
 #excluir:hover
+{
+    background-color: #d4d4d4;
+}
+
+#mudarSenha
+{
+    color: black;
+    font-weight: bold;
+    background-color: rgb(232, 232, 232);
+    border: none;
+    height: 40px;
+    width: 110px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#mudarSenha:hover
 {
     background-color: #d4d4d4;
 }

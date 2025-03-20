@@ -22,6 +22,11 @@ function excluir()
   
 }
 
+function mudarSenha()
+{
+  window.location.href = "mudarSenha.html";
+}
+
 
 document.getElementById("nomeUsuario").textContent = "Seu nome";
 

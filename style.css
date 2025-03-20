@@ -127,7 +127,7 @@ header{
     border-top: 50px solid transparent; 
     border-bottom: 50px solid #a4c4af; 
     position:fixed;
-    z-index: 1;
+    z-index: 100;
     right: 0;
     margin: 10px 45px;
 }
