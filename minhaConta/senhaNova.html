@@ -46,16 +46,20 @@
     <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
     
         <div class="esqueceu">
-            <strong>Esqueceu sua senha?</strong>
+            <strong>Alterar sua senha</strong>
             <p>Preencha com seu email e uma senha nova.</p>
     
             <form action="../cadastro/login.html">
                 <input type="text" placeholder="Seu email" required><br>
-                <div><input type="text" placeholder="Sua nova senha" required>
-                <span id = "olho" class="material-symbols-outlined">
-                    visibility
-                    </span></div>
-                <br>
+                <div><input class="senha" id="senha" type="text" placeholder="Sua nova senha" required>
+                    <button type="button" class="botao" id="botao">
+                        <img class="olho" id="olho" src="../imagens/aberto.png"></button>
+                    </div><br>
+
+                <div><input class="senha" id="senha2" type="text" placeholder="Repita a nova senha" required>
+                    <button type="button" class="botao" id="botao2">
+                        <img class="olho" id="olho2" src="../imagens/aberto.png"></button>
+                    </div><br>
                 <input type="submit" value="Enviar">
             </form>
     
@@ -68,6 +72,7 @@
 
     <script src="../scriptPopUp.js"></script>
     <script src="../menuResponsivo.js"></script>
+    <script src="senha.js"></script>
 
 </body>
 </html>

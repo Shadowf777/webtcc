@@ -11,27 +11,3 @@ toggleLink2.addEventListener('click', (event) => {
     window.location.href = 'endereco.html';
 });
 
-// imagem olhar senha ou nao
-const aberto = document.getElementById().innerHTML = "";
-const fechado = document.getElementById().innerHTML = ""; //sem visualizar a senha
-var olho = aberto;
-
-const texto = document.getElementById()//input que aparece a senha
-
-
-
-function clicar()
-{
-    if (olho == aberto)
-    {
-        olho = fechado;
-        texto.innerHTML = "";//mudar o estilo pra nao aparecer a senha
-    }
-
-    else 
-    {
-        olho = fechado;
-        texto.innerHTML = "";//mudar o estilo pra aparecer a senha
-
-    }
-}
