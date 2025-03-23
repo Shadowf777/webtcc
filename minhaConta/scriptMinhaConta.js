@@ -4,7 +4,6 @@ function excluir()
   Swal.fire({
     title: "Está ação irá excluir sua conta permanentemente. Confirma a exclusão?",
     showDenyButton: true,
-    showCancelButton: true,
     confirmButtonText: "Excluir",
     denyButtonText: `Não excluir`
   }).then((result) => {
