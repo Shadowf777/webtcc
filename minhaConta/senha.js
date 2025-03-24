@@ -63,3 +63,61 @@ function clicar()
 
     }
 }
+
+const input = document.getElementById("input");
+//input.addEventListener('click', senhaNova);
+
+function senhaNova()
+{
+    alert("entrou na func")
+    const senha1 = document.getElementById("texto").value;
+    const senha2 = document.getElementById("texto2").value;
+
+    if (true)
+    {
+        alert("nao ta vazio")
+        if(senha1.trim() == senha2.trim())
+        {
+            alert("as senhas tao engual")
+            window.location.href= "minhaConta.html";
+        }
+
+        else
+        {
+            senha1.style.borderColor = "red";
+            senha2.style.borderColor = "red";
+        }
+    }
+}
+
+
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const senha1 = document.getElementById("senha").value;
+    const senha2 = document.getElementById("senha2").value;
+    const senha1Input = document.getElementById("senha");
+    const senha2Input = document.getElementById("senha2");
+    const alerta = document.getElementById("alerta");
+    document.getElementById("alerta").style.color = "red";
+
+    senha1Input.style.borderColor = "";
+    senha2Input.style.borderColor = "";
+
+    if (!senha1.trim() || !senha2.trim()) {
+        
+        senha1Input.style.borderColor = "red";
+        senha2Input.style.borderColor = "red";
+        return;
+    }
+
+    if (senha1.trim() !== senha2.trim()) {
+        alerta.innerHTML = "As senhas não coincidem. <br><br>"
+        senha1Input.style.borderColor = "red";
+        senha2Input.style.borderColor = "red";
+        return;
+    }
+
+    window.location.href = "minhaConta.html";
+});

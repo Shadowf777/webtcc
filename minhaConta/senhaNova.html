@@ -49,8 +49,9 @@
             <strong>Alterar sua senha</strong>
             <p>Preencha com seu email e uma senha nova.</p>
     
-            <form action="../cadastro/login.html">
+            <form>
                 <input type="text" placeholder="Seu email" required><br>
+
                 <div><input class="senha" id="senha" type="text" placeholder="Sua nova senha" required>
                     <button type="button" class="botao" id="botao">
                         <img class="olho" id="olho" src="../imagens/aberto.png"></button>
@@ -60,7 +61,10 @@
                     <button type="button" class="botao" id="botao2">
                         <img class="olho" id="olho2" src="../imagens/aberto.png"></button>
                     </div><br>
-                <input type="submit" value="Enviar">
+
+                <span id="alerta"></span>
+
+                <input type="submit" id="input" value="Enviar">
             </form>
     
         </div>
