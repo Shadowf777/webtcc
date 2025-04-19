@@ -1,7 +1,11 @@
 // 
 import mysql from 'mysql2/promise';
 import express from 'express';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 async function connectDB()
 {
@@ -21,7 +25,12 @@ async function connectDB()
         throw err;
     }
 }
+app.use(express.static(path.join(__dirname, '..', 'index')));
+app.use(express.static(path.join(__dirname, '..')));
 
+app.use('/', (req,res) =>{
+    res.sendFile(path.join(__dirname,'..','index', 'index.html'));
+})
 connectDB();
 
 
