@@ -47,9 +47,9 @@
             <strong>Alterar sua senha</strong>
             <p>Preencha com o código enviado.</p>
     
-            <form action="senhaNova.html">
-                <input type="text" maxlength="6" placeholder="Código" required ><br>
-                <input type="submit" value="Enviar">
+            <form id="form" oninput="enviar()">
+                <input id="campo"  type="text" maxlength="6" placeholder="Código" required ><br>
+                <input id="enviar" type="submit" value="Enviar">
             </form>
     
         </div>
@@ -58,21 +58,11 @@
 </div>    
     
 
-
+<script src="senha.js"></script>
 <script src="../scriptPopUp.js"></script>
 <script src="../menuResponsivo.js"></script>
-<script>
-    function masked(codigo)
-    {
-        if(codigo.lengh>6)
-        {
-            codigo.slice(0,6);
-        }
-        codigo.value = codigo.value
-                .replace(/(\d{4})(\d)/, "$1");
-                
-    }
-</script>
+
+
 
 </body>
 </html>

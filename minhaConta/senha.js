@@ -121,3 +121,4 @@ document.querySelector("form").addEventListener("submit", function(event) {
 
     window.location.href = "minhaConta.html";
 });
+

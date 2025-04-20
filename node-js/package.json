@@ -1,24 +1,22 @@
 {
-  "name": "webtcc-1",
+  "type": "module",
+  "name": "js",
   "version": "1.0.0",
-  "main": "menuResponsivo.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Shadowf777/webtcc.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
-  "bugs": {
-    "url": "https://github.com/Shadowf777/webtcc/issues"
-  },
-  "homepage": "https://github.com/Shadowf777/webtcc#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^5.1.0",
+    "mysql2": "^3.14.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
