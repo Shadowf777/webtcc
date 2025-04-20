@@ -1,118 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css">
-    <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
-    <link rel="stylesheet" href="styleCompre.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Adquira já</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
+  <link rel="stylesheet" href="styleCompre.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Adquira já</title>
 </head>
+
 <body>
-  <div class="cabecalho"id="header">
+  <div class="cabecalho" id="header">
     <header class="header">
-        <img src="../imagens/logo.png" class="imgLogo">
-        <a href="../index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
+      <img src="../imagens/logo.png" class="imgLogo">
+      <a href="../index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
     </header>
-        <header class="navegacao_header" id="navegacao_header">
-            <a href="#" class="imgConta cabecalhoTexto2"><img src="../imagens/pessoinha2.png"></a>
-            <a href="../index/index.html" class="cabecalhoTexto2 cabecalhoTexto">EcoStuff</a>
-            <a href="../contato/contato.html"><div class="cabecalhoTexto">Fale Conosco</div></a>
-            <a href="#" class="imgConta cabecalhoTexto1"><img src="../imagens/pessoinha2.png"></a>
-            <button onclick="toggleSidebar()" class="btn_icon_header">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                </svg>
-            </button>
-        </header>
-    <button onclick="toggleSidebar()" class="btn_icon_header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    <header class="navegacao_header" id="navegacao_header">
+      <a href="#" class="imgConta cabecalhoTexto2"><img src="../imagens/pessoinha2.png"></a>
+      <a href="../index/index.html" class="cabecalhoTexto2 cabecalhoTexto">EcoStuff</a>
+      <a href="../contato/contato.html">
+        <div class="cabecalhoTexto">Fale Conosco</div>
+      </a>
+      <a href="#" class="imgConta cabecalhoTexto1"><img src="../imagens/pessoinha2.png"></a>
+      <button onclick="toggleSidebar()" class="btn_icon_header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x"
+          viewBox="0 0 16 16">
+          <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
         </svg>
+      </button>
+    </header>
+    <button onclick="toggleSidebar()" class="btn_icon_header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+      </svg>
     </button>
-</div>
-<div id="popUp" class ="hidden">
-<div class="triangulo"></div>
-<div id="popup"><div style="font-weight: bold;"><a href="../cadastro/login.html">Fazer login</a><br></div>
-    <div style="font-weight: bold;"><a href="../cadastro/cadastro.html">Cadastro</a><br></div>
-    <div style="font-weight: bold;"><a href="../minhaConta/minhaConta.html">Minha conta</a><br></div>
-    <a href="#">Sair</a>
-</div></div>
+  </div>
+  <div id="popUp" class="hidden">
+    <div class="triangulo"></div>
+    <div id="popup">
+      <div style="font-weight: bold;"><a href="../cadastro/login.html">Fazer login</a><br></div>
+      <div style="font-weight: bold;"><a href="../cadastro/cadastro.html">Cadastro</a><br></div>
+      <div style="font-weight: bold;"><a href="../minhaConta/minhaConta.html">Minha conta</a><br></div>
+      <a href="#">Sair</a>
+    </div>
+  </div>
 
 
-<div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
+  <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
 
-    <div class="container compree">
+    <div class="compree">
 
-      <div class="row">
+      <strong>Adquira já uma EcoStuff! </strong>
 
-        <div class="col-5 col-md-5 col-sm-12 compreTxt">
-    <strong>Adquira já uma EcoStuff! </strong>
-    <p>Você gostaria de ter uma EcoStuff na sua casa?</p>
-    <p>A produção desta estufa integrada com minhocário ainda está limitada, mas você pode 
-    fazer parte do grupo exclusivo que receberá uma EcoStuff no primeiro lote!</p>
-    <p>Aproveite esta oportunidade e desfrute da realização que apenas uma EcoStuff pode
-    proporcionar!
-    </p>
+      <div class="conteudo">
+        <div class="texto">
+        <p>Você gostaria de ter uma EcoStuff na sua casa?</p>
+        <p>A produção desta estufa integrada com minhocário ainda está limitada, mas você pode
+          fazer parte do grupo exclusivo que receberá uma EcoStuff no primeiro lote!</p>
+        <p>Aproveite esta oportunidade e desfrute da realização que apenas uma EcoStuff pode
+          proporcionar!
+        </p>
+      </div>
 
+
+
+      <div class="imgCompre"><img src="../imagens/planta.jfif">
+        <a href="https://www.mercadolivre.com.br/" target="_blank">
+          Compre já!
+        </a>
+      </div>
     </div>
 
-    <div class="col-4 col-md-4 col-sm-12 imgCompre"><img src="../imagens/planta.jfif">
-    <a href="https://www.mercadolivre.com.br/" target="_blank">
-        Compre já!
-    </a>
-  </div>
-  </div>
-</div>
+      
+    </div>
 
     <div id="rodape">
-          <div id = "tituloRodape">EcoStuff</div>
-          <p>
-            Alunos do curso de Desenvolvimento de <br> 
-            Sistemas do Cotil (2023-2025)
-          </p>
-          <p>Desenvolvedores da EcoStuff:</p>
-          <div class="desenvolvedores">
-            <div class="single">
-              <img src="../imagens/cecilia.jpg">
-              <span class="nomeDes">Cecília Pignatelli</span>
-              Desenvolvimento Web
+      <div id="tituloRodape">EcoStuff</div>
+      <p>
+        Alunos do curso de Desenvolvimento de <br>
+        Sistemas do Cotil (2023-2025)
+      </p>
+      <p>Desenvolvedores da EcoStuff:</p>
+      <div class="desenvolvedores">
+        <div class="single">
+          <img src="../imagens/cecilia.jpg">
+          <span class="nomeDes">Cecília Pignatelli</span>
+          Desenvolvimento Web
 
 
-            </div>
-
-            <div class="single">
-              <img src="../imagens/feliepe.png">
-              <span class="nomeDes">Felipe Cassio</span>
-              Desenvolvimento Mobile e Arduíno
-
-
-            </div>
-
-            <div class="single">
-              <img src="../imagens/massari.jpg">
-              <span class="nomeDes">Guilherme Massari</span>
-            Desenvolvimento Desktop
-
-
-            </div>
-
-            <div class="single">
-              <img src="../imagens/samuel.jpg">
-              <span class="nomeDes">Samuel Gilvane</span>
-              Desenvolvimento Web
-
-
-            </div>
-            
-
-          </div>
         </div>
-</div>
 
-<script src="../scriptPopUp.js"></script>
-<script src="../menuResponsivo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <div class="single">
+          <img src="../imagens/feliepe.png">
+          <span class="nomeDes">Felipe Cassio</span>
+          Desenvolvimento Mobile e Arduíno
+
+
+        </div>
+
+        <div class="single">
+          <img src="../imagens/massari.jpg">
+          <span class="nomeDes">Guilherme Massari</span>
+          Desenvolvimento Desktop
+
+
+        </div>
+
+        <div class="single">
+          <img src="../imagens/samuel.jpg">
+          <span class="nomeDes">Samuel Gilvane</span>
+          Desenvolvimento Web
+
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../scriptPopUp.js"></script>
+  <script src="../menuResponsivo.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
