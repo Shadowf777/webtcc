@@ -1,20 +1,19 @@
 /*--------------COMPRAR---------------------------------------------------------------------------------------*/
 
-.compree
-{
+.compree {
     margin: 150px 15% 20% 15%;
     display: flex;
     flex-direction: column;
 }
 
-.conteudo
-{
+.conteudo {
     margin-top: 50px;
     display: flex;
     flex-direction: row;
     gap: 10%;
     flex-wrap: wrap;
 }
+
 
 .compree strong
 {
@@ -33,8 +32,8 @@
 
 .texto
 {
-    /*max-width: 600px;*/
-    width: 50%
+    width: 50%;
+    min-width: 300px;
 }
 
 .imgCompre
@@ -42,15 +41,17 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    width: 40%;
-    min-width: 300px;
+    width: 35%;
+    min-width: 280px;
+    margin-left: 20px;
+    margin-top: 45px;
 }
 
 
 .imgCompre img
 {
-    height: 450px;
-    width: 300px;
+    height: auto;
+    max-width: 380px;
     border-radius: 20px;
 }
 
@@ -76,9 +77,8 @@
 
 @media (max-width: 1070px)
 {
-    .compree
-    {
-        margin-bottom: 0px;
+    .compree {
+        margin: 100px 10% 20% 10%;
     }
     .conteudo
     {
@@ -86,24 +86,59 @@
     }
     .texto
     {
+        margin-top: -30px;
         margin-left: 0px;
         width: 100%;
         
     }
 
-    .compree p
-    {
-        font-size: 22px;
-    }
 
     .imgCompre
     {
         width: 100%;
+        margin: 0px;
     }
 
     .compree img
     {
         width: 100%;
         height: 400px;
+    }
+
+    .imgCompre img{
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .compree {
+        margin: 80px 10% 20% 10%;
+    }
+    
+    .conteudo {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .texto, .imgCompre {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .imgCompre a {
+        width: 160px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .compree strong {
+        font-size: 32px;
+    }
+    
+    .compree p {
+        font-size: 18px;
     }
 }
