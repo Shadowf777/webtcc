@@ -141,7 +141,7 @@ header{
     padding: 15px 10px 15px 25px;
     border-radius: 20px;
     border-top-right-radius: 0px;
-    z-index: 1;
+    z-index: 9999;
     font-weight: none;
     position: fixed;
     right: 0;
