@@ -1,6 +1,6 @@
 // imagem olhar senha ou nao
-const aberto = '../imagens/aberto.png';
-const fechado = '../imagens/fechado.png'; //sem visualizar a senha
+const aberto = '../../public/imagens/aberto.png';
+const fechado = '../../public/imagens/fechado.png'; //sem visualizar a senha
 
 
 const botao = document.getElementById("botao");
@@ -119,6 +119,6 @@ document.querySelector("form").addEventListener("submit", function(event) {
         return;
     }
 
-    window.location.href = "minhaConta.html";
+    window.location.href = "../minhaConta/minhaConta.html";
 });
 

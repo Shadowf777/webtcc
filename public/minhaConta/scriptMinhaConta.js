@@ -23,7 +23,7 @@ function excluir()
 
 function mudarSenha()
 {
-  window.location.href = "mudarSenha.html";
+  window.location.href = "../mudarASenha/mudarSenha.html";
 }
 
 
@@ -49,7 +49,7 @@ var img = false; //pega do banco se tem uma imagem cadastrada ou nao
 
 
 if(!img){
-  document.getElementById('imagemCarregada').src = "../imagens/perfildefault.jpg";
+  document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
   document.getElementById('imagemCarregada').style.zIndex = "10";
 }
 
