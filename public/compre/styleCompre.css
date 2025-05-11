@@ -1,7 +1,7 @@
 /*--------------COMPRAR---------------------------------------------------------------------------------------*/
 
 .compree {
-    margin: 150px 15% 20% 15%;
+    margin: 150px 15% 50px 15%;
     display: flex;
     flex-direction: column;
 }
@@ -78,7 +78,7 @@
 @media (max-width: 1070px)
 {
     .compree {
-        margin: 100px 10% 20% 10%;
+        margin: 100px 10% 0px 10%;
     }
     .conteudo
     {
@@ -112,7 +112,7 @@
 
 @media (max-width: 768px) {
     .compree {
-        margin: 80px 10% 20% 10%;
+        margin: 80px 10% 0px 10%;
     }
     
     .conteudo {
