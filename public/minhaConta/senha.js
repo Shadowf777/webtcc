@@ -64,31 +64,8 @@ function clicar()
     }
 }
 
-const input = document.getElementById("input");
-//input.addEventListener('click', senhaNova);
 
-function senhaNova()
-{
-    alert("entrou na func")
-    const senha1 = document.getElementById("texto").value;
-    const senha2 = document.getElementById("texto2").value;
 
-    if (true)
-    {
-        alert("nao ta vazio")
-        if(senha1.trim() == senha2.trim())
-        {
-            alert("as senhas tao engual")
-            window.location.href= "minhaConta.html";
-        }
-
-        else
-        {
-            senha1.style.borderColor = "red";
-            senha2.style.borderColor = "red";
-        }
-    }
-}
 
 
 
