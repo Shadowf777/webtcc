@@ -42,3 +42,9 @@ input[type="submit"]:hover
  p{
     font-size: 20px;;
 }
+
+
+#msgSenha
+{
+    color: red;
+}

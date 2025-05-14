@@ -34,6 +34,15 @@ function fazerLogin(event) {
 
     var email = document.getElementById("email").value;
     var senha = document.getElementById("senha").value;
+    var styleEmail = document.getElementById("email").style;
+    var styleSenha = document.getElementById("senha").style;
+    var msgSenha = document.getElementById("msgSenha");
+
+    styleSenha.borderColor = "black";
+    msgSenha.textContent = "";
+
+
+
 
     if (email == "" || senha == "") {
         r = "CAMPOS VAZIOS";
@@ -45,12 +54,31 @@ function fazerLogin(event) {
     }
 
     else {
+
+        if(senha.length < 5)
+        {
+            console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
+            styleSenha.borderColor = "red";
+            msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
+            limpar();
+            return 0;
+        }
+
+
         if (login) {
-            r = "JA TEM LOGIN";
+            console.log("JA TEM LOGIN");
             return "JA TEM LOGIN";
         }
 
         if (!login) {
+
+            if(senha.length < 5)
+            {
+                console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
+                styleSenha.borderColor = "red";
+                msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
+                limpar();
+            }
             check = true;
             var usuarios = getUsuarios();
 
@@ -64,21 +92,27 @@ function fazerLogin(event) {
 
                 if (check) {
                     login = true;
-                    r = "LOGIN";
+                    console.log("LOGIN");
+                    mudar();
                     return "LOGIN";
                 }
 
             }
         }
 
-        r = "NAO FEZ LOGIN";
+
+        msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
+        limpar();
+        console.log("NAO FEZ LOGIN");
         return "NAO FEZ LOGIN";
     }
 }
 
-
-console.log(r);
-
+function limpar()
+{
+        document.getElementById("email").value = "";
+        document.getElementById("senha").value = "";
+}
 
 
 function mudar() {

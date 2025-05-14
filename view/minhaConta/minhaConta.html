@@ -58,6 +58,7 @@
             <div class="informacoes">
 
 
+              <div class="imagemConta">
               <div class="image-container">
                 <input class="inputFoto" type="file" accept="image/*" onchange="exibirImagem(event)">
                 <img id="imagemCarregada" class="imagem-carregada " src="" alt="">
@@ -67,7 +68,10 @@
                     </span>
                   </div>
                 </div>
+                
               </div>
+              <button id="semImagem" onclick="excluirImagem()">Excluir a imagem</button>
+            </div>
 
               <div>
                 <div class="informacoesPessoais">

@@ -27,16 +27,16 @@ function mudarSenha()
 }
 
 
-document.getElementById("nomeUsuario").textContent = "Seu nome";
+document.getElementById("nomeUsuario").textContent = "Cecília";
 
-document.getElementById("nomeCompleto").textContent = "Seu nome completo";
+document.getElementById("nomeCompleto").textContent = "Cecília Pignatelli de Oliveira";
 
-document.getElementById("emailUsuario").textContent = "seuemail@gmail.com";
+document.getElementById("emailUsuario").textContent = "cecilia@gmail.com";
 
-var rua = "R. Tal";
-var numero = 123;
-var bairro = "Bairro";
-var cidade = "Cidade";
+var rua = "R. Aristides Lobo";
+var numero = 1146;
+var bairro = "Cidade Universitária";
+var cidade = "Campinas";
 var estado = "SP";
 var endereco = rua +" "+numero+" - "+bairro+", "+cidade+" - "+estado;
 
@@ -70,4 +70,15 @@ function exibirImagem(event) {
       reader.readAsDataURL(file);
     }
   }
+
+
+ function excluirImagem()
+ {
+  if(true)
+  {
+      document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+
+  }
+
+ }
 
