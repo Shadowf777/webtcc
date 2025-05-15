@@ -51,30 +51,30 @@
 
         
             <div class="container formulario">        
-            <form action="../minhaConta/minhaConta.html">
+            <form id = "formCadastro">
                 <div class="row">
-                    <input class="col-md-7 col-sm-12 item" type="text" placeholder="Nome Completo" required>
-                    <input class="col-md-4 item" type="text" id="cpf" placeholder="CPF"  oninput="validarCPF(this); aplicarMascaraCPF(this)" maxlength="14" required>
+                    <input id="nome" class="col-md-7 col-sm-12 item" type="text" placeholder="Nome Completo" required>
+                    <input id="cpf" class="col-md-4 item" type="text"  placeholder="CPF"  oninput="validarCPF(this); aplicarMascaraCPF(this)" maxlength="14" required>
                 </div>
 
                 <div class="row">
-                    <input class="col-md-7 col-sm-12 item" type="email" placeholder="Email" required>
-                    <input class="col-md-4 col-sm-12 item" type="text" id="rg" placeholder="RG" oninput="validarRG(this); aplicarMascaraRG(this)" maxlength="12" required>
+                    <input id="email" class="col-md-7 col-sm-12 item" type="email" placeholder="Email" required>
+                    <input id="rg" class="col-md-4 col-sm-12 item" type="text"  placeholder="RG" oninput="validarRG(this); aplicarMascaraRG(this)" maxlength="12" required>
 
 
                 </div>
 
                 <div class="row">
-                    <input class="col-md-3 col-sm-12 item" type="text" id="telefone" placeholder="Telefone(opcional)" oninput="validarTelefone(this); aplicarMascaraTelefone(this)" maxlength="14">
+                    <input id="telefone" class="col-md-3 col-sm-12 item" type="text"  placeholder="Telefone(opcional)" oninput="validarTelefone(this); aplicarMascaraTelefone(this)" maxlength="14">
                   
-                    <input class="col-md-3 col-sm-12 item" type="text" id="celular" placeholder="Celular" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
+                    <input id="celular" class="col-md-3 col-sm-12 item" type="text"  placeholder="Celular" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
 
                 </div>
                     
                 
                 <div class="row">
                     <div><input id="senha" class="col-md-3 col-sm-12 item" type="password" placeholder="Senha" required>
-                        <button style="top: 1px;" type="button" class="botao" id="botao"><img class="olho" id="olho" src="../imagens/aberto.png"></button></div>
+                        <button style="top: 1px;" type="button" class="botao" id="botao"><img class="olho" id="olho" src="../../public/imagens/aberto.png"></button></div>
                 </div>
                 
                 <input id="enviar" type="submit" value="Enviar">
