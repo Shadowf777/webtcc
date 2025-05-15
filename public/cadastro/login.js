@@ -1,10 +1,7 @@
-class Usuario {
-    constructor(email, senha) {
-        this.email = email;
-        this.senha = senha;
-    }
+export class Usuario {
+    
 
-    /*constructor(nome, email, celular, cpf, rg, senha)
+    constructor(nome, email, celular, cpf, rg, senha)
     {
         this.nome = nome;
         this.email = email;
@@ -12,22 +9,34 @@ class Usuario {
         this.cpf = cpf;
         this.rg = rg;
         this.senha = senha;
-    }*/
+    }
 }
 
-var usuarios = [new Usuario("cecilia@gmail.com", "cecilia123")];
+////////////////////////////////////////////////
 
-function getUsuarios() {
+var usuarios = []; // lista de usuarios
+
+////////////////////////////////////////////////
+
+export function adicionarUsuario(u)
+{
+    usuarios.push(u);
+};
+
+////////////////////////////////////////////////
+
+export function getUsuarios() {
     return usuarios;
 }
+
+////////////////////////////////////////////////
 
 var login = false;
 
 
 
-var r = "";
 
-function fazerLogin(event) {
+export function fazerLogin(event) {
     console.log("entrou no fazerLogin");
     event.preventDefault();
     var check = false;
@@ -45,26 +54,13 @@ function fazerLogin(event) {
 
 
     if (email == "" || senha == "") {
-        r = "CAMPOS VAZIOS";
         return "CAMPOS VAZIOS";
     }
     else if (email == null || senha == null) {
-        r = "CAMPOS NULOS";
         return "CAMPOS NULOS";
     }
 
     else {
-
-        if(senha.length < 5)
-        {
-            console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
-            styleSenha.borderColor = "red";
-            msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
-            limpar();
-            return 0;
-        }
-
-
         if (login) {
             console.log("JA TEM LOGIN");
             return "JA TEM LOGIN";
@@ -77,8 +73,11 @@ function fazerLogin(event) {
                 console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
                 styleSenha.borderColor = "red";
                 msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
-                limpar();
+                limpar(1);
+                return "A SENHA DEVE TER MAIS DE CINCO CARACTERES";
             }
+
+            
             check = true;
             var usuarios = getUsuarios();
 
@@ -102,21 +101,34 @@ function fazerLogin(event) {
 
 
         msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
-        limpar();
+        limpar(2);
         console.log("NAO FEZ LOGIN");
         return "NAO FEZ LOGIN";
     }
 }
 
-function limpar()
+////////////////////////////////////////////////
+
+function limpar(campos)
+{
+
+if(campos == 1)
+{
+        
+        document.getElementById("senha").value = "";
+}
+
+
+else if(campos == 2)
 {
         document.getElementById("email").value = "";
         document.getElementById("senha").value = "";
 }
+}
 
+////////////////////////////////////////////////
 
 function mudar() {
     window.location.href = "../minhaConta/minhaConta.html";
 }
 
-document.getElementById('formLogin').addEventListener('submit', fazerLogin);
