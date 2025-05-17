@@ -10,8 +10,6 @@ export class Usuario {
         this.rg = rg;
         this.senha = senha;
     }
-
- 
       
     // ========== GETTERS ==========
     get nome() {
