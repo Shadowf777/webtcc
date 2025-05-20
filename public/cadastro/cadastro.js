@@ -54,7 +54,9 @@ function cadastro(event,nome, email, celular, cpf, rg, senha) {
         }
 
         else{
+            console.log("antes do usuario");
             u1 = new Usuario(nome,email,celular,cpf,rg,senha);
+            console.log("dps do usuario");
             adicionarUsuario(u1);
             console.log("CADASTRO FEITO COM SUCESSO");
             return "FEZ CADASTRO";

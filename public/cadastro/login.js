@@ -39,48 +39,48 @@ export class Usuario {
     
     // ========== SETTERS ==========
     set nome(novoNome) {
-        if (typeof novoNome !== "string" || novoNome.trim() === "") {
+        /*if (typeof novoNome !== "string" || novoNome.trim() === "") {
         throw new Error("Nome inválido!");
-        }
+        }*/
         this._nome = novoNome.trim();
     }
     
     set email(novoEmail) {
-        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        /*const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!regexEmail.test(novoEmail)) {
         throw new Error("E-mail inválido!");
-        }
+        }*/
         this._email = novoEmail;
     }
     
     set celular(novoCelular) {
-        const regexCelular = /^\d{10,11}$/; // 10 ou 11 dígitos (DDD + número)
+        /*const regexCelular = /^\d{10,11}$/; // 10 ou 11 dígitos (DDD + número)
         if (!regexCelular.test(novoCelular)) {
         throw new Error("Celular inválido!");
-        }
+        }*/
         this._celular = novoCelular;
     }
     
     set cpf(novoCpf) {
-        const cpfLimpo = novoCpf.replace(/\D/g, ""); // Remove não-dígitos
+        /*const cpfLimpo = novoCpf.replace(/\D/g, ""); // Remove não-dígitos
         if (cpfLimpo.length !== 11) {
         throw new Error("CPF deve ter 11 dígitos!");
-        }
+        }*/
         this._cpf = cpfLimpo;
     }
     
     set rg(novoRg) {
-        const rgLimpo = novoRg.replace(/\D/g, ""); // Remove não-dígitos
+        /*const rgLimpo = novoRg.replace(/\D/g, ""); // Remove não-dígitos
         if (rgLimpo.length !== 9) {
         throw new Error("RG deve ter 9 dígitos!");
-        }
+        }*/
         this._rg = rgLimpo;
     }
     
     set senha(novaSenha) {
-        if (novaSenha.length < 6) {
+        /*if (novaSenha.length < 6) {
         throw new Error("Senha deve ter pelo menos 6 caracteres!");
-        }
+        }*/
         this._senha = novaSenha; // Em um caso real, seria criptografada
     }
       
