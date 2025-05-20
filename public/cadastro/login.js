@@ -66,7 +66,7 @@ export class Usuario {
         if (cpfLimpo.length !== 11) {
         throw new Error("CPF deve ter 11 dígitos!");
         }*/
-        this._cpf = cpfLimpo;
+        this._cpf = novoCpf;
     }
     
     set rg(novoRg) {
@@ -74,7 +74,7 @@ export class Usuario {
         if (rgLimpo.length !== 9) {
         throw new Error("RG deve ter 9 dígitos!");
         }*/
-        this._rg = rgLimpo;
+        this._rg = novoRg;
     }
     
     set senha(novaSenha) {
