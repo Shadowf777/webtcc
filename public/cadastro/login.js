@@ -3,12 +3,13 @@ export class Usuario {
 
     constructor(nome, email, celular, cpf, rg, senha)
     {
-        this.nome = nome;
-        this.email = email;
-        this.celular = celular;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.senha = senha;
+        this._nome = nome;
+        this._email = email;
+        this._celular = celular;
+        this._cpf = cpf;
+        this._rg = rg;
+        this._senha = senha;
+        console.log(nome+"entrou no construtor");
     }
       
     // ========== GETTERS ==========
@@ -42,6 +43,7 @@ export class Usuario {
         /*if (typeof novoNome !== "string" || novoNome.trim() === "") {
         throw new Error("Nome inválido!");
         }*/
+       console.log(novoNome);
         this._nome = novoNome.trim();
     }
     
@@ -50,6 +52,7 @@ export class Usuario {
         if (!regexEmail.test(novoEmail)) {
         throw new Error("E-mail inválido!");
         }*/
+       console.log(novoEmail);
         this._email = novoEmail;
     }
     
@@ -58,6 +61,7 @@ export class Usuario {
         if (!regexCelular.test(novoCelular)) {
         throw new Error("Celular inválido!");
         }*/
+       console.log(novoCelular);
         this._celular = novoCelular;
     }
     
@@ -66,6 +70,7 @@ export class Usuario {
         if (cpfLimpo.length !== 11) {
         throw new Error("CPF deve ter 11 dígitos!");
         }*/
+       console.log(novoCpf);
         this._cpf = novoCpf;
     }
     
@@ -74,6 +79,7 @@ export class Usuario {
         if (rgLimpo.length !== 9) {
         throw new Error("RG deve ter 9 dígitos!");
         }*/
+       console.log(novoRg);
         this._rg = novoRg;
     }
     
@@ -81,6 +87,7 @@ export class Usuario {
         /*if (novaSenha.length < 6) {
         throw new Error("Senha deve ter pelo menos 6 caracteres!");
         }*/
+       console.log(novSenha);
         this._senha = novaSenha; // Em um caso real, seria criptografada
     }
       
