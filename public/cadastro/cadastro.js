@@ -1,4 +1,4 @@
-import { Usuario, adicionarUsuario } from "./login.js";
+import { Usuario, adicionarUsuario } from "../usuario.js";
 import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 
 var login;
@@ -55,7 +55,6 @@ function cadastro(event) {
             adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
-            setLoggedIn(true);
 
             Swal.fire({
                 title: "Cadastro concluído com sucesso!",
@@ -64,7 +63,7 @@ function cadastro(event) {
             }).then((result) => {
 
                 if (result.isConfirmed) {
-                    window.location.href = '../../view/login/login.html';
+                    window.location.href = '../../view/login/login.php';
                 }
 
             });
