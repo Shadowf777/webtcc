@@ -12,7 +12,7 @@ export class Usuario {
         console.log(nome+"entrou no construtor");
     }
       
-    // ========== GETTERS ==========
+    // ========== GETTERS ============================
     get nome() {
         return this._nome;
     }
@@ -38,7 +38,7 @@ export class Usuario {
         return this._senha; 
     }
     
-    // ========== SETTERS ==========
+    // ========== SETTERS ===========================
     set nome(novoNome) {
         /*if (typeof novoNome !== "string" || novoNome.trim() === "") {
         throw new Error("Nome inválido!");

@@ -50,8 +50,8 @@ function cadastro(event) {
         else {
             console.log("antes do usuario");
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
-            console.log(nome);
-            console.log(email);
+            console.log(u1.nome);
+            console.log(u1.email);
             console.log(celular);
             console.log(cpf);
             console.log(rg);
@@ -59,6 +59,7 @@ function cadastro(event) {
 
             console.log("dps do usuario");
             adicionarUsuario(u1);
+            
             console.log("CADASTRO FEITO COM SUCESSO");
             return "FEZ CADASTRO";
         }
