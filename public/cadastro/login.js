@@ -1,3 +1,5 @@
+import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
+
 export class Usuario {
     
 
@@ -112,12 +114,14 @@ export function getUsuarios() {
 
 ////////////////////////////////////////////////
 
-var login = false;
+var login;
 
 
 
 
 export function fazerLogin(event) {
+    login = getLoggedIn();
+    console.log("estado do login" + login);
     console.log("entrou no fazerLogin");
     event.preventDefault();
     var check = false;
@@ -171,9 +175,10 @@ export function fazerLogin(event) {
                 }
 
                 if (check) {
-                    login = true;
+                    setLoggedIn(true);
+                    alert("mudou o estado do login para true");
                     console.log("LOGIN");
-                    mudar();
+                    //mudar();
                     return "LOGIN";
                 }
 

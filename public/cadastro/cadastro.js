@@ -1,6 +1,7 @@
 import { Usuario, adicionarUsuario } from "./login.js";
+import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 
-var login = false;
+var login;
 
 
 
@@ -15,6 +16,8 @@ var u1;//usuario para o cadastro
 //adicionarUsuario(u1);
 
 function cadastro(event) {
+    login = getLoggedIn();
+    console.log("estado do login" + login);
 
     var nome = document.getElementById('nome').value;
     var cpf = document.getElementById('cpf').value;
@@ -52,6 +55,7 @@ function cadastro(event) {
             adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
+            setLoggedIn(true);
 
             Swal.fire({
                 title: "Cadastro concluído com sucesso!",
@@ -60,7 +64,7 @@ function cadastro(event) {
             }).then((result) => {
 
                 if (result.isConfirmed) {
-                    window.location.href = '../../view/minhaConta/minhaConta.html';
+                    window.location.href = '../../view/login/login.html';
                 }
 
             });
