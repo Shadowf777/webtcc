@@ -25,7 +25,6 @@ function cadastro(event) {
     var senha = document.getElementById('senha').value;
 
     console.log("ENTROU NA FUNC DE CADASTRO");
-    console.log(nome);
     event.preventDefault();
 
     if (login) {
@@ -48,19 +47,27 @@ function cadastro(event) {
         }
 
         else {
-            console.log("antes do usuario");
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
-            console.log(u1.nome);
-            console.log(u1.email);
-            console.log(celular);
-            console.log(cpf);
-            console.log(rg);
-            console.log(senha);
 
-            console.log("dps do usuario");
             adicionarUsuario(u1);
-            
+
             console.log("CADASTRO FEITO COM SUCESSO");
+
+            Swal.fire({
+                title: "Cadastro concluído com sucesso!",
+                text: "Adicione mais informações para completar sua conta.",
+                confirmButtonText: "Yay",
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.href = '../../view/minhaConta/minhaConta.html';
+                }
+
+            });
+
+
+
+
             return "FEZ CADASTRO";
         }
 
