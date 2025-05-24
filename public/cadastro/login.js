@@ -3,12 +3,12 @@ export class Usuario {
 
     constructor(nome, email, celular, cpf, rg, senha)
     {
-        this.nome = nome;
-        this.email = email;
-        this.celular = celular;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.senha = senha;
+        this._nome = nome;
+        this._email = email;
+        this._celular = celular;
+        this._cpf = cpf;
+        this._rg = rg;
+        this._senha = senha;
     }
       
     // ========== GETTERS ==========
