@@ -1,3 +1,9 @@
+import { setLoggedIn } from "../estadoLogin/estadoLogin.js";
+
+document.getElementById("excluir").addEventListener('click',excluir);
+document.getElementById("mudarSenha").addEventListener('click',mudarSenha);
+document.getElementById("semImagem").addEventListener('click',excluirImagem);
+document.getElementById("inputFoto").addEventListener('change',exibirImagem);
 
 function excluir()
 {
@@ -11,6 +17,7 @@ function excluir()
     if (result.isConfirmed) {
       Swal.fire("Conta excluída!", "", "success").then(() => {
         window.location.href = '../index/index.php';
+        setLoggedIn(false);
       });
       
     } else if (result.isDenied) {

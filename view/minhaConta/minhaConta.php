@@ -28,7 +28,7 @@
 
               <div class="imagemConta">
               <div class="image-container">
-                <input class="inputFoto" type="file" accept="image/*" onchange="exibirImagem(event)">
+                <input id="inputFoto" class="inputFoto" type="file" accept="image/*">
                 <img id="imagemCarregada" class="imagem-carregada " src="" alt="">
                 <div id="editar">
                   <div class="lapis"><span class="material-symbols-outlined">
@@ -38,7 +38,7 @@
                 </div>
                 
               </div>
-              <button id="semImagem" onclick="excluirImagem()">Excluir a imagem</button>
+              <button id="semImagem">Excluir a imagem</button>
             </div>
 
               <div class="informacoesPessoais1">
@@ -63,8 +63,8 @@
                 <div id="mais1">
                   <div id="mais">
 
-                    <button id="excluir" onclick="excluir()">Excluir conta</button>
-                    <button id="mudarSenha" onclick="mudarSenha()">Mudar sua senha</button>
+                    <button id="excluir">Excluir conta</button>
+                    <button id="mudarSenha">Mudar sua senha</button>
                   </div>
                 </div>
               </div>
@@ -129,6 +129,7 @@
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="../../public/minhaConta/scriptMinhaConta.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
   const items = Array.from(document.querySelectorAll(".car_Conta")); // Itens do carrossel
@@ -212,6 +213,6 @@
 });
 
     </script>
-    <script src = "../../public/minhaConta/scriptMinhaConta.js"></script>
+    
 </body>
 </html>
