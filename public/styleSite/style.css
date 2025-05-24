@@ -7,7 +7,7 @@
 }
 
 body{
-    background-image: url(imagens/fundo_enhanced.png);
+    background-image: url(../imagens/fundo_enhanced.png);
     background-repeat: no-repeat;
     background-position: start;
     background-size: cover;

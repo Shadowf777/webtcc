@@ -1,14 +1,9 @@
-import { Usuario , adicionarUsuario } from "./login.js";
+import { Usuario, adicionarUsuario } from "../usuario.js";
+import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 
-var login = false;
+var login;
 
-var nome = document.getElementById('nome').value;
-var cpf = document.getElementById('cpf').value;
-var rg = document.getElementById('rg').value;
-var email = document.getElementById('email').value;
-var telefone = document.getElementById('telefone').value;
-var celular = document.getElementById('celular').value;
-var senha = document.getElementById('senha').value;
+
 
 var nomeStyle = document.getElementById('nome').style;
 var senhaStyle = document.getElementById('senha').style;
@@ -20,7 +15,9 @@ var u1;//usuario para o cadastro
 
 //adicionarUsuario(u1);
 
-function cadastro(event,nome, email, celular, cpf, rg, senha) {
+function cadastro(event) {
+    login = getLoggedIn();
+    console.log("estado do login" + login);
 
     var nome = document.getElementById('nome').value;
     var cpf = document.getElementById('cpf').value;
@@ -31,7 +28,6 @@ function cadastro(event,nome, email, celular, cpf, rg, senha) {
     var senha = document.getElementById('senha').value;
 
     console.log("ENTROU NA FUNC DE CADASTRO");
-    console.log(nome);
     event.preventDefault();
 
     if (login) {
@@ -53,12 +49,28 @@ function cadastro(event,nome, email, celular, cpf, rg, senha) {
 
         }
 
-        else{
-            console.log("antes do usuario");
-            u1 = new Usuario(nome,email,celular,cpf,rg,senha);
-            console.log("dps do usuario");
+        else {
+            u1 = new Usuario(nome, email, celular, cpf, rg, senha);
+
             adicionarUsuario(u1);
+
             console.log("CADASTRO FEITO COM SUCESSO");
+
+            Swal.fire({
+                title: "Cadastro concluído com sucesso!",
+                text: "Adicione mais informações para completar sua conta.",
+                confirmButtonText: "Yay",
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+                    window.location.href = '../../view/login/login.php';
+                }
+
+            });
+
+
+
+
             return "FEZ CADASTRO";
         }
 
@@ -68,7 +80,8 @@ function cadastro(event,nome, email, celular, cpf, rg, senha) {
 
 }
 
-document.getElementById('formCadastro').addEventListener('submit', function(event) {cadastro(
-    event, // Pass the event object
-    nome, email, celular, cpf, rg, senha,
-  )});
+document.getElementById('formCadastro').addEventListener('submit', function (event) {
+    cadastro(
+        event
+    )
+});

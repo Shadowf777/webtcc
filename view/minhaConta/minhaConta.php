@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../../public/imagens/favicon.png">
-    <link rel="stylesheet" href="../../public/style.css">
+    <link rel="stylesheet" href="../../public/styleSite/style.css">
     <link rel="stylesheet" href="../../public/minhaConta/styleConta.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=edit_square" /> <title>Sua Conta</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
@@ -12,41 +12,9 @@
   </head>
 <body>
  
-  <div class="cabecalho"id="header">
-    <header class="header">
-        <img src="../../public/imagens/logo.png" class="imgLogo">
-        <a href="../index/index.html" class="cabecalhoTexto1 cabecalhoTexto">EcoStuff</a>
-    </header>
-
-        <header class="navegacao_header" id="navegacao_header">
-            <a href="#" class="imgConta cabecalhoTexto2"><img src="../../public/imagens/pessoinha2.png"></a>
-            <a href="../index/index.html" class="cabecalhoTexto2 cabecalhoTexto">EcoStuff</a>
-            <a href="../contato/contato.html"><div class="cabecalhoTexto">Fale Conosco</div></a>
-            <a href="#" class="imgConta cabecalhoTexto1"><img src="../../public/imagens/pessoinha2.png"></a>
-            <button onclick="toggleSidebar()" class="btn_icon_header">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                </svg>
-            </button>
-        </header>
-
-    <button onclick="toggleSidebar()" class="btn_icon_header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-        </svg>
-    </button>
-
-</div>
-
-<div id="popUp" class ="hidden">
-<div class="triangulo"></div>
-
-<div id="popup"><div style="font-weight: bold;"><a href="../login/login.html">Fazer login</a><br></div>
-    <div style="font-weight: bold;"><a href="../cadastro/cadastro.html">Cadastro</a><br></div>
-    <div style="font-weight: bold;"><a href="../minhaConta/minhaConta.html">Minha conta</a><br></div>
-    <a href="../index/index.html">Sair</a>
-</div>
-</div>
+ <?php
+ require("../elementosFixos/menu.html");
+ ?>
 
 
 <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
@@ -73,7 +41,7 @@
               <button id="semImagem" onclick="excluirImagem()">Excluir a imagem</button>
             </div>
 
-              <div>
+              <div class="informacoesPessoais1">
                 <div class="informacoesPessoais">
                   <div class="infos">
                     <div class="lapis"><svg id="dadosPessoais" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -152,51 +120,11 @@
 
 
 
-          <div id="rodape">
-            <div id = "tituloRodape">EcoStuff</div>
-            <p>
-              Alunos do curso de Desenvolvimento de <br> 
-              Sistemas do Cotil (2023-2025)
-            </p>
-            <p>Desenvolvedores da EcoStuff:</p>
-            <div class="desenvolvedores">
-              <div class="single">
-                <img src="../../public/imagens/cecilia.jpeg">
-                <span class="nomeDes">Cecília Pignatelli</span>
-                Desenvolvimento Web
-  
-  
-              </div>
-  
-              <div class="single">
-                <img src="../../public/imagens/feliepe.png">
-                <span class="nomeDes">Felipe Cassio</span>
-                Desenvolvimento Mobile e Arduíno
-  
-  
-              </div>
-  
-              <div class="single">
-                <img src="../../public/imagens/massari.jpg">
-                <span class="nomeDes">Guilherme Massari</span>
-              Desenvolvimento Desktop
-  
-  
-              </div>
-  
-              <div class="single">
-                <img src="../../public/imagens/samuel.jpg">
-                <span class="nomeDes">Samuel Gilvane</span>
-                Desenvolvimento Web
-  
-  
-              </div>
-              
-  
-            </div>
-          </div>
+          <?php
+        require("../elementosFixos/rodape.html");
+        ?>
     </div>
-
+    <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/minhaConta/script.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>

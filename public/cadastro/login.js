@@ -1,5 +1,5 @@
-export class Usuario {
-    
+import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
+import { getUsuarios } from "../usuario.js";
 
     constructor(nome, email, celular, cpf, rg, senha)
     {
@@ -88,29 +88,13 @@ export class Usuario {
 
 ////////////////////////////////////////////////
 
-var usuarios = []; // lista de usuarios
-
-////////////////////////////////////////////////
-
-export function adicionarUsuario(u)
-{
-    usuarios.push(u);
-};
-
-////////////////////////////////////////////////
-
-export function getUsuarios() {
-    return usuarios;
-}
-
-////////////////////////////////////////////////
-
-var login = false;
 
 
-
+var login;
 
 export function fazerLogin(event) {
+    login = getLoggedIn();
+    console.log("estado do login" + login);
     console.log("entrou no fazerLogin");
     event.preventDefault();
     var check = false;
@@ -164,7 +148,7 @@ export function fazerLogin(event) {
                 }
 
                 if (check) {
-                    login = true;
+                    setLoggedIn(true);
                     console.log("LOGIN");
                     mudar();
                     return "LOGIN";
@@ -203,6 +187,8 @@ else if(campos == 2)
 ////////////////////////////////////////////////
 
 function mudar() {
-    window.location.href = "../minhaConta/minhaConta.html";
+    window.location.href = "../minhaConta/minhaConta.php";
 }
+
+document.getElementById('formLogin').addEventListener('submit', fazerLogin);
 
