@@ -6,6 +6,7 @@ document.getElementById("inputFoto").addEventListener('change',exibirImagem);
 
 var ifimg = true; //pega do banco se tem uma imagem cadastrada ou nao
 const img = "../../public/imagens/homem.png";
+    document.getElementById('imagemCarregada').src = img;
 
 
 if(!ifimg){
