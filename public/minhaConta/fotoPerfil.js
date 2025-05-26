@@ -9,12 +9,14 @@ const img = "../../public/imagens/homem.png";
 
 
 if(!ifimg){
-  document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+  document.getElementById('imagemCarregada').src = "../../public/imagens/homem.png";
   document.getElementById('imagemCarregada').style.zIndex = "10";
+  console.log("img falsa");
 }
 
 else if (ifimg){
-    document.getElementById('imagemCarregada').src = "../../public/imagens/homem.png";
+    document.getElementById('imagemCarregada').src = img;
+    console.log("img true");
 }
 // pega a img do bd msm
 
@@ -38,7 +40,7 @@ function exibirImagem(event) {
  {
   if(true)
   {
-      document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+      document.getElementById('imagemCarregada').src = "../../public/imagens/homem.png";
 
   }
 

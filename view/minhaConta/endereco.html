@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Dados</title>
     <link rel="stylesheet" href="../../public/styleSite/style.css">
+    <link rel="icon" type="image/x-icon" href="../../public/imagens/favicon.png">
     <style>
         .background-frame {
             position: fixed;
@@ -141,13 +142,13 @@ h2{
     </style>
 </head>
 <body>
-    <iframe src="minhaConta.html" class="background-frame"></iframe>
+    <iframe src="minhaConta.php" class="background-frame"></iframe>
 
     <div id="overlay" class="overlay-popup">
         <div class="popupINF">
             <button id="closePopup" class="close-btn" onclick="closePopup()">×</button>
             <h2>Editar meus dados</h2>
-            <form action="minhaConta.html" id="formEdicao">
+            <form action="minhaConta.php" id="formEdicao">
                 <div>
                     <label for="Rua">Rua:</label>
                     <input type="text" id="rua" required>
@@ -174,7 +175,7 @@ h2{
     </div>
     <script>
         function closePopup() {
-            window.location.href = "minhaConta.html";
+            window.location.href = "minhaConta.php";
         }
     </script>
 
