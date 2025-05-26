@@ -30,7 +30,7 @@
             </div>
             <div class="introducao2">
               <iframe src='https://my.spline.design/piplantas-5b8c0112d638e3780370c5554249f600/' frameborder='0' width='100%' height='100%'></iframe>
-                <a href="../compre/compre.html">Compre já!</a>
+                <a href="../compre/compre.php">Compre já!</a>
             </div>
         </div>
         <div class="plantas">

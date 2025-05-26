@@ -2,8 +2,7 @@ import { setLoggedIn } from "../estadoLogin/estadoLogin.js";
 
 document.getElementById("excluir").addEventListener('click',excluir);
 document.getElementById("mudarSenha").addEventListener('click',mudarSenha);
-document.getElementById("semImagem").addEventListener('click',excluirImagem);
-document.getElementById("inputFoto").addEventListener('change',exibirImagem);
+
 
 function excluir()
 {
@@ -52,40 +51,4 @@ document.getElementById("enderecoUsuario").textContent = endereco;
 
 // imagem
 
-var img = false; //pega do banco se tem uma imagem cadastrada ou nao
-
-
-if(!img){
-  document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
-  document.getElementById('imagemCarregada').style.zIndex = "10";
-}
-
-else{}
-// pega a img do bd msm
-
-function exibirImagem(event) {
-    const input = event.target;
-    const imagemCarregada = document.getElementById('imagemCarregada');
-
-    const file = input.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        imagemCarregada.src = e.target.result;
-        imagemCarregada.classList.add('show');
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
-
- function excluirImagem()
- {
-  if(true)
-  {
-      document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
-
-  }
-
- }
 
