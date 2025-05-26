@@ -47,6 +47,7 @@ img
 .cabecalho img{
     max-width: 2.8em;
     max-height: 2.8em;
+    object-fit: cover;
 }
 
 .cabecalho a, h2{
