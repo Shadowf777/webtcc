@@ -151,23 +151,27 @@ h2{
             <form action="minhaConta.php" id="formEdicao">
                 <div>
                     <label for="Rua">Rua:</label>
-                    <input type="text" id="rua" required>
+                    <input type="text" id="rua" value="R. Aristides Lobo" required>
                 </div>
                 <div>
                     <label for="Numero">Número:</label>
-                    <input type="number" id="numero" required>
+                    <input type="number" id="numero" value="1146" required>
                 </div>
                 <div>
                     <label for="Cidade">Cidade:</label>
-                    <input type="text" id="cidade" required>
+                    <input type="text" id="cidade" value="Campinas" required>
                 </div>
                 <div>
                     <label for="Estado">Estado:</label>
-                    <input type="text" id="estado" required>
+                    <input type="text" id="estado" value="SP" required>
                 </div>
                 <div>
                     <label for="Complemento">Complemento:</label>
                     <input type="text" id="complemento" placeholder="(opcional)">
+                </div>
+                <div>
+                    <label for="Complemento">CEP:</label>
+                    <input type="text" id="cep" value="13000-050" placeholder="00000-000" required>
                 </div>
                 <button type="submit">Salvar</button>
             </form>

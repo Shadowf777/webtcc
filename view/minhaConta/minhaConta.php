@@ -29,7 +29,7 @@
               <div class="imagemConta">
               <div class="image-container">
                 <input id="inputFoto" class="inputFoto" type="file" accept="image/*">
-                <img id="imagemCarregada" class="imagem-carregada " src="../../public/imagens/homem.png" alt="">
+                <img id="imagemCarregada" class="imagem-carregada " src="" alt="">
                 <div id="editar">
                   <div class="lapis"><span class="material-symbols-outlined">
                     edit_square
