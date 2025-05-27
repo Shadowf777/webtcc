@@ -4,20 +4,19 @@ document.getElementById("inputFoto").addEventListener('change',exibirImagem);
 
 
 
-var ifimg = true; //pega do banco se tem uma imagem cadastrada ou nao
-const img = "../../public/imagens/homem.png";
-    document.getElementById('imagemCarregada').src = img;
+var ifimg = true; //se tem imagem ou nao
+const img = '../../public/imagens/homem.png'; // imagem default
+//setImagemUsuario(img); 
+
 
 
 if(!ifimg){
-  document.getElementById('imagemCarregada').src = "../../public/imagens/homem.png";
+  document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
   document.getElementById('imagemCarregada').style.zIndex = "10";
-  console.log("img falsa");
 }
 
 else if (ifimg){
     document.getElementById('imagemCarregada').src = img;
-    console.log("img true");
 }
 // pega a img do bd msm
 
@@ -33,6 +32,7 @@ function exibirImagem(event) {
         imagemCarregada.classList.add('show');
       };
       reader.readAsDataURL(file);
+      ifimg = true; // indica que uma imagem foi carregada
     }
   }
 
@@ -41,7 +41,8 @@ function exibirImagem(event) {
  {
   if(true)
   {
-      document.getElementById('imagemCarregada').src = "../../public/imagens/homem.png";
+      document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+      ifimg = false; // indica que a imagem foi excluída
 
   }
 

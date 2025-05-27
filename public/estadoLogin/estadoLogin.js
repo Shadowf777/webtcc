@@ -1,6 +1,7 @@
 // Variável privada do módulo (só acessível dentro deste arquivo)
 let isLoggedIn = false;
 
+
 // Função para alterar o estado
 export const setLoggedIn = (value) => {
   isLoggedIn = value;
@@ -19,3 +20,14 @@ export const logout = () => {
   isLoggedIn = false;
   sessionStorage.removeItem('isLoggedIn');
 };
+
+/*export const imagemUsuario = () => {
+  return sessionStorage.getItem('imagemUsuario') || '../../public/imagens/perfildefault.jpg';
+}
+
+export const setImagemUsuario = (bool) => {
+  sessionStorage.setItem('imagemUsuario', bool);
+}
+export const temImagem = () => {
+  return sessionStorage.getItem('imagemUsuario');;
+}*/
