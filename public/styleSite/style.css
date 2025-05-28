@@ -44,7 +44,7 @@ img
     top: 0;
 }
 
-.cabecalho img{
+.cabecalho .imgLogo{
     max-width: 2.8em;
     max-height: 2.8em;
     object-fit: cover;
@@ -76,6 +76,7 @@ header{
     flex-direction: row;
     align-items: center;
     gap: 10px;
+    
 }
 
 .cabecalhoTexto1{
@@ -84,6 +85,14 @@ header{
 
 .cabecalhoTexto2{
     display: none;
+}
+
+.imgMenu
+{
+    width: 100px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 

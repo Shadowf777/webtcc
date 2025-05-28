@@ -22,7 +22,7 @@
         <p>Preencha seu email, e um código de verificação será enviado.</p>
 
         <form action="codigo.php">
-            <input type="email" placeholder="Seu email" required><br>
+            <input id="email" type="email" placeholder="Seu email" required><br>
             <input type="submit" value="Enviar">
         </form>
 
@@ -35,5 +35,9 @@
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
+
+
+   
+
 </body>
 </html>
