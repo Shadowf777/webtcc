@@ -15,9 +15,13 @@ if(estadoLogin)
     logout.style.display = "contents";
     login.style.display = "none";
     cadastro.style.display = "none";
+<<<<<<< HEAD
     imgMenu.forEach(imagem => {
   imagem.src = '../../public/imagens/homem.png';
 });
+=======
+    imgMenu.src = "../../public/imagens/homem.png"
+>>>>>>> be1af0933807d7a552ac70e8133e42a0361fd257
 }
 
 else if(!estadoLogin)
