@@ -15,7 +15,7 @@ if(estadoLogin)
     logout.style.display = "contents";
     login.style.display = "none";
     cadastro.style.display = "none";
-    imgMenu.src = "../imagens/homem.png"
+    imgMenu.src = "../../public/imagens/homem.png"
 }
 
 else if(!estadoLogin)
