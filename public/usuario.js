@@ -1,4 +1,5 @@
 var usuarios = []; // lista de usuarios
+import {adicionarUsuarios , getUsuario} from "./estadoLogin/estadoLogin.js"
 
 export class Usuario {
     

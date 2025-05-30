@@ -32,6 +32,7 @@ function mudarSenha()
   window.location.href = "../mudarASenha/mudarSenha.php";
 }
 
+function contaLogin(){
 
 document.getElementById("nomeUsuario").textContent = "Cecília";
 
@@ -47,6 +48,12 @@ var estado = "SP";
 var endereco = rua +" "+numero+" - "+bairro+", "+cidade+" - "+estado;
 
 document.getElementById("enderecoUsuario").textContent = endereco;
+}
+
+function contaCadastro(nome,email,)
+{
+
+}
 
 
 // imagem

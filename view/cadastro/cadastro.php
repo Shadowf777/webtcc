@@ -40,8 +40,6 @@
                 </div>
 
                 <div class="row">
-                    <input id="telefone" class="col-md-3 col-sm-12 item" type="text"  placeholder="Telefone(opcional)" oninput="validarTelefone(this); aplicarMascaraTelefone(this)" maxlength="14">
-                  
                     <input id="celular" class="col-md-3 col-sm-12 item" type="text"  placeholder="Celular" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
 
                 </div>
