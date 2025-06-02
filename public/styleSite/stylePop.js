@@ -18,7 +18,6 @@ if(estadoLogin)
     imgMenu.forEach(imagem => {
   imagem.src = '../../public/imagens/homem.png';
 });
-    imgMenu.src = "../../public/imagens/homem.png"
 }
 
 else if(!estadoLogin)

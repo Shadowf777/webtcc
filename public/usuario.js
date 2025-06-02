@@ -99,13 +99,17 @@ export class Usuario {
 
 export function adicionarUsuario(u)
 {
-    usuarios.push(u);
-};
+    adicionarUsuarios(u);
+    
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 export function getUsuarios() {
-    return usuarios;
+    const u = JSON.parse(getUsuario());
+    const instanciaRecuperada = new Usuario();
+    Object.assign(instanciaRecuperada, u);
+    return instanciaRecuperada;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
