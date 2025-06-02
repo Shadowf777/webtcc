@@ -23,7 +23,6 @@ function cadastro(event) {
     var cpf = document.getElementById('cpf').value;
     var rg = document.getElementById('rg').value;
     var email = document.getElementById('email').value;
-    var telefone = document.getElementById('telefone').value;
     var celular = document.getElementById('celular').value;
     var senha = document.getElementById('senha').value;
 
@@ -80,8 +79,4 @@ function cadastro(event) {
 
 }
 
-document.getElementById('formCadastro').addEventListener('submit', function (event) {
-    cadastro(
-        event
-    )
-});
+document.getElementById('formCadastro').addEventListener('submit', function (event) {cadastro(event)});
