@@ -1,17 +1,32 @@
+import { getLoggedIn } from "../estadoLogin/estadoLogin.js";
+
+var imgMenu = document.querySelectorAll('.imgMenu');
+const imgDefault = '../../public/imagens/perfildefault.jpg'; // imagem default
+const img = '../../public/imagens/homem.png'; // imagem homem
+
+if(!getLoggedIn())
+{
+  imgMenu.forEach(imagem => {
+      imagem.src = imgDefault;
+    });
+}
+else if (getLoggedIn()) {
+
 
 document.getElementById("semImagem").addEventListener('click', excluirImagem);
 document.getElementById("inputFoto").addEventListener('change', exibirImagem);
-var imgMenu = document.querySelectorAll('.imgMenu');
+
 
 
 var ifimg = true; //se tem imagem ou nao
-const img = '../../public/imagens/homem.png'; // imagem default
+
 //setImagemUsuario(img); 
 
 
 
+
 if (!ifimg) {
-  document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+  document.getElementById('imagemCarregada').src = imgDefault;
   document.getElementById('imagemCarregada').style.zIndex = "10";
   imgMenu.forEach(imagem => {
       imagem.src = '../../public/imagens/perfildefault.jpg';
@@ -48,13 +63,14 @@ function exibirImagem(event) {
 
 function excluirImagem() {
   if (true) {
-    document.getElementById('imagemCarregada').src = "../../public/imagens/perfildefault.jpg";
+    document.getElementById('imagemCarregada').src = imgDefault;
     ifimg = false; // indica que a imagem foi excluída
     
     imgMenu.forEach(imagem => {
-      imagem.src = '../../public/imagens/perfildefault.jpg';
+      imagem.src = imgDefault;
     });
   }
 
 }
 
+}

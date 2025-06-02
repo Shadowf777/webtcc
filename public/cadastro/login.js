@@ -1,5 +1,5 @@
 import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
-import { getUsuarios } from "../usuario.js";
+import { getUsuario } from "../usuario.js";
 
 
 ////////////////////////////////////////////////
@@ -42,8 +42,7 @@ export function fazerLogin(event) {
 
         if (!login) {
 
-            if(senha.length < 5)
-            {
+            if (senha.length < 5) {
                 console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
                 styleSenha.borderColor = "red";
                 msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
@@ -51,10 +50,13 @@ export function fazerLogin(event) {
                 return "A SENHA DEVE TER MAIS DE CINCO CARACTERES";
             }
 
-            
-            check = true;
-            var usuarios = getUsuarios();
 
+            check = true;
+            var usuarios = getUsuario();
+
+            usuarios.forEach(usuario => {
+                
+            
             for (const u of usuarios) {
                 if (u.email != email) {
                     check = false;
@@ -71,7 +73,7 @@ export function fazerLogin(event) {
                 }
 
             }
-        }
+        });
 
 
         msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
@@ -79,25 +81,22 @@ export function fazerLogin(event) {
         console.log("NAO FEZ LOGIN");
         return "NAO FEZ LOGIN";
     }
-}
+}}
 
 ////////////////////////////////////////////////
 
-function limpar(campos)
-{
+function limpar(campos) {
 
-if(campos == 1)
-{
-        
+    if (campos == 1) {
+
         document.getElementById("senha").value = "";
-}
+    }
 
 
-else if(campos == 2)
-{
+    else if (campos == 2) {
         document.getElementById("email").value = "";
         document.getElementById("senha").value = "";
-}
+    }
 }
 
 ////////////////////////////////////////////////

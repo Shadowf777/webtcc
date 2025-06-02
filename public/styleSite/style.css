@@ -89,8 +89,8 @@ header{
 
 .imgMenu
 {
-    width: 50px;
-    height: 50px;
+    width:43px;
+    height: 43px;
     object-fit: cover;
     border-radius: 50%;
 }

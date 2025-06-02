@@ -1,5 +1,5 @@
-var usuarios = []; // lista de usuarios
-import {adicionarUsuarios , getUsuario} from "./estadoLogin/estadoLogin.js"
+//var usuarios = []; // lista de usuarios
+import {adicionarUsuarios , getUsuarios} from "./estadoLogin/estadoLogin.js"
 
 export class Usuario {
     
@@ -99,17 +99,30 @@ export class Usuario {
 
 export function adicionarUsuario(u)
 {
-    adicionarUsuarios(u);
+    var u2 = JSON.stringify(u)
+    adicionarUsuarios(u2);
     
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-export function getUsuarios() {
-    const u = JSON.parse(getUsuario());
-    const instanciaRecuperada = new Usuario();
-    Object.assign(instanciaRecuperada, u);
-    return instanciaRecuperada;
+export function getUsuario() {
+     const usuariosJson = getUsuarios();
+    if (!usuariosJson) {
+        return [];
+    }
+
+    const listaUsuariosJson = JSON.parse(usuariosJson);
+    
+    // Converte cada item do array de volta para um objeto Usuario (opcional)
+    const listaUsuarios = listaUsuariosJson.map(usuarioJson => {
+        const usuarioObj = JSON.parse(usuarioJson);
+        const usuario = new Usuario(); // Supondo que você tenha uma classe Usuario
+        Object.assign(usuario, usuarioObj); // Copia as propriedades
+        return usuario;
+    });
+    
+    return listaUsuarios;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////

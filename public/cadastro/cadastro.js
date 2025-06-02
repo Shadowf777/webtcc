@@ -50,8 +50,8 @@ function cadastro(event) {
 
         else {
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
-            var u2 = JSON.stringify(u1)
-            adicionarUsuario(u2);
+            
+            adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
 
