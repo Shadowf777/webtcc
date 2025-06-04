@@ -1,5 +1,10 @@
 import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
-import { getUsuario } from "../usuario.js";
+import { getUsuario, Usuario, adicionarUsuario } from "../usuario.js";
+
+
+const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212","47276333884", "585014589", "cecilia123");
+
+adicionarUsuario(u1);
 
 
 ////////////////////////////////////////////////
@@ -53,35 +58,43 @@ export function fazerLogin(event) {
 
             check = true;
             var usuarios = getUsuario();
-
-            usuarios.forEach(usuario => {
-                
+            /*
+                        usuarios.forEach(u => {
+                            check = true;
+                            if (u.email != email) {
+                                check = false;
+                            }
+                            if (u.senha != senha) {
+                                check = false;
+                            }
             
-            for (const u of usuarios) {
-                if (u.email != email) {
-                    check = false;
-                }
-                if (u.senha != senha) {
-                    check = false;
-                }
+                            if (check) {
+                                setLoggedIn(true);
+                                console.log("LOGIN");
+                                mudar();
+                                return "LOGIN";
+                            }
+                    });
+            */
+           console.log(usuarios);
+            const usuarioValido = usuarios.some(u => u.email === email && u.senha === senha);
 
-                if (check) {
-                    setLoggedIn(true);
-                    console.log("LOGIN");
-                    mudar();
-                    return "LOGIN";
-                }
-
+            if (usuarioValido) {
+                setLoggedIn(true);
+                console.log("LOGIN");
+                mudar();
+                return "LOGIN";
             }
-        });
+            else if(!usuarioValido){
 
-
-        msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
-        limpar(2);
-        console.log("NAO FEZ LOGIN");
-        return "NAO FEZ LOGIN";
+            msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
+            limpar(2);
+            console.log("NAO FEZ LOGIN");
+            return "NAO FEZ LOGIN";
+            }
+        }
     }
-}}
+}
 
 ////////////////////////////////////////////////
 
