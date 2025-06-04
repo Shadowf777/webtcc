@@ -22,9 +22,11 @@ export const logout = () => {
 };
 
 export const adicionarUsuarios = (usuario) => {
+  sessionStorage.setItem("usuarios");
     const listaUsuarios = getUsuarios() || []; // Pega a lista atual (ou vazia)
     listaUsuarios.push(usuario); // Adiciona o objeto USUÁRIO (não stringificado)
     sessionStorage.setItem("usuarios", JSON.stringify(listaUsuarios)); // Salva o ARRAY como JSON
+    console.log(sessionStorage.getItem("usuarios"));
 };
 
 export const getUsuarios = () => {

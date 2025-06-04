@@ -12,6 +12,7 @@ export class Usuario {
         this.cpf = cpf;
         this.rg = rg;
         this.senha = senha;
+        console.log("construtor")
     }
      
       
@@ -21,7 +22,15 @@ export class Usuario {
 
 export function adicionarUsuario(u)
 {
-    adicionarUsuarios(u2);
+     const usuario = {
+        nome: usuario.nome,
+        email: usuario.email,
+        celular: usuario.celular,
+        cpf: usuario.cpf,
+        rg: usuario.rg,
+        senha: usuario.senha
+    };
+    adicionarUsuarios(usuario);
     
 }
 

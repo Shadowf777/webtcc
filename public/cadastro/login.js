@@ -7,8 +7,7 @@ const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "
 adicionarUsuario(u1);
 
 
-////////////////////////////////////////////////
-
+/////////////////////////////////////////////////
 
 
 var login;
