@@ -23,12 +23,12 @@ export class Usuario {
 export function adicionarUsuario(u)
 {
      const usuario = {
-        nome: usuario.nome,
-        email: usuario.email,
-        celular: usuario.celular,
-        cpf: usuario.cpf,
-        rg: usuario.rg,
-        senha: usuario.senha
+        nome: u.nome,
+        email: u.email,
+        celular: u.celular,
+        cpf: u.cpf,
+        rg: u.rg,
+        senha: u.senha
     };
     adicionarUsuarios(usuario);
     

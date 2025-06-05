@@ -1,17 +1,14 @@
 import { Usuario, adicionarUsuario } from "../usuario.js";
 import { getLoggedIn, setLoggedIn} from "../estadoLogin/estadoLogin.js";
+import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
 
 var login;
-
-
 
 var nomeStyle = document.getElementById('nome').style;
 var senhaStyle = document.getElementById('senha').style;
 
-
-
-
 var u1;//usuario para o cadastro
+
 
 //adicionarUsuario(u1);
 
@@ -54,6 +51,7 @@ function cadastro(event) {
             adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
+            setLoginOuCadastro("cadastro");
 
             Swal.fire({
                 title: "Cadastro concluído com sucesso!",
@@ -69,7 +67,7 @@ function cadastro(event) {
 
 
 
-
+            
             return "FEZ CADASTRO";
         }
 
@@ -78,5 +76,7 @@ function cadastro(event) {
     }
 
 }
+
+
 
 document.getElementById('formCadastro').addEventListener('submit', function (event) { cadastro(event) });

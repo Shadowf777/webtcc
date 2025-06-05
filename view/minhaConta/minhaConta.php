@@ -124,6 +124,7 @@
         require("../elementosFixos/rodape.html");
         ?>
     </div>
+    <script type="module" src="../../public/minhaConta/dados.js"></script>
     <script type="module" src="../../public/minhaConta/fotoPerfil.js"></script>
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/minhaConta/script.js"></script>
