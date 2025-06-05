@@ -53,3 +53,14 @@ export const setUsuarioLogado = (email) =>
 {
   sessionStorage.setItem("usuarioLogado", email)
 }
+
+export const setFotoPerfil = (foto)=>
+{
+  sessionStorage.setItem("foto",foto);
+  
+}
+
+export const getFotoPerfil = () =>
+{
+  return sessionStorage.getItem("foto");
+}

@@ -1,8 +1,8 @@
-import { getLoggedIn } from "../estadoLogin/estadoLogin.js";
+import { getLoggedIn, setFotoPerfil } from "../estadoLogin/estadoLogin.js";
 
 var imgMenu = document.querySelectorAll('.imgMenu');
 const imgDefault = '../../public/imagens/perfildefault.jpg'; // imagem default
-const img = '../../public/imagens/homem.png'; // imagem homem
+const img = '../../public/imagens/jacinto.jpg'; // imagem homem
 
 if(!getLoggedIn())
 {
@@ -18,7 +18,7 @@ document.getElementById("inputFoto").addEventListener('change', exibirImagem);
 
 
 
-var ifimg = true; //se tem imagem ou nao
+var ifimg = false; //se tem imagem ou nao
 
 //setImagemUsuario(img); 
 
@@ -54,6 +54,7 @@ function exibirImagem(event) {
       imgMenu.forEach(imagem => {
       imagem.src = e.target.result;
     });
+      setFotoPerfil(e.target.result.toString());
     };
     reader.readAsDataURL(file);
     ifimg = true; // indica que uma imagem foi carregada
