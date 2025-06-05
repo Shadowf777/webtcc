@@ -1,6 +1,6 @@
 import { Usuario, adicionarUsuario } from "../usuario.js";
 import { getLoggedIn, setLoggedIn} from "../estadoLogin/estadoLogin.js";
-import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
+//import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
 
 var login;
 
@@ -51,7 +51,7 @@ function cadastro(event) {
             adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
-            setLoginOuCadastro("cadastro");
+
 
             Swal.fire({
                 title: "Cadastro concluído com sucesso!",

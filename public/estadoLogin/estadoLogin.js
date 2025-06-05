@@ -19,28 +19,37 @@ export const getLoggedIn = () => {
 export const logout = () => {
   isLoggedIn = false;
   sessionStorage.removeItem('isLoggedIn');
+  sessionStorage.removeItem('loginCadastro');
+  sessionStorage.removeItem("usuarioLogado");
 };
 
 export const adicionarUsuarios = (usuario) => {
-  sessionStorage.setItem("usuarios","");
-    const listaUsuarios = getUsuarios() || []; // Pega a lista atual (ou vazia)
-    listaUsuarios.push(usuario); // Adiciona o objeto USUÁRIO (não stringificado)
-    sessionStorage.setItem("usuarios", JSON.stringify(listaUsuarios)); // Salva o ARRAY como JSON
-    console.log(sessionStorage.getItem("usuarios"));
+  const listaUsuarios = getUsuarios() || [];
+
+
+  const usuarioExistente = listaUsuarios.some(
+    (u) => u.email === usuario.email
+  );
+
+  if (!usuarioExistente) {
+    listaUsuarios.push(usuario);
+    sessionStorage.setItem("usuarios", JSON.stringify(listaUsuarios));
+  }
 };
 
 export const getUsuarios = () => {
-    const usuariosJson = sessionStorage.getItem("usuarios"); // Pega a string JSON
-    return usuariosJson ? JSON.parse(usuariosJson) : []; // Converte para array de objetos
+  const usuariosJson = sessionStorage.getItem("usuarios"); // Pega a string JSON
+  return usuariosJson ? JSON.parse(usuariosJson) : []; // Converte para array de objetos
 };
 
 
-export const setLoginOuCadastro = (value) =>
+
+export const getUsuarioLogado = () =>
 {
-  sessionStorage.setItem("loginCadastro",value.toString);
+  return sessionStorage.getItem("usuarioLogado");
 }
 
-export const getLoginOuCadastro = () =>
+export const setUsuarioLogado = (email) =>
 {
-  sessionStorage.getItem("loginCadastro");
+  sessionStorage.setItem("usuarioLogado", email)
 }

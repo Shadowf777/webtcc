@@ -30,6 +30,7 @@ else if(!estadoLogin)
 
 document.getElementById('logout').addEventListener('click', function(e) {
     setLoggedIn(false);
+    
     window.location.href = "../../view/index/index.php"
   });
 

@@ -1,9 +1,9 @@
 import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
 import { getUsuario, Usuario, adicionarUsuario } from "../usuario.js";
-import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
+import { setUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 
 
-const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212","47276333884", "585014589", "cecilia123");
+const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212", "47276333884", "585014589", "cecilia123");
 
 adicionarUsuario(u1);
 
@@ -47,6 +47,7 @@ export function fazerLogin(event) {
 
         if (!login) {
 
+
             if (senha.length < 5) {
                 console.log("A SENHA DEVE TER MAIS DE CINCO CARACTERES");
                 styleSenha.borderColor = "red";
@@ -58,41 +59,25 @@ export function fazerLogin(event) {
 
             check = true;
             var usuarios = getUsuario();
-            /*
-                        usuarios.forEach(u => {
-                            check = true;
-                            if (u.email != email) {
-                                check = false;
-                            }
-                            if (u.senha != senha) {
-                                check = false;
-                            }
-            
-                            if (check) {
-                                setLoggedIn(true);
-                                console.log("LOGIN");
-                                mudar();
-                                return "LOGIN";
-                            }
-                    });
-            */
-           console.log(usuarios);
-            const usuarioValido = usuarios.some(u => u.email === email && u.senha === senha);
 
-            if (usuarioValido) {
+            console.log(usuarios);
+            const usuarioEncontrado = usuarios.find(u => u.email === email && u.senha === senha);
+
+            if (usuarioEncontrado) { // Se encontrou o usuário
                 setLoggedIn(true);
-                setLoginOuCadastro("login");
+                
+                setUsuarioLogado(usuarioEncontrado.email);
                 console.log("LOGIN");
                 mudar();
-                
+
                 return "LOGIN";
             }
-            else if(!usuarioValido){
+            else if (!usuarioEncontrado) {
 
-            msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
-            limpar(2);
-            console.log("NAO FEZ LOGIN");
-            return "NAO FEZ LOGIN";
+                msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
+                limpar(2);
+                console.log("NAO FEZ LOGIN");
+                return "NAO FEZ LOGIN";
             }
         }
     }
