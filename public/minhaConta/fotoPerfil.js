@@ -28,9 +28,9 @@ var ifimg = false; //se tem imagem ou nao
 if (!ifimg) {
   document.getElementById('imagemCarregada').src = imgDefault;
   document.getElementById('imagemCarregada').style.zIndex = "10";
-  imgMenu.forEach(imagem => {
+  /*imgMenu.forEach(imagem => {
       imagem.src = '../../public/imagens/perfildefault.jpg';
-    });
+    });*/
 }
 
 else if (ifimg) {
@@ -51,10 +51,10 @@ function exibirImagem(event) {
     reader.onload = function (e) {
       imagemCarregada.src = e.target.result;
       imagemCarregada.classList.add('show');
-      imgMenu.forEach(imagem => {
+      /*imgMenu.forEach(imagem => {
       imagem.src = e.target.result;
-    });
-      setFotoPerfil(e.target.result.toString());
+    });*/
+      setFotoPerfil(URL.createObjectURL(e.target.files[0]));
     };
     reader.readAsDataURL(file);
     ifimg = true; // indica que uma imagem foi carregada

@@ -1,7 +1,7 @@
 import { getFotoPerfil, getLoggedIn } from "../estadoLogin/estadoLogin.js";
 
 const imgDefault = '../../public/imagens/perfildefault.jpg'; // imagem default
-const foto = document.querySelectorAll(".imgMenu");
+var foto = document.querySelectorAll(".imgMenu");
 if (getLoggedIn()) {
 
     

@@ -19,7 +19,6 @@ export const getLoggedIn = () => {
 export const logout = () => {
   isLoggedIn = false;
   sessionStorage.removeItem('isLoggedIn');
-  sessionStorage.removeItem('loginCadastro');
   sessionStorage.removeItem("usuarioLogado");
 };
 
