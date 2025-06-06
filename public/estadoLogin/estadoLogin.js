@@ -18,6 +18,8 @@ export const getLoggedIn = () => {
 
 export const logout = () => {
   isLoggedIn = false;
+  sessionStorage.setItem('isLoggedIn', "false");
+  sessionStorage.setItem("usuarioLogado", "");
   sessionStorage.removeItem('isLoggedIn');
   sessionStorage.removeItem("usuarioLogado");
 };
@@ -41,8 +43,6 @@ export const getUsuarios = () => {
   return usuariosJson ? JSON.parse(usuariosJson) : []; // Converte para array de objetos
 };
 
-
-
 export const getUsuarioLogado = () =>
 {
   return sessionStorage.getItem("usuarioLogado");
@@ -63,3 +63,12 @@ export const getFotoPerfil = () =>
 {
   return sessionStorage.getItem("foto");
 }
+
+export const removerUsuario = (email) => {
+  const listaUsuarios = getUsuarios() || [];
+
+  const listaAtualizada = listaUsuarios.filter((usuario) => usuario.email !== email);
+
+  sessionStorage.setItem("usuarios", JSON.stringify(listaAtualizada));
+
+};

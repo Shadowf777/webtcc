@@ -1,5 +1,5 @@
 //var usuarios = []; // lista de usuarios
-import {adicionarUsuarios , getUsuarios} from "./estadoLogin/estadoLogin.js"
+import {adicionarUsuarios , getUsuarios, getUsuarioLogado, removerUsuario} from "./estadoLogin/estadoLogin.js"
 
 export class Usuario {
     
@@ -44,6 +44,18 @@ export function getUsuario() {
         return u;
     });
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+export function apagarConta()
+{
+    const usuarioLogado = getUsuarioLogado();
+    removerUsuario(usuarioLogado);
+
+}
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 

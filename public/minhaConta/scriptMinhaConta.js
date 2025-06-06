@@ -1,4 +1,5 @@
 import { setLoggedIn } from "../estadoLogin/estadoLogin.js";
+import { apagarConta } from "../usuario.js";
 
 document.getElementById("excluir").addEventListener('click', excluir);
 document.getElementById("mudarSenha").addEventListener('click', mudarSenha);
@@ -15,6 +16,7 @@ function excluir() {
     if (result.isConfirmed) {
       Swal.fire("Conta excluída!", "", "success").then(() => {
         window.location.href = '../index/index.php';
+        apagarConta();
         setLoggedIn(false);
       });
 
