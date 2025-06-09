@@ -24,10 +24,11 @@
     <p>Este painel foi feito com a plataforma Power BI como forma de demonstrar os dados cadastrados na EcoStuff.</P>
 
     <div class="powerbi">
+        <iframe title="EcoStuff" width="900" height="560" src="https://app.powerbi.com/view?r=eyJrIjoiYWFlZDAzYjItNDNlYS00ZTc0LWIwOWYtOGVkMTNjYmFiMTQ2IiwidCI6ImI0NzQxYTgyLTZiNmUtNDNhNS1hZDZlLTEwNDQ1MTFhYWVkNiJ9" frameborder="0" allowFullScreen="true"></iframe>
 
     </div>
 
-        <iframe title="EcoStuff" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiYWFlZDAzYjItNDNlYS00ZTc0LWIwOWYtOGVkMTNjYmFiMTQ2IiwidCI6ImI0NzQxYTgyLTZiNmUtNDNhNS1hZDZlLTEwNDQ1MTFhYWVkNiJ9" frameborder="0" allowFullScreen="true"></iframe>
+        
 
 
 
