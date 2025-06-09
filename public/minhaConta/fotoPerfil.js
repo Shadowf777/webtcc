@@ -49,12 +49,13 @@ function exibirImagem(event) {
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
+      const img = e.target.result;
       imagemCarregada.src = e.target.result;
       imagemCarregada.classList.add('show');
       /*imgMenu.forEach(imagem => {
       imagem.src = e.target.result;
     });*/
-      setFotoPerfil(URL.createObjectURL(e.target.files[0]));
+      setFotoPerfil(img);
     };
     reader.readAsDataURL(file);
     ifimg = true; // indica que uma imagem foi carregada

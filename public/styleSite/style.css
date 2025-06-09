@@ -238,6 +238,15 @@ header{
     margin: 0
 }
 
+
+.powerBI
+{
+    background-color: rgb(84, 59, 48);
+    color: white;
+    padding: 40px;
+    font-size: 50px;
+}
+
 @media (max-width:695px)
 {
     #rodape
