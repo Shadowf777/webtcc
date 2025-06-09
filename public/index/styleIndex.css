@@ -22,7 +22,7 @@
 
 .introducao div p{
     line-height: 2.2em;
-    font-size:  23px;
+    font-size:  25px;
     margin-top: 20px;
     text-align: justify;
 }
@@ -249,11 +249,25 @@
 
 
 
-@media (max-width: 1042px) and (min-width: 695px)
+@media (max-width: 1090px) and (min-width: 695px)
 {
-    .introducao div p 
+    .tituloInicio
     {
-        font-size: 20px;
+        font-size: 60px;
+    }
+   .introducao div p, .comprar p
+    {
+        font-size: 23px;
+        line-height: 1.9;
+    }
+
+    .introducao div p {
+        width: 600px;
+    }
+
+    .introducao
+    {
+        gap: 20px;
     }
 
 
@@ -326,11 +340,18 @@
     
 }
 
+@media (max-width: 750px) and (min-width: 695px)
+{
+    .introducao div p{
+        width: 500px;
+    }
+}
+
 @media (max-width:695px)
 {
     .tituloInicio
     {
-        font-size: 60px;
+        font-size: 45px;
     }
 
     .introducao
@@ -354,7 +375,7 @@
 
     .introducao div p, .comprar p{
         line-height: 1.8em;
-        font-size:  25px;
+        font-size:  22px;
         padding: 0 10px 0 10px;
     }
 
@@ -442,4 +463,13 @@
     }
 
 
+}
+
+@media (max-width: 450px)
+{
+    .introducao div p, .comprar p
+    {
+        font-size: 20px;
+        line-height: 1.6;
+    }
 }
