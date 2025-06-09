@@ -196,7 +196,7 @@ header{
 }
 
 #tituloRodape{
-    font-size: 70px;
+    font-size: 60px;
     font-weight: bold;
 }
 
@@ -241,10 +241,13 @@ header{
 
 .powerBI
 {
-    background-color: rgb(84, 59, 48);
-    color: white;
-    padding: 40px;
-    font-size: 50px;
+    background-color: rgb(99, 81, 72);
+    color: rgb(216, 208, 197);
+    padding: 30px 30px 30px 50px;
+    font-size: 22px;
+}
+.powerBI a{
+    color: rgb(189, 171, 147);
 }
 
 @media (max-width:695px)
