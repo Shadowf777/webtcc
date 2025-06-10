@@ -25,7 +25,7 @@ async function connectDB()
         throw err;
     }
 }
-app.use(express.static(path.join(__dirname, '..', 'index')));
+app.use(express.static(path.join(__dirname, '..','view', 'index')));
 app.use(express.static(path.join(__dirname, '..')));
 
 app.use('/', (req,res) =>{
