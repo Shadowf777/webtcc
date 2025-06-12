@@ -9,19 +9,17 @@
 </head>
 <body>
 
-   <?php
- require("../elementosFixos/menu.html");
- ?>
+    
 
 
     <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
-
+<app-bar></app-bar>
 
         <div class="esqueceu">
             <strong>Alterar sua senha</strong>
             <p>Preencha com o código enviado.</p>
     
-            <form id="form" action="senhaNova.php">
+            <form id="form" action="senhaNova.html">
                 <input id="campo"  type="text" maxlength="6" placeholder="Código" required ><br>
                 <input id="enviar" type="submit" value="Enviar">
             </form>
@@ -34,6 +32,7 @@
 <script type="module" src="../../public/styleSite/stylePop.js"></script>
 <script src="../../public/minhaConta/senha.js"></script>
 <script src="../../public/scriptPopUp.js"></script>
+<script src="../../public/appBarRodape.js"></script>
 <script src="../../public/menuResponsivo.js"></script>
 
 

@@ -13,12 +13,10 @@
 </head>
 
 <body>
-<?php
- require("../elementosFixos/menu.html");
- ?>
 
 
   <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
+  <app-bar></app-bar>
 
     <div class="compree">
 
@@ -47,12 +45,11 @@
       
     </div>
 
-    <?php
-        require("../elementosFixos/rodape.html");
-        ?>
+    <roda-pe></roda-pe>
   </div>
   <script type="module" src="../../public/styleSite/stylePop.js"></script>
   <script src="../../public/scriptPopUp.js"></script>
+  <script src="../../public/appBarRodape.js"></script>
   <script src="../../public/menuResponsivo.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

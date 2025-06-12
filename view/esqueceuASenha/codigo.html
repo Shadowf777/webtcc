@@ -9,12 +9,10 @@
 </head>
 <body>
 
-<?php
- require("../elementosFixos/menu.html");
- ?>
-
+ 
 
     <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
+  <app-bar></app-bar>
 
 
         <div class="esqueceu">
@@ -22,7 +20,7 @@
             <p>
                 Preencha com o código enviado.</p>
     
-            <form action="senhaNova.php">
+            <form action="senhaNova.html">
                 <input type="text" placeholder="Código" maxlength="6" required ><br>
                 <input type="submit" value="Enviar">
             </form>

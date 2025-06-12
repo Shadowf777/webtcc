@@ -12,15 +12,13 @@
   </head>
 <body>
  
- <?php
- require("../elementosFixos/menu.html");
- ?>
+
 
 
 <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
 
 
-
+<app-bar></app-bar>
         <div class="minhaConta">
             <div class="titulo"><b>Olá, <span id="nomeUsuario"></span>!</b></div>
             <div class="informacoes">
@@ -120,9 +118,7 @@
 
 
 
-          <?php
-        require("../elementosFixos/rodape.html");
-        ?>
+          <roda-pe></roda-pe>
     </div>
     <script type="module" src="../../public/minhaConta/dados.js"></script>
     <script type="module" src="../../public/minhaConta/fotoPerfil.js"></script>
@@ -130,6 +126,7 @@
     <script src="../../public/minhaConta/script.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
+    <script src="../../public/appBarRodape.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../../public/minhaConta/scriptMinhaConta.js"></script>
     <script>

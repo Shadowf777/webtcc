@@ -11,13 +11,11 @@
 </head>
 <body>
 
- <?php
- require("../elementosFixos/menu.html");
- ?>
+ 
 
 
 <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
-       
+       <app-bar></app-bar>
 <div class="power">
     <div class="tituloPower">Estatísticas sobre a EcoStuff</div>
 
@@ -36,15 +34,14 @@
 
         
 
-        <?php
-        require("../elementosFixos/rodape.html");
-        ?>
+        <roda-pe></roda-pe>
     </div>
 
 
     
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
+    <script src="../../public/appBarRodape.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
 
 
