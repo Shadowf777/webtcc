@@ -32,7 +32,6 @@
 </div>    
     
 <script type="module" src="../../public/styleSite/stylePop.js"></script>
-<script src="../../public/minhaConta/senha.js"></script>
 <script src="../../public/scriptPopUp.js"></script>
 <script src="../../public/menuResponsivo.js"></script>
 

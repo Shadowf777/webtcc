@@ -25,7 +25,7 @@
             <form id="formLogin">
                 <input type="email" placeholder="Seu email" id="email" required><br>
 
-                <div><input class="senha" id="senha" type="text" placeholder="Sua nova senha" required>
+                <div><input class="senha" id="senha" type="text" placeholder="Sua senha" required>
                     <button type="button" class="botao" id="botao">
                         <img class="olho" id="olho" src="../../public/imagens/aberto.png"></button>
                 </div><br>

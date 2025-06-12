@@ -20,9 +20,11 @@
         <strong>Alterar sua senha</strong>
         <p>Preencha com seu e-mail, e um código de verificação será enviado.</p>
 
-        <form action="codigo.php">
-            <input type="email" placeholder="Seu email" required><br>
+        <form id="formEmail">
+            <input id = "email" type="email" placeholder="Seu email" required><br>
+            <div id="msg"></div><br>
             <input type="submit" value="Enviar">
+            
         </form>
 
     </div>
@@ -34,5 +36,6 @@
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
+    <script type="module" src="../../public/recuperarSenha/trocarSenha.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styleSite/style.css">
     <link rel="stylesheet" href="../../public/esqueceuASenha/styleSenha.css">
-    <link rel="icon" type="image/x-icon" href="../imagens/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../../public/imagens/favicon.png">
     <title>Esqueci minha senha</title>
 </head>
 <body>
@@ -21,8 +21,9 @@
         <strong>Esqueceu sua senha?</strong>
         <p>Preencha seu email, e um código de verificação será enviado.</p>
 
-        <form id="formEmail" action="codigo.php">
+        <form id="formEmail">
             <input id="email" type="email" placeholder="Seu email" required><br>
+            <div id="msg"></div><br>
             <input type="submit" value="Enviar">
         </form>
 
@@ -35,9 +36,10 @@
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
+    <script type="module" src="../../public/recuperarSenha/recuperarSenha.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script src="../../public/esqueceuASenha/mandarEmail.js"></script>
+    <!--<script src="../../public/esqueceuASenha/mandarEmail.js"></script>-->
 </body>
 </html>

@@ -22,8 +22,8 @@
             <strong>Esqueceu sua senha?</strong>
             <p>Preencha com seu email e uma senha nova.</p>
     
-            <form>
-                <input type="email" placeholder="Seu email" required><br>
+            <form id="formSenha">
+                <input id="email" type="email" placeholder="Seu email" required><br>
 
                 <div><input class="senha" id="senha" type="text" placeholder="Sua nova senha" required>
                     <button type="button" class="botao" id="botao">
@@ -50,6 +50,7 @@
     <script src="../../public/minhaConta/senha.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
+    <script type="module" src="../../public/recuperarSenha/senhaNova.js"></script>
 
 </body>
 </html>

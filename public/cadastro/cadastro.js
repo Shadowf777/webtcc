@@ -1,5 +1,5 @@
 import { Usuario, adicionarUsuario } from "../usuario.js";
-import { getLoggedIn, setLoggedIn} from "../estadoLogin/estadoLogin.js";
+import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 //import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
 
 var login;
@@ -47,7 +47,7 @@ function cadastro(event) {
 
         else {
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
-            
+
             adicionarUsuario(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
@@ -57,6 +57,12 @@ function cadastro(event) {
                 title: "Cadastro concluído com sucesso!",
                 text: "Adicione mais informações para completar sua conta.",
                 confirmButtonText: "Yay",
+                customClass: {
+                    popup: 'my-swal-popup',
+                    title: 'my-swal-title',
+                    content: 'my-swal-content',
+                    confirmButton: 'my-swal-confirm-button',
+                }
             }).then((result) => {
 
                 if (result.isConfirmed) {
@@ -67,7 +73,7 @@ function cadastro(event) {
 
 
 
-            
+
             return "FEZ CADASTRO";
         }
 
