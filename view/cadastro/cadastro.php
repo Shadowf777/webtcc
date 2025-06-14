@@ -38,6 +38,7 @@
 
 
                 </div>
+                <div id="msg"></div>
 
                 <div class="row">
                     <input id="celular" class="col-md-3 col-sm-12 item" type="text"  placeholder="Celular" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>

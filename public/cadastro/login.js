@@ -3,7 +3,7 @@ import { getUsuario, Usuario, adicionarUsuario } from "../usuario.js";
 import { setUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 
 
-const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212", "47276333884", "585014589", "cecilia123");
+const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "(19) 99910-0212", "472.763.338-84", "58.501.458-9", "cecilia123");
 
 adicionarUsuario(u1);
 

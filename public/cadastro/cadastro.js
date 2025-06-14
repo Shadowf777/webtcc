@@ -1,4 +1,4 @@
-import { Usuario, adicionarUsuario } from "../usuario.js";
+import { Usuario, adicionarUsuario, getUsuario } from "../usuario.js";
 import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 //import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
 
@@ -6,8 +6,12 @@ var login;
 
 var nomeStyle = document.getElementById('nome').style;
 var senhaStyle = document.getElementById('senha').style;
+var emailStyle = document.getElementById('email').style;
 
+var msg = document.getElementById('msg');
 var u1;//usuario para o cadastro
+var usuarios = getUsuario();
+
 
 
 //adicionarUsuario(u1);
@@ -46,6 +50,16 @@ function cadastro(event) {
         }
 
         else {
+            const usuarioExistente = usuarios.find(usuario => usuario.email === email);
+            if (usuarioExistente) {
+                emailStyle.borderColor = "red";
+                console.log("Este email já está cadastrado!");
+                document.getElementById('email').value = "";
+                msg.textContent = "Email já cadastrado!";
+                msg.style.color = "red";
+                return "EMAIL JA CADASTRADO";
+            }
+
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
 
             adicionarUsuario(u1);

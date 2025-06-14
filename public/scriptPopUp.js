@@ -15,7 +15,12 @@ function closePopUp(){
 }
 
 document.addEventListener('click', (event) => {
-    if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
+    if (!popup) return; // Proteção se o popup não existir
+    
+    const clickedOnToggle = [...toggleLinks].some(link => link.contains(event.target));
+    const clickedOnPopup = popup.contains(event.target);
+    
+    if (!clickedOnToggle && !clickedOnPopup) {
         popup.classList.add('hidden');
     }
 });
