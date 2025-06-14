@@ -1,8 +1,12 @@
 const toggleLinks = document.querySelectorAll('.imgConta');
 const popup = document.getElementById('popUp');
 
+
+
+
 toggleLinks.forEach(link => {
     link.addEventListener('click', (event) => {
+        console.log("click")
         event.preventDefault();
         popup.classList.toggle('hidden');
     });
@@ -13,11 +17,11 @@ function closePopUp(){
         popup.classList.add('hidden');
     }
 }
-
+/*
 document.addEventListener('click', (event) => {
     if (![...toggleLinks].some(link => link.contains(event.target)) && !popup.contains(event.target)) {
         popup.classList.add('hidden');
     }
 });
-
+*/
 window.addEventListener('resize', closePopUp);

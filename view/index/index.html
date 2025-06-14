@@ -16,7 +16,7 @@
 
 
   <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
-    <app-bar></app-bar>
+    <app-bar id = menu></app-bar>
     <br>
     <div class="introducao">
       <div class="introducao1">
@@ -102,11 +102,10 @@
     <roda-pe></roda-pe>
     </div>
 
-
+    <script src="../../public/appBarRodape.js"></script>
     <script type="module" src="./src/main.js"></script>
     <script type="module" src="../../public/styleSite/stylePop.js"></script>
     <script src="../../public/scriptPopUp.js"></script>
-    <script src="../../public/appBarRodape.js"></script>
     <script src="../../public/menuResponsivo.js"></script>
     <script>
       let items = Array.from(document.querySelectorAll('.car_planta'));
