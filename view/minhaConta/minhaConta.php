@@ -79,38 +79,24 @@
           <div class="carrossel">
             <div class="carrosselConta">
               <div class="car_Conta">
-                <img src="../../public/imagens/orquidea.jpg" alt="Orquídea">
+                <img src="../../public/imagens/hortela.jpg" alt="Orquídea">
                 <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Orquídea</div>
-                  <div class="texto">Lorem ipsum enetur sequi ipsa quis consequatur aperiam provident nisi accusamus corrupti, sunt qui neque cumque amet.</div>
+                  <div class="tituloCar">Hortelã</div>
+                  <div class="texto">Espécie invasora (plantar em vaso separado). Aroma refrescante.</div>
                 </div>
               </div>
               <div class="car_Conta">
-                <img src="../../public/imagens/morango.jpg" alt="Morango">
+                <img src="../../public/imagens/pimenta.png" alt="Morango">
                 <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Morango</div>
-                  <div class="texto">Lorem ipsum enetur sequi ipsa quis consequatur aperiam provident nisi accusamus corrupti, sunt qui neque cumque amet.</div>
+                  <div class="tituloCar">Pimenta dedinho-de-moça</div>
+                  <div class="texto">Pode ser cultivada em vaso. Frutos pequenos e picantes.</div>
                 </div>
               </div>
               <div class="car_Conta">
-                <img src="../../public/imagens/planta.jfif" alt="Planta">
+                <img src="../../public/imagens/lavanda.jpg" alt="Planta">
                 <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Planta</div>
-                  <div class="texto">Lorem ipsum enetur sequi ipsa quis consequatur aperiam provident nisi accusamus corrupti, sunt qui neque cumque amet.</div>
-                </div>
-              </div>
-              <div class="car_Conta">
-                  <img src="../../public/imagens/samambaia.jpg" alt="Samambaia">
-                  <div class="car_Conta_Informacoes">
-                    <div class="tituloCar">Samambaia</div>
-                    <div class="texto">Lorem ipsum enetur sequi ipsa quis consequatur aperiam provident nisi accusamus corrupti, sunt qui neque cumque amet.</div>
-                  </div>
-              </div>
-              <div class="car_Conta">
-                <img src="../../public/imagens/tomate2.jpg" alt="Tomate">
-                <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Tomate</div>
-                  <div class="texto">Lorem ipsum enetur sequi ipsa quis consequatur aperiam provident nisi accusamus corrupti, sunt qui neque cumque amet.</div>
+                  <div class="tituloCar">Lavanda</div>
+                  <div class="texto">Flores aromáticas, requer ventilação. Usada também como ornamental.</div>
                 </div>
               </div>
               <!-- colocar mais -->

@@ -184,6 +184,39 @@ header{
 /*------------------------------------------------------------*/
 
 
+/*-------------SWAL------------------------------------*/
+.my-swal-popup {
+  font-family: "Teachers", sans-serif;
+  padding: 30px;
+  line-height: 40px;
+}
+
+.my-swal-title {
+  font-size: 28px;;
+}
+
+.my-swal-content {
+  color: #e0e0e0;
+  font-size: 16px;
+}
+
+.my-swal-confirm-button {
+  background-color: #628067 !important;
+}
+
+.my-swal-confirm-button:hover {
+  background-color: #4a6b4f !important;
+}
+
+.my-swal-deny-button
+{
+    background-color: #a4c4af;
+}
+
+.my-swal-deny-button:hover
+{
+    background-color: #8fbfa0;
+}
 
 /*---------------------------------------------------*/
 

@@ -151,28 +151,29 @@ h2{
             <form action="minhaConta.php" id="formEdicao">
                 <div>
                     <label for="nome">Nome:</label>
-                    <input type="text" id="nome" value="Cecília Pignatelli de Oliveira" placeholder="Seu nome completo" required>
+                    <input type="text" id="nome" placeholder="Seu nome completo" required>
                 </div>
                 <div>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" value="cecilia@gmail.com" placeholder="seuemail@gmail.com" required>
+                    <input type="email" id="email" placeholder="seuemail@gmail.com" required>
                 </div>
                 <div>
                     <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" placeholder="000.000.000-00" value="472.763.338-84" oninput="validarCPF(this); aplicarMascaraCPF(this)" maxlength="14" required>
+                    <input type="text" id="cpf" placeholder="000.000.000-00" oninput="validarCPF(this); aplicarMascaraCPF(this)" maxlength="14" required>
                 </div>
                 <div>
                     <label for="rg">RG:</label>
-                    <input type="text" id="rg" placeholder="00.000.000-0" value="58.501.458-9" oninput="validarRG(this); aplicarMascaraRG(this)" maxlength="12" required>
+                    <input type="text" id="rg" placeholder="00.000.000-0" oninput="validarRG(this); aplicarMascaraRG(this)" maxlength="12" required>
                 </div>
                 <div>
                     <label for="celular">Celular:</label>
-                    <input type="text" id="celular" placeholder="(00) 00000-0000" value="(19) juj98806-4298" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
+                    <input type="text" id="celular" placeholder="(00) 00000-0000" oninput="validarCelular(this); aplicarMascaraCelular(this)" maxlength="15" required>
                 </div>
                 <button type="submit">Salvar</button>
             </form>
         </div>
     </div>
+    <script type="module" src="../../public/minhaConta/editarDados.js"></script>
     <script>
         function closePopup() {
             window.location.href = "minhaConta.php";
