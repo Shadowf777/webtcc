@@ -102,7 +102,7 @@ function limpar(campos) {
 ////////////////////////////////////////////////
 
 function mudar() {
-    window.location.href = "../minhaConta/minhaConta.php";
+    window.location.href = "../minhaConta/minhaConta.html";
 }
 
 document.getElementById('formLogin').addEventListener('submit', fazerLogin);

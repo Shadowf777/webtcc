@@ -26,6 +26,6 @@ document.getElementById('formEmail').addEventListener('submit', function (e) {
 });
 
 function mudar() {
-  window.location.href = "../../view/esqueceuASenha/codigo.php";
+  window.location.href = "../../view/esqueceuASenha/codigo.html";
 }
 //PHPMailer mudar pra php pra segurança

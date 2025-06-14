@@ -15,7 +15,7 @@ function excluir() {
 
     if (result.isConfirmed) {
       Swal.fire("Conta excluída!", "", "success").then(() => {
-        window.location.href = '../index/index.php';
+        window.location.href = '../index/index.html';
         apagarConta();
         setLoggedIn(false);
       });
@@ -29,7 +29,7 @@ function excluir() {
 }
 
 function mudarSenha() {
-  window.location.href = "../mudarASenha/mudarSenha.php";
+  window.location.href = "../mudarASenha/mudarSenha.html";
 }
 
 

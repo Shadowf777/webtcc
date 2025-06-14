@@ -60,7 +60,7 @@ function cadastro(event) {
             }).then((result) => {
 
                 if (result.isConfirmed) {
-                    window.location.href = '../../view/login/login.php';
+                    window.location.href = '../../view/login/login.html';
                 }
 
             });
