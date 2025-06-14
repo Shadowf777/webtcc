@@ -16,7 +16,7 @@
 
 
   <div class="container_" id="container_" tabindex="0" onfocus="closeSidebar()">
-  <app-bar></app-bar>
+    <app-bar></app-bar>
     <br>
     <div class="introducao">
       <div class="introducao1">
@@ -99,62 +99,63 @@
       </div>
     </div>
 
-  <roda-pe></roda-pe>
+    <roda-pe></roda-pe>
+    </div>
 
 
-  <script type="module" src="./src/main.js"></script>
-  <script type="module" src="../../public/styleSite/stylePop.js"></script>
-  <script src="../../public/scriptPopUp.js"></script>
-  <script src="../../public/appBarRodape.js"></script>
-  <script src="../../public/menuResponsivo.js"></script>
-  <script>
-    let items = Array.from(document.querySelectorAll('.car_planta'));
-    let currentIndex = 0;
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="../../public/styleSite/stylePop.js"></script>
+    <script src="../../public/scriptPopUp.js"></script>
+    <script src="../../public/appBarRodape.js"></script>
+    <script src="../../public/menuResponsivo.js"></script>
+    <script>
+      let items = Array.from(document.querySelectorAll('.car_planta'));
+      let currentIndex = 0;
 
-    function updateCarrossel() {
-      items.forEach((item) => {
-        item.classList.remove('central');
-        item.style.transform = '';
-        item.style.opacity = '0';
-      });
+      function updateCarrossel() {
+        items.forEach((item) => {
+          item.classList.remove('central');
+          item.style.transform = '';
+          item.style.opacity = '0';
+        });
 
-      const prevIndex = (currentIndex - 1 + items.length) % items.length;
-      const nextIndex = (currentIndex + 1) % items.length;
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        const nextIndex = (currentIndex + 1) % items.length;
 
-      // Lógica para telas menores ou maiores que 1042 pixels
-      if (window.innerWidth < 1042) {
-        items[prevIndex].style.transform = 'translateX(-200px) scale(0.8)';
-        items[nextIndex].style.transform = 'translateX(200px) scale(0.8)';
-      } else {
-        items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
-        items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+        // Lógica para telas menores ou maiores que 1042 pixels
+        if (window.innerWidth < 1042) {
+          items[prevIndex].style.transform = 'translateX(-200px) scale(0.8)';
+          items[nextIndex].style.transform = 'translateX(200px) scale(0.8)';
+        } else {
+          items[prevIndex].style.transform = 'translateX(-400px) scale(0.8)';
+          items[nextIndex].style.transform = 'translateX(400px) scale(0.8)';
+        }
+
+        if (window.innerWidth < 700) {
+          items[prevIndex].style.transform = 'translateX(-50px) scale(0.8)';
+          items[nextIndex].style.transform = 'translateX(50px) scale(0.8)';
+        }
+
+        //items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
+        items[currentIndex].style.opacity = '1';
+        items[currentIndex].classList.add('central');
+
+        // Definindo a opacidade dos itens anterior e seguinte
+        items[prevIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
+        items[nextIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
       }
 
-      if (window.innerWidth < 700) {
-        items[prevIndex].style.transform = 'translateX(-50px) scale(0.8)';
-        items[nextIndex].style.transform = 'translateX(50px) scale(0.8)';
+      function autoRotate() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarrossel();
       }
 
-      //items[currentIndex].style.transform = 'translateX(0px) scale(1.2)';
-      items[currentIndex].style.opacity = '1';
-      items[currentIndex].classList.add('central');
+      let rotateInterval = setInterval(autoRotate, 3000);
 
-      // Definindo a opacidade dos itens anterior e seguinte
-      items[prevIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
-      items[nextIndex].style.opacity = (window.innerWidth < 1042) ? '0' : '1';
-    }
+      window.addEventListener('resize', updateCarrossel);
 
-    function autoRotate() {
-      currentIndex = (currentIndex + 1) % items.length;
       updateCarrossel();
-    }
-
-    let rotateInterval = setInterval(autoRotate, 3000);
-
-    window.addEventListener('resize', updateCarrossel);
-
-    updateCarrossel();
-  </script>
+    </script>
 
 
 </body>
