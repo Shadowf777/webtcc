@@ -5,7 +5,7 @@ import { createScene } from './components/scene.js';
 import { AxesHelper, Frustum } from 'three';
 import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
-import { Resizer } from './systems/resizer.js';
+//import { Resizer } from './systems/resizer.js';
 import { Loop } from './systems/loop.js';
 
 let camera;
@@ -15,12 +15,15 @@ let loop;
 
 class World {
   constructor(container) {
-    camera = createCamera();
-    renderer = createRenderer();
+    console.log("1");
+    camera = createCamera(container);
+
+    renderer = createRenderer(container);
+    
     scene = createScene();
     loop = new Loop(camera, scene, renderer);
     container.append(renderer.domElement);
-
+    
     /*
     const axesHelper = new AxesHelper( 5 );
     scene.add( axesHelper );
@@ -30,8 +33,7 @@ class World {
     
     loop.updatables.push(controls);
     scene.add(ambientLight, mainLight);
-
-    const resizer = new Resizer(container, camera, renderer);
+    //const resizer = new Resizer(container, camera, renderer);
     
   }
 
@@ -54,14 +56,14 @@ class World {
     scene.add(stuff);
     console.log(stuff.position);
     stuff.position.y -= 5
-    stuff.position.x -= 4
+    stuff.position.x -= 3
     stuff.position.z += 3
     window.addEventListener('resize',this.onResize)
   };
 
   onResize() {
 
-    const aspect = window.innerWidth / window.innerHeight;
+    const aspect = container.clientWidth / container.clientHeight;
 
     camera.left = - 20 * aspect/2;
     camera.right = 20 * aspect/2;
@@ -70,9 +72,9 @@ class World {
     console.log("works");
     camera.updateProjectionMatrix();
 
-    renderer.setSize(window.innerWidth,window.innerHeight);
+    renderer.setSize(container.clientWidth,container.clientHeight);
   }
-  
+
 }
 
 export { World };

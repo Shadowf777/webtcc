@@ -1,8 +1,10 @@
 import { WebGLRenderer } from 'three';
 
-function createRenderer() {
+function createRenderer(container) {
+  
   const renderer = new WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth,window.innerHeight);
+  renderer.setSize(container.clientWidth,container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
   renderer.physicallyCorrectLights = true;
 
   return renderer;
