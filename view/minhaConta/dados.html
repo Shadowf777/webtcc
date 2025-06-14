@@ -142,13 +142,13 @@ h2{
     </style>
 </head>
 <body>
-    <iframe src="minhaConta.php" class="background-frame"></iframe>
+    <iframe src="minhaConta.html" class="background-frame"></iframe>
 
     <div id="overlay" class="overlay-popup">
         <div class="popupINF">
             <button id="closePopup" class="close-btn" onclick="closePopup()">×</button>
             <h2>Editar meus dados</h2>
-            <form action="minhaConta.php" id="formEdicao">
+            <form action="minhaConta.html" id="formEdicao">
                 <div>
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" placeholder="Seu nome completo" required>
@@ -176,7 +176,7 @@ h2{
     <script type="module" src="../../public/minhaConta/editarDados.js"></script>
     <script>
         function closePopup() {
-            window.location.href = "minhaConta.php";
+            window.location.href = "minhaConta.html";
         }
     </script>
     <script>

@@ -96,6 +96,6 @@ document.querySelector("form").addEventListener("submit", function(event) {
         return;
     }
 
-    window.location.href = "../minhaConta/minhaConta.php";
+    window.location.href = "../minhaConta/minhaConta.html";
 });
 
