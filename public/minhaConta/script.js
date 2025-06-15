@@ -9,5 +9,6 @@ toggleLink1.addEventListener('click', (event) => {
 toggleLink2.addEventListener('click', (event) => {
     event.preventDefault();
     window.location.href = 'endereco.html';
+    
 });
 
