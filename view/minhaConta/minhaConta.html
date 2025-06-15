@@ -54,13 +54,7 @@
                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
                       </svg></div>
                     <div><p><b>Endereço: </b><span id = "enderecoUsuario"></span></p></div>
-                    <div><b><p>Cep: </b><span id = "cepUsuario"></span></p></div>
-                    <div><b><p>Rua: </b><span id = "ruaUsuario"></span></p></div>
-                    <div><b><p>Número: </b><span id ="numeroUsuario"></span></p></div>
-                    <div><b><p>Cidade: </b><span id = "cidadeUsuario"></span></p></div>
-                    <div><b><p>Estado: </b><span id = "estadoUsuario"></span></p></div>
-                    <div><b><p>Complemento: </b><span id = "complementoUsuario"></span></p></div>
-
+                    
                     
 
                   </div>
@@ -128,16 +122,20 @@
 
       document.addEventListener('DOMContentLoaded', () =>{
         console.log("enddd");
+        var string = "rua, numero, cep, cidade - estado"
         let a;
         a = localStorage.getItem("end");
         let b = a.split(",")
         console.log(b);
-        document.getElementById('cepUsuario').textContent = b[0];
-        document.getElementById('ruaUsuario').textContent = b[1];
-        document.getElementById('numeroUsuario').textContent = b[2];
-        document.getElementById('cidadeUsuario').textContent = b[3];
-        document.getElementById('estadoUsuario').textContent = b[4];
-        document.getElementById('complementoUsuario').textContent = b[5];
+        if(b.length != 0)
+      {
+        string = string.replace("rua",b[1]);
+        string = string.replace("numero",b[2]);
+        string = string.replace("cep",b[0]);
+        string = string.replace("cidade",b[3]);
+        string = string.replace("estado",b[4]);
+          document.getElementById('enderecoUsuario').textContent = string;
+      }
       })
 
 
