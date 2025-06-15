@@ -4,7 +4,7 @@ import {adicionarUsuarios , getUsuarios, getUsuarioLogado, removerUsuario} from 
 export class Usuario {
     
 
-    constructor(nome, email, celular, cpf, rg, senha)
+    constructor(nome, email, celular, cpf, rg, senha,end)
     {
         this.nome = nome;
         this.email = email;
@@ -12,6 +12,7 @@ export class Usuario {
         this.cpf = cpf;
         this.rg = rg;
         this.senha = senha;
+        this.end = end;
         console.log("construtor")
     }
      
@@ -28,7 +29,8 @@ export function adicionarUsuario(u)
         celular: u.celular,
         cpf: u.cpf,
         rg: u.rg,
-        senha: u.senha
+        senha: u.senha,
+        end: u.end
     };
     adicionarUsuarios(usuario);
     
@@ -60,7 +62,7 @@ export function apagarConta()
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212","47276333884", "585014589", "cecilia123");
+const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "19999100212","47276333884", "585014589", "cecilia123",0);
 
 adicionarUsuario(u1);
 

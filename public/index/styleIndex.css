@@ -477,4 +477,10 @@
         font-size: 20px;
         line-height: 1.6;
     }
+
+    .treJs canvas
+    {
+        /*width: 200px;
+        height: 200px;*/
+    }
 }

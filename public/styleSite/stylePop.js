@@ -16,7 +16,7 @@ if(estadoLogin)
     login.style.display = "none";
     cadastro.style.display = "none";
     imgMenu.forEach(imagem => {
-  imagem.src = '../../public/imagens/homem.png';
+  imagem.src = '../../public/imagens/perfildefault.jpg';
 });
 }
 
@@ -31,7 +31,7 @@ else if(!estadoLogin)
 document.getElementById('logout').addEventListener('click', function(e) {
     setLoggedIn(false);
     
-    window.location.href = "../../view/index/index.php"
+    window.location.href = "../../view/index/index.html"
   });
 
 
