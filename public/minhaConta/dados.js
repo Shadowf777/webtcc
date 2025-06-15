@@ -41,6 +41,7 @@ function loadConta(usuario) {
   document.getElementById("nomeCompleto").textContent = nome;
 
   document.getElementById("emailUsuario").textContent = email;
+
 }
 
 

@@ -65,7 +65,7 @@
             font-size: 15px;
         }
 
-        form button {
+        #salva {
             text-decoration: none;
             color: white;
             background: #628067;
@@ -179,36 +179,15 @@
                     <input type="text" id="complemento" placeholder="(opcional)">
                 </div>
 
-                <button type="submit">Salvar</button>
+                <input id='salva' type="submit" value="Salvar">
             </form>
         </div>
     </div>
 
     <script type="module" src="../../public/minhaConta/endereco.js"></script>
 
-    <script>
 
-document.getElementById('cep').addEventListener('input',async (event) =>{
-            event.preventDefault();
-            if (document.getElementById('cep').value.length == 8) {
-                var str = 'https://viacep.com.br/ws/cep/json/'
-                var a = document.getElementById('cep').value;
-                str = str.replace('cep/', a + "/");
-                var c = await fetch(str);
-                var d = await c.json();
-                console.log(d['logradouro']);
-                document.getElementById('rua').value = d['logradouro'];
-                document.getElementById('rua').readOnly = true;
-                document.getElementById('cidade').value = d['localidade']
-                document.getElementById('cidade').readOnly = true;
-                document.getElementById('estado').value = d['estado']
-                document.getElementById('estado').readOnly = true;
-                console.log(document.getElementById('rua'));
-            }
-});
-       
-        
-        
+    <script>
 
         function closePopup() {
             window.location.href = "minhaConta.html";
