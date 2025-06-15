@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,130 +18,133 @@
             border: none;
         }
 
-.overlay-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fundo escuro semitransparente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-}
+        .overlay-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            /* Fundo escuro semitransparente */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
 
-.popupINF {
-    background: #a4c4af;
-    border-radius: 100px;
-    padding: 40px 110px;
-    box-shadow: -3px 3px 2px #628067;
-    width: 600px;
-    max-width: max-content;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+        .popupINF {
+            background: #a4c4af;
+            border-radius: 100px;
+            padding: 40px 110px;
+            box-shadow: -3px 3px 2px #628067;
+            width: 600px;
+            max-width: max-content;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-.popupINF div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 40% 20px auto;
-    width: 400px;
-    max-width: 100%;
-}
+        .popupINF div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 40% 20px auto;
+            width: 400px;
+            max-width: 100%;
+        }
 
-.popupINF div input{
-    width: 70%;
-    border-radius: 16px;
-    padding: 10px 15px 5px 20px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: none;
-    border-bottom: 2px solid #000;
-    font-size: 15px;
-}
+        .popupINF div input {
+            width: 70%;
+            border-radius: 16px;
+            padding: 10px 15px 5px 20px;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: none;
+            border-bottom: 2px solid #000;
+            font-size: 15px;
+        }
 
-form button{
-    text-decoration: none;
-    color: white;
-    background: #628067;
-    padding: 10px 30px;
-    border-radius: 30px;
-    font-size: 17px;
-    width: 200px;
-    text-align: center;
-    margin-left: 25%;
-    margin-top: 20px;
-    border: none;
-    border-bottom: 2px solid #000;
-}
+        form button {
+            text-decoration: none;
+            color: white;
+            background: #628067;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 17px;
+            width: 200px;
+            text-align: center;
+            margin-left: 25%;
+            margin-top: 20px;
+            border: none;
+            border-bottom: 2px solid #000;
+        }
 
-.close-btn {
-    position: absolute;
-    top: -20px;
-    right: -5px;
-    background: none;
-    border: none;
-    font-size: 3rem;
-    cursor: pointer;
-    color: rgb(255, 255, 255, 0.8);
-    text-shadow: 1px 1px 8px #000000;
-}
+        .close-btn {
+            position: absolute;
+            top: -20px;
+            right: -5px;
+            background: none;
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            color: rgb(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 8px #000000;
+        }
 
-h2{
-    font-size: 1.5em;
-    font-weight: bold;
-    color: black;
-}
+        h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: black;
+        }
 
-@media(max-width: 661px) {
-    .popupINF {
-    border-radius: 50px;
-    padding: 20px 55px;
-}
+        @media(max-width: 661px) {
+            .popupINF {
+                border-radius: 50px;
+                padding: 20px 55px;
+            }
 
-    .popupINF div{
-    flex-direction: column;
-    flex-wrap: wrap;
-}
+            .popupINF div {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
 
-    .popupINF div label{
-        margin-left: -230px;
-    }
-    
-    .popupINF div input{
-    width: 90%;
-}
-    .close-btn{
-        right: 110px;
-        top: 0px;
-    }
-}
+            .popupINF div label {
+                margin-left: -230px;
+            }
 
-@media(max-width: 501px) {
-    .popupINF {
-    border-radius: 50px;
-    padding: 20px 55px;
-}
+            .popupINF div input {
+                width: 90%;
+            }
 
-    .popupINF div{
-    flex-direction: column;
-    flex-wrap: wrap;
-}
+            .close-btn {
+                right: 110px;
+                top: 0px;
+            }
+        }
 
-    .popupINF div label{
-        margin-left: -150px;
-    }
-    
-    .popupINF div input{
-    width: 70%;
-}
-}
+        @media(max-width: 501px) {
+            .popupINF {
+                border-radius: 50px;
+                padding: 20px 55px;
+            }
+
+            .popupINF div {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+
+            .popupINF div label {
+                margin-left: -150px;
+            }
+
+            .popupINF div input {
+                width: 70%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <iframe src="minhaConta.html" class="background-frame"></iframe>
 
@@ -150,38 +154,67 @@ h2{
             <h2>Editar meus dados</h2>
             <form action="minhaConta.html" id="formEdicao">
                 <div>
-                    <label for="Rua">Rua:</label>
-                    <input type="text" id="rua" value="R. Aristides Lobo" required>
+                    <label for="cep">CEP:</label>
+                    <input type="text" id="cep" placeholder="00000-000" maxlength="8">
                 </div>
                 <div>
-                    <label for="Numero">Número:</label>
-                    <input type="number" id="numero" value="1146" required>
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" required>
+                </div>
+                
+                <div>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" required>
                 </div>
                 <div>
-                    <label for="Cidade">Cidade:</label>
-                    <input type="text" id="cidade" value="Campinas" required>
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" required>
                 </div>
                 <div>
-                    <label for="Estado">Estado:</label>
-                    <input type="text" id="estado" value="SP" required>
+                    <label for="numero">Número:</label>
+                    <input type="number" id="numero" required>
                 </div>
                 <div>
-                    <label for="Complemento">Complemento:</label>
+                    <label for="complemento">Complemento:</label>
                     <input type="text" id="complemento" placeholder="(opcional)">
                 </div>
-                <div>
-                    <label for="Complemento">CEP:</label>
-                    <input type="text" id="cep" value="13000-050" placeholder="00000-000" required>
-                </div>
+
                 <button type="submit">Salvar</button>
             </form>
         </div>
     </div>
+
+    <script type="module" src="../../public/minhaConta/endereco.js"></script>
+
     <script>
+
+document.getElementById('cep').addEventListener('input',async (event) =>{
+            event.preventDefault();
+            if (document.getElementById('cep').value.length == 8) {
+                var str = 'https://viacep.com.br/ws/cep/json/'
+                var a = document.getElementById('cep').value;
+                str = str.replace('cep/', a + "/");
+                var c = await fetch(str);
+                var d = await c.json();
+                console.log(d['logradouro']);
+                document.getElementById('rua').value = d['logradouro'];
+                document.getElementById('rua').readOnly = true;
+                document.getElementById('cidade').value = d['localidade']
+                document.getElementById('cidade').readOnly = true;
+                document.getElementById('estado').value = d['estado']
+                document.getElementById('estado').readOnly = true;
+                console.log(document.getElementById('rua'));
+            }
+});
+       
+        
+        
+
         function closePopup() {
             window.location.href = "minhaConta.html";
         }
     </script>
 
 </body>
+
 </html>

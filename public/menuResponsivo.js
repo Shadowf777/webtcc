@@ -29,8 +29,8 @@ function closeSidebar()
 
 function checkScreenSize() {
 if (window.innerWidth > 450) {
-    navigationHeader.style.marginTop = '0';
-    navigationHeader.style.animationName = '';
+    //navigationHeader.style.marginTop = '0';
+   // navigationHeader.style.animationName = '';
 } else {
     navigationHeader.style.marginTop = '-100vw';
 }
