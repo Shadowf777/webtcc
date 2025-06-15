@@ -13,8 +13,10 @@ let renderer;
 let scene;
 let loop;
 
+
 class World {
   constructor(container) {
+    
     console.log("1");
     camera = createCamera(container);
 
