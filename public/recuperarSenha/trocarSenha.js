@@ -24,7 +24,7 @@ if(!emailE)
 
 else
 {
-    window.location.href="codigo.php";
+    window.location.href="codigo.html";
 }
 
 
