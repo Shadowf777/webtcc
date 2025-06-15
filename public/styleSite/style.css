@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Teachers", sans-serif;
 }
 
-body{
+body {
     background-image: url(../imagens/fundo_enhanced.png);
     background-repeat: no-repeat;
     background-position: start;
@@ -18,21 +19,20 @@ body{
     height: 100vh;
 }
 
-.container_{
-    width:100%;
-    height:100%;
+.container_ {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-content: center;
 }
 
-img
-{
+img {
     object-fit: cover;
 }
 
 /*-----------------------------------------------------------*/
-.cabecalho{
+.cabecalho {
     background-color: #628067;
     width: 100%;
     display: flex;
@@ -44,26 +44,26 @@ img
     top: 0;
 }
 
-.cabecalho .imgLogo{
+.cabecalho .imgLogo {
     max-width: 2.8em;
     max-height: 2.8em;
     object-fit: cover;
 }
 
-.cabecalho a, h2{
+.cabecalho a,
+h2 {
     margin: 0px 5px;
     text-decoration: none;
     color: white;
 }
 
-.cabecalhoTexto
-{
+.cabecalhoTexto {
     font-size: 24px;
     color: white;
 
 }
 
-.btn_icon_header{
+.btn_icon_header {
     background: transparent;
     border: none;
     color: white;
@@ -71,25 +71,24 @@ img
     display: none;
 }
 
-header{
+header {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 10px;
-    
+
 }
 
-.cabecalhoTexto1{
+.cabecalhoTexto1 {
     display: block;
 }
 
-.cabecalhoTexto2{
+.cabecalhoTexto2 {
     display: none;
 }
 
-.imgMenu
-{
-    width:43px;
+.imgMenu {
+    width: 43px;
     height: 43px;
     object-fit: cover;
     border-radius: 50%;
@@ -97,7 +96,7 @@ header{
 
 
 @media screen and (max-width: 451px) {
-    .navegacao_header{
+    .navegacao_header {
         position: absolute;
         flex-direction: column !important;
         top: 50px;
@@ -110,40 +109,48 @@ header{
         background-color: #628067;
         align-items: flex-start;
     }
-    .btn_icon_header{
+
+    .btn_icon_header {
         display: block;
     }
-    .cabecalhoTexto1{
+
+    .cabecalhoTexto1 {
         display: none;
     }
-    .cabecalhoTexto2{
+
+    .cabecalhoTexto2 {
         display: block;
     }
 }
+
 @keyframes showSidebar {
-    from {margin-top: -100vw;}
-    to {margin-top: 0;}
+    from {
+        margin-top: -100vw;
+    }
+
+    to {
+        margin-top: 0;
+    }
 }
-/*------------------------------------------------------------*/
-
-
 
 /*------------------------------------------------------------*/
-.triangulo
-{
-    width: 0; 
-    height: 0; 
-    border-left: 50px solid transparent; 
-    border-top: 50px solid transparent; 
-    border-bottom: 50px solid #a4c4af; 
-    position:fixed;
+
+
+
+/*------------------------------------------------------------*/
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid #a4c4af;
+    position: fixed;
     z-index: 100;
     right: 0;
     margin: 10px 45px;
 }
 
-#popup
-{
+#popup {
     background-color: #a4c4af;
     width: 160px;
     font-size: 19px;
@@ -159,23 +166,18 @@ header{
     box-shadow: -3px 3px 2px #00000077;
 }
 
-.hidden
-{
+.hidden {
     display: none;
 }
 
-#popup a
-{
+#popup a {
     color: black;
     text-decoration: none;
 }
 
 
-@media (max-width: 714px)
-
-{
-    .introducao2
-    {
+@media (max-width: 714px) {
+    .introducao2 {
         width: 80%;
     }
 }
@@ -186,60 +188,59 @@ header{
 
 /*-------------SWAL------------------------------------*/
 .my-swal-popup {
-  font-family: "Teachers", sans-serif;
-  padding: 30px;
-  line-height: 40px;
+    font-family: "Teachers", sans-serif;
+    padding: 30px;
+    line-height: 40px;
 }
 
 .my-swal-title {
-  font-size: 28px;;
+    font-size: 28px;
+    ;
 }
 
 .my-swal-content {
-  color: #e0e0e0;
-  font-size: 16px;
+    color: #e0e0e0;
+    font-size: 16px;
 }
 
 .my-swal-confirm-button {
-  background-color: #628067 !important;
+    background-color: #628067 !important;
 }
 
 .my-swal-confirm-button:hover {
-  background-color: #4a6b4f !important;
+    background-color: #4a6b4f !important;
 }
 
-.my-swal-deny-button
-{
+.my-swal-deny-button {
     background-color: #a4c4af;
 }
 
-.my-swal-deny-button:hover
-{
+.my-swal-deny-button:hover {
     background-color: #8fbfa0;
 }
 
 /*---------------------------------------------------*/
 
-#rodape{
+#rodape {
     background-color: #a29787;
     height: max-content;
     width: 100vw;
-    margin:200px 0px 0px 0px;
+    margin: 200px 0px 0px 0px;
     padding: 50px 5% 150px 5%;
 }
 
-#tituloRodape{
+#tituloRodape {
     font-size: 60px;
     font-weight: bold;
 }
 
-#rodape p{
+#rodape p {
     line-height: 1.7em;
-    font-size:  25px;
+    font-size: 25px;
     text-align: justify;
 }
 
-.desenvolvedores{
+.desenvolvedores {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -248,23 +249,21 @@ header{
     gap: 30px;
 }
 
-.single
-{
+.single {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.single img{
+.single img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.nomeDes
-{
+.nomeDes {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
@@ -272,40 +271,51 @@ header{
 }
 
 
-.powerBI
-{
+.powerBI {
     background-color: rgb(99, 81, 72);
     color: rgb(216, 208, 197);
     padding: 30px 30px 30px 50px;
     font-size: 22px;
 }
-.powerBI a{
+
+.powerBI a {
     color: rgb(189, 171, 147);
 }
 
-@media (max-width:695px)
+@media (max-width: 800px) and (min-width: 695px)
 {
-    #rodape
-    {
+    .powerBI {
+        font-size: 20px;
+        line-height: 30px;;
+    }
+}
+
+
+@media (max-width:695px) {
+    #rodape {
         padding: 10%;
     }
-    #tituloRodape
-    {
+
+    #tituloRodape {
         font-size: 55px;
     }
 
-    #rodape p
-    {
+    #rodape p {
         line-height: 1.6em;
-        font-size:  20px;
+        font-size: 20px;
     }
 
-    .single img{
+    .single img {
         height: 150px;
         width: 150px;
         border-radius: 50%;
         object-fit: cover;
-        margin-bottom:10px;
+        margin-bottom: 10px;
+    }
+
+    .powerBI {
+        font-size: 17px;
+        line-height: 30px;;
     }
 }
 
@@ -323,8 +333,7 @@ header{
 
 
 
-input
-{
+input {
     max-width: 500px;
     height: 40px;
     border-radius: 16px;
@@ -335,14 +344,12 @@ input
     font-size: 15px;
 }
 
-input::placeholder
-{
-    color:#628067;
+input::placeholder {
+    color: #628067;
     font-size: 15px;
 }
 
-input:focus
-{
+input:focus {
     border: none;
     border-bottom: 2px solid #000;
     background-color: rgba(223, 242, 230, 1);
@@ -350,24 +357,22 @@ input:focus
 }
 
 
-@media (max-width: 450px) 
-{
-    #popup
-    {
+@media (max-width: 450px) {
+    #popup {
         margin: 100px 45px;
         right: auto;
         left: 0;
-        border-radius:20px;
+        border-radius: 20px;
         border-top-left-radius: 0px;
         top: 40px;
         box-shadow: 3px 3px 2px #628067;
     }
 
-    .triangulo{
+    .triangulo {
         right: auto;
         left: 0;
         top: 50px;
-        border-left: 0px  #a4c4af;
-        border-right: 50px solid transparent; 
+        border-left: 0px #a4c4af;
+        border-right: 50px solid transparent;
     }
 }

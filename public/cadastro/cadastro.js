@@ -9,6 +9,7 @@ var senhaStyle = document.getElementById('senha').style;
 var emailStyle = document.getElementById('email').style;
 
 var msg = document.getElementById('msg');
+msg.style.color = "red";
 var u1;//usuario para o cadastro
 var usuarios = getUsuario();
 
@@ -39,12 +40,14 @@ function cadastro(event) {
             console.log("O NOME DEVE TER MAIS DE 10 CARACTERES");
             console.log(nome.length)
             nomeStyle.borderColor = "red";
+            msg.textContent = "O nome deve ter mais de 10 caracteres.";
             return "NOME PRECISA DE MAIS CARAC";
 
         }
-        else if (senha.length < 5) {
+        else if (senha.length < 8) {
             console.log("A SENHA DEVE TER MAIS DE 5 CARACTERES");
             senhaStyle.borderColor = "red";
+            msg.textContent = "A senha deve ter mais de 8 caracteres.";
             return "SENHA PRECISA DE MAIS CARAC"
 
         }
@@ -56,7 +59,7 @@ function cadastro(event) {
                 console.log("Este email já está cadastrado!");
                 document.getElementById('email').value = "";
                 msg.textContent = "Email já cadastrado!";
-                msg.style.color = "red";
+                
                 return "EMAIL JA CADASTRADO";
             }
 

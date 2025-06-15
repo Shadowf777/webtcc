@@ -7,12 +7,6 @@ const cpf = document.getElementById('cpf');
 const rg = document.getElementById('rg');
 const celular = document.getElementById('celular');
 
-var nomeU = "";
-var emailU = "";
-var cpfU = "";
-var rgU = "";
-var celularU = "";
-
 
 var usuarios = getUsuario();
 
