@@ -20,9 +20,7 @@ export const logout = () => {
   isLoggedIn = false;
   sessionStorage.setItem('isLoggedIn', "false");
   sessionStorage.setItem("usuarioLogado", "");
-  sessionStorage.removeItem('isLoggedIn');
-  sessionStorage.removeItem("usuarioLogado");
-  sessionStorage.removeItem('end');
+  sessionStorage.setItem('end', "");
 };
 
 export const adicionarUsuarios = (usuario) => {
