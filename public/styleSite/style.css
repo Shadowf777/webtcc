@@ -333,7 +333,7 @@ header {
 
 
 
-input {
+input, textarea {
     max-width: 500px;
     height: 40px;
     border-radius: 16px;
@@ -344,12 +344,12 @@ input {
     font-size: 15px;
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
     color: #628067;
     font-size: 15px;
 }
 
-input:focus {
+input:focus, textarea:focus {
     border: none;
     border-bottom: 2px solid #000;
     background-color: rgba(223, 242, 230, 1);

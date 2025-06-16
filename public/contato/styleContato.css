@@ -5,10 +5,10 @@ body {
 }
 
 .contato {
-    margin: 10% 15% 0% 150px;
     display: flex;
     flex-direction: column;
-    width: 65%;
+    margin: 10% 15% 0% 15%;
+    width: 70%;
 
 
 }
@@ -36,17 +36,18 @@ body {
     width: 50%;
 }
 
-.formulario input {
-    width: 150%;
+.formulario input, textarea{
+    width: 100%;
+    max-width: 400px;
 }
 
-#msg input {
-    height: 90px;
+#msg textarea {
+    height: 100px;
     padding: 15px;
     width: 150%;
 }
 
-#msg input::placeholder {
+#msg textarea::placeholder {
     position: absolute;
     top: 13px;
 }
@@ -123,8 +124,7 @@ body {
         gap: 50px;
     }
 
-    .formulario
-    {
+    .formulario {
         width: 100%
     }
 
@@ -145,6 +145,23 @@ body {
         margin: 5px 0px 20px 20px;
         font-weight: normal;
     }
+
+    .contato strong {
+        font-size: 40px;
+        color: rgb(57, 50, 43);
+
+    }
+
+    .contato p {
+        font-size: 20px;
+        margin-top: 10px;
+    }
+
+    .contato h3 {
+        font-size: 18px;
+        font-weight: normal;
+    }
+
 }
 
 @media (max-width: 450px) {
@@ -163,19 +180,32 @@ body {
         margin-bottom: -100px;
     }
 
-    input
-    {
-        width: 100px
+    .formulario input {
+        width: 100%;
+        max-width: 250px
     }
 }
 
 @media (max-width: 347px) {
     .contato {
-        margin-bottom: -170px;
+        margin-top: 100px;
+        margin-bottom: -100px;
     }
-}
 
-@media (max-width: 336px) {
-    .contato {
+    .contato strong {
+        font-size: 35px;
+        color: rgb(57, 50, 43);
+
     }
+
+    .contato p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    .contato h3 {
+        font-size: 16px;
+        font-weight: normal;
+    }
+
 }
