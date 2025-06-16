@@ -122,11 +122,11 @@
         console.log("enddd");
         var string = "$rua, $bairro, $numero, $cep, $cidade - $estado"
         let a;
+        if(sessionStorage.getItem('end') != "")
+      {
         a = sessionStorage.getItem("end");
         let b = a.split(",")
         console.log(b);
-        if(b.length != 0)
-      {
         string = string.replace("$rua",b[1]);
         string = string.replace("$bairro",b[2]);
         string = string.replace("$numero",b[3]);
@@ -135,6 +135,8 @@
         string = string.replace("$estado",b[5]);
         document.getElementById('enderecoUsuario').textContent = string;
       }
+        
+      
       })
 
 
