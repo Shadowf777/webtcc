@@ -1,4 +1,4 @@
-import { getLoggedIn , setLoggedIn} from '../estadoLogin/estadoLogin.js'
+import { getLoggedIn , setLoggedIn, } from '../estadoLogin/estadoLogin.js'
 
 var estadoLogin = getLoggedIn();
 console.log(estadoLogin);
@@ -30,7 +30,6 @@ else if(!estadoLogin)
 
 document.getElementById('logout').addEventListener('click', function(e) {
     setLoggedIn(false);
-    
     window.location.href = "../../view/index/index.html"
   });
 

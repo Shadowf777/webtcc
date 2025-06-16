@@ -22,6 +22,7 @@ export const logout = () => {
   sessionStorage.setItem("usuarioLogado", "");
   sessionStorage.removeItem('isLoggedIn');
   sessionStorage.removeItem("usuarioLogado");
+  sessionStorage.removeItem('end');
 };
 
 export const adicionarUsuarios = (usuario) => {
