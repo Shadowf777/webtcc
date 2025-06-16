@@ -70,15 +70,12 @@
 .treJs {
     display: grid;
     justify-items: end;
-    width: 100%;
-    min-width: 400px;
+    width: 400px;
     aspect-ratio: 4/4;
 }
 
 .treJs canvas {
     position: relative;
-    width: 100%;
-    height: 100%;
     border-radius: 20px;
     z-index: 0;
 }
@@ -454,8 +451,11 @@
         line-height: 1.6;
     }
 
-    .treJs canvas {
-        /*width: 200px;
-        height: 200px;*/
+    .treJs {
+        width: 320px;
+        aspect-ratio: 4/4;
+    }
+    .treJs canvas{
+        border-radius: 0px;
     }
 }

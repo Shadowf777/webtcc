@@ -194,6 +194,7 @@
     const bairroInput = document.getElementById('bairro');
     const cidadeInput = document.getElementById('cidade');
     const estadoInput = document.getElementById('estado');
+    const numeroInput = document.getElementById('numero');
     const formEdicao = document.getElementById('formEdicao');
 
     let cepValido = false;
@@ -278,8 +279,7 @@
             alert('Por favor, insira um CEP válido e aguarde o preenchimento automático dos campos.');
             return;
         }
-
-        alert('Dados salvos com sucesso!');
+        sessionStorage.setItem('end',[cepInput.value,ruaInput.value,bairroInput.value,numeroInput.value,cidadeInput.value,estadoInput.value])
         window.location.href = "minhaConta.html";
     });
 

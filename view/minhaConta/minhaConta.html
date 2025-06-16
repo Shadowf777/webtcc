@@ -120,20 +120,23 @@
 
       document.addEventListener('DOMContentLoaded', () =>{
         console.log("enddd");
-        var string = "rua, numero, cep, cidade - estado"
+        var string = "$rua, $bairro, $numero, $cep, $cidade - $estado"
         let a;
-        a = localStorage.getItem("end");
+        if(sessionStorage.getItem('end') != "")
+      {
+        a = sessionStorage.getItem("end");
         let b = a.split(",")
         console.log(b);
-        if(b.length != 0)
-      {
-        string = string.replace("rua",b[1]);
-        string = string.replace("numero",b[2]);
-        string = string.replace("cep",b[0]);
-        string = string.replace("cidade",b[3]);
-        string = string.replace("estado",b[4]);
-          document.getElementById('enderecoUsuario').textContent = string;
+        string = string.replace("$rua",b[1]);
+        string = string.replace("$bairro",b[2]);
+        string = string.replace("$numero",b[3]);
+        string = string.replace("$cep",b[0]);
+        string = string.replace("$cidade",b[4]);
+        string = string.replace("$estado",b[5]);
+        document.getElementById('enderecoUsuario').textContent = string;
       }
+        
+      
       })
 
 
