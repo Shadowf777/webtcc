@@ -1,6 +1,7 @@
 import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
 import { getUsuario, Usuario, adicionarUsuario } from "../usuario.js";
 import { setUsuarioLogado } from "../estadoLogin/estadoLogin.js";
+import { ClienteService } from "../estadoLogin/clienteService.js"
 
 
 const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "(19) 99910-0212", "472.763.338-84", "58.501.458-9", "cecilia123");
@@ -62,6 +63,10 @@ export function fazerLogin(event) {
 
             console.log(usuarios);
             const usuarioEncontrado = usuarios.find(u => u.email === email && u.senha === senha);
+
+            const usuario = ClienteService.buscarPorEmail(u.email);
+            if(usuario.senha == ClienteService.verificarSenha(u.email, senha))
+            
 
             if (usuarioEncontrado) { // Se encontrou o usuário
                 setLoggedIn(true);
