@@ -1,46 +1,44 @@
 import { getUsuario, adicionarUsuario } from "../usuario.js";
 import { getUsuarioLogado } from "../estadoLogin/estadoLogin.js";
+import { ClienteService } from "../estadoLogin/clienteService.js";
 
-const usuarios = getUsuario();
+
 const usuarioLogado = getUsuarioLogado();
 loadConta(usuarioLogado);
 
-/*const loginOuCadastro = getLoginOuCadastro();
-switch (loginOuCadastro) {
-  case "cadastro":
-    contaCadastro();
-    break;
 
-  case "login":
-    contaLogin();
-    break;
-
-  default:
-    console.log("problema com o sessionstorage");
-    break;
-}*/
-
-
-
-
-function loadConta(usuario) {
+async function loadConta(usuario) {
   var nome="";
   var email = "";
   var primeiro = "";
-  usuarios.forEach(u => {
-    if (u.email === usuario) {
-      nome = u.nome;
-      email = u.email;
-      primeiro = nome.split(' ')[0];
-    }
 
-  });
+  try{
+    const uT = await ClienteService.buscarPorEmail(usuario);
+    nome = uT.NOME;
+    email = usuario;
+    primeiro = nome;
+    //nome.split(' ')[0];
 
-  document.getElementById("nomeUsuario").textContent = primeiro;
+    document.getElementById("nomeUsuario").textContent = primeiro;
 
   document.getElementById("nomeCompleto").textContent = nome;
 
   document.getElementById("emailUsuario").textContent = email;
+
+  console.log(uT.CODIGO);
+
+  const plantas = await ClienteService.buscarPlantasDoCliente(uT.CODIGO);
+
+  if(!plantas)
+  {
+    const carrossel = document.getElementsByClassName("carrossel");
+    carrossel.innerHTML = "<p>Você não possui plantas cadastradas.</p>";
+  }
+
+  }
+  catch (error) {
+    console.log('Erro ao carregar dados do cliente:', error);
+  }
 
 }
 

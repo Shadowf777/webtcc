@@ -32,13 +32,12 @@ async function teste(email){
     }
 }
 
-teste("manuela@gmail.com")
 
 
 
 //adicionarUsuario(u1);
 
-function cadastro(event) {
+async function cadastro(event) {
     login = getLoggedIn();
     console.log("estado do login" + login);
 
@@ -73,7 +72,7 @@ function cadastro(event) {
         }
 
         else {
-            const usuarioExistente = verificarCadastro(email);
+            const usuarioExistente = await ClienteService.buscarPorEmail(email);
             if (usuarioExistente) {
                 emailStyle.borderColor = "red";
                 console.log("Este email já está cadastrado!");
@@ -143,7 +142,7 @@ async function verificarCadastro(email) {
  async function fazerCadastro(usuario)
  {
     try{
-        const r = await adicionarCliente(usuario);
+        const r = await ClienteService.adicionarCliente(usuario);
         if(r)
         {
             return true;

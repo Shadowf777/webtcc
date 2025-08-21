@@ -4,15 +4,15 @@ import {adicionarUsuarios , getUsuarios, getUsuarioLogado, removerUsuario} from 
 export class Usuario {
     
 
-    constructor(nome, email, celular, cpf, rg, senha,end)
+    constructor(NOME, EMAIL, CELULAR, CPF_CNPJ, RG, SENHA,END)
     {
-        this.nome = nome;
-        this.email = email;
-        this.celular = celular;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.senha = senha;
-        this.end = end;
+        this.NOME = NOME;
+        this.EMAIL = EMAIL;
+        this.CELULAR = CELULAR;
+        this.CPF_CNPJ = CPF_CNPJ;
+        this.RG = RG;
+        this.SENHA = SENHA;
+        this.END = END;
         console.log("construtor")
     }
      
@@ -24,13 +24,13 @@ export class Usuario {
 export function adicionarUsuario(u)
 {
      const usuario = {
-        nome: u.nome,
-        email: u.email,
-        celular: u.celular,
-        cpf: u.cpf,
-        rg: u.rg,
-        senha: u.senha,
-        end: u.end
+        NOME: u.NOME,
+        EMAIL: u.EMAIL,
+        CELULAR: u.CELULAR,
+        CPF_CNPJ: u.CPF_CNPJ,
+        RG: u.RG,
+        SENHA: u.SENHA,
+        END: u.END
     };
     adicionarUsuarios(usuario);
     

@@ -1,4 +1,3 @@
-
 export class ClienteService {
     static BASE_URL = 'http://localhost:3000/clientes';
 
@@ -28,6 +27,8 @@ export class ClienteService {
             const response = await fetch(`${this.BASE_URL}/${codigo}/plantas`);
             const text = await response.text();
 
+            if(response.status === 404) { return false; }
+
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
                 throw new Error(error.error || 'Erro ao buscar plantas do cliente');
@@ -45,6 +46,8 @@ export class ClienteService {
         try {
             const response = await fetch(`${this.BASE_URL}/buscar/${encodeURIComponent(email)}`);
             const text = await response.text();
+
+            if(response.status === 404) { return false; }
 
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
@@ -112,6 +115,7 @@ export class ClienteService {
             });
 
             const text = await response.text();
+            console.log(text);
 
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
