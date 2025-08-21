@@ -14,6 +14,25 @@ msg.style.color = "red";
 var u1;//usuario para o cadastro
 //var usuarios = ClienteService.buscarTodos();
 //console.log(usuarios);
+async function teste(email){
+    try{
+        const t = await ClienteService.buscarPorEmail(email);
+        if(t){
+            console.log("Usuario encontrado: ", t);
+            return true;
+        }
+        else{
+            console.log("Usuario naãoo encontrado");
+            return false;
+        }
+    }
+    catch(error){
+        console.error('Erro ao buscar usuário:', error);
+        return false;
+    }
+}
+
+teste("manuela@gmail.com")
 
 
 
@@ -110,10 +129,10 @@ async function verificarCadastro(email) {
         const r = await ClienteService.buscarPorEmail(email);
 
         if (!r) {
-            return true;
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     }
     catch (error) {

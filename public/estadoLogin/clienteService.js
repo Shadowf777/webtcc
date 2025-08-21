@@ -48,13 +48,14 @@ export class ClienteService {
 
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
-                throw new Error(error.error || 'Erro ao buscar cliente por email');
+                return null;
+                //throw new Error(error.error || 'Erro ao buscar cliente por email');
             }
 
             return text ? JSON.parse(text) : null;
         } catch (error) {
             //console.error('Erro ao buscar cliente por email:', error);
-            return error;
+            return null;
         }
     }
 
