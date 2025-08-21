@@ -1,5 +1,6 @@
 import { Usuario, adicionarUsuario, getUsuario } from "../usuario.js";
 import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
+import { ClienteService } from "../estadoLogin/clienteService.js";
 //import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";
 
 var login;
@@ -11,7 +12,8 @@ var emailStyle = document.getElementById('email').style;
 var msg = document.getElementById('msg');
 msg.style.color = "red";
 var u1;//usuario para o cadastro
-var usuarios = getUsuario();
+//var usuarios = ClienteService.buscarTodos();
+//console.log(usuarios);
 
 
 
@@ -36,15 +38,14 @@ function cadastro(event) {
         return "JA TEM LOGIN";
     }
     else {
-        if (nome.length < 10) {
+        if (nome.trim().length < 10) {
             console.log("O NOME DEVE TER MAIS DE 10 CARACTERES");
-            console.log(nome.length)
             nomeStyle.borderColor = "red";
             msg.textContent = "O nome deve ter mais de 10 caracteres.";
             return "NOME PRECISA DE MAIS CARAC";
 
         }
-        else if (senha.length < 8) {
+        else if (senha.trim().length < 8) {
             console.log("A SENHA DEVE TER MAIS DE 5 CARACTERES");
             senhaStyle.borderColor = "red";
             msg.textContent = "A senha deve ter mais de 8 caracteres.";
@@ -53,19 +54,19 @@ function cadastro(event) {
         }
 
         else {
-            const usuarioExistente = usuarios.find(usuario => usuario.email === email);
+            const usuarioExistente = verificarCadastro(email);
             if (usuarioExistente) {
                 emailStyle.borderColor = "red";
                 console.log("Este email já está cadastrado!");
                 document.getElementById('email').value = "";
                 msg.textContent = "Email já cadastrado!";
-                
+
                 return "EMAIL JA CADASTRADO";
             }
 
             u1 = new Usuario(nome, email, celular, cpf, rg, senha);
 
-            adicionarUsuario(u1);
+            fazerCadastro(u1);
 
             console.log("CADASTRO FEITO COM SUCESSO");
 
@@ -103,3 +104,39 @@ function cadastro(event) {
 
 
 document.getElementById('formCadastro').addEventListener('submit', function (event) { cadastro(event) });
+
+async function verificarCadastro(email) {
+    try {
+        const r = await ClienteService.buscarPorEmail(email);
+
+        if (!r) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    catch (error) {
+        console.error('Erro ao verificar email:', error);
+        return false;
+    }
+}
+ async function fazerCadastro(usuario)
+ {
+    try{
+        const r = await adicionarCliente(usuario);
+        if(r)
+        {
+            return true;
+        }
+        else if(!r)
+        {
+            return false;
+        }
+    }
+    catch(error)
+    {
+        console.error('Erro ao fazer cadastro:', error);
+        return false;
+    }
+ }

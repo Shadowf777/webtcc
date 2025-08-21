@@ -61,29 +61,7 @@ export function fazerLogin(event) {
             check = true;
             var usuarios = getUsuario();
 
-            console.log(usuarios);
-            const usuarioEncontrado = usuarios.find(u => u.email === email && u.senha === senha);
-
-            const usuario = ClienteService.buscarPorEmail(u.email);
-            if(usuario.senha == ClienteService.verificarSenha(u.email, senha))
-            
-
-            if (usuarioEncontrado) { // Se encontrou o usuário
-                setLoggedIn(true);
-                
-                setUsuarioLogado(usuarioEncontrado.email);
-                console.log("LOGIN");
-                mudar();
-
-                return "LOGIN";
-            }
-            else if (!usuarioEncontrado) {
-
-                msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
-                limpar(2);
-                console.log("NAO FEZ LOGIN");
-                return "NAO FEZ LOGIN";
-            }
+            handleLogin(email, senha)
         }
     }
 }
@@ -103,6 +81,92 @@ function limpar(campos) {
         document.getElementById("senha").value = "";
     }
 }
+
+////////////////////////////////////////////////
+
+async function handleLogin(email, senha) {
+    try {
+        const resultado = await ClienteService.fazerLogin(email, senha);
+
+        if (resultado.success) {
+            // Login bem-sucedido
+            
+
+            setLoggedIn(true);
+
+            setUsuarioLogado(email);
+            console.log("LOGIN");
+            mudar();
+
+            return "LOGIN";
+
+            // Redirecionar ou atualizar estado da aplicação
+            //window.location.href = '/dashboard';
+
+        } else {
+            // Login falhou
+
+            switch (resultado.errorType) {
+
+                case 'MISSING_CREDENTIALS':
+                    console.log('Email e senha são obrigatórios');
+                    msgSenha.textContent = "Preencha os campos!";
+                    return;
+
+                case 'INVALID_EMAIL_FORMAT':
+                    console.log('Formato de email inválido');
+                    msgSenha.textContent = "Formato de e-mail inválido.";
+                    styleEmail.borderColor = "red";
+                    return;
+
+                case 'INVALID_PASSWORD_LENGTH':
+                    console.log('Senha deve ter pelo menos 5 caracteres');
+                    styleSenha.borderColor = "red";
+                    msgSenha.textContent = "A senha deve ter mais de cinco caracteres!";
+                    limpar(1);
+                    return;
+
+                    
+                case 'EMAIL_NOT_FOUND':
+                    console.log('Email não encontrado');
+                    msgSenha.textContent = "O e-mail informado não está cadastrado.";
+                    limpar(2);
+                    return;
+                    
+                case 'INVALID_PASSWORD':
+                    console.log('Senha incorreta');
+                    msgSenha.textContent = "A senha e o e-mail não são compatíveis.";
+                    limpar(2);
+                    return;
+                
+                default:
+                    console.log('Erro desconhecido durante o login, tente novamente mais tarde');
+                    limpar(2);
+                    return;
+            }
+
+            console.error('Falha no login:', resultado.error);
+            alert(resultado.error);
+            msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
+                limpar(2);
+                console.log("NAO FEZ LOGIN");
+                return "NAO FEZ LOGIN";
+        }
+
+        return resultado;
+
+    } catch (error) {
+        console.error('Erro durante o login:', error);
+        return {
+            success: false,
+            error: 'Erro inesperado durante o login',
+            user: null
+        };
+    }
+}
+
+// Exemplo de chamada
+//handleLogin('cecilia@gmail.com', 'cecilia123');
 
 ////////////////////////////////////////////////
 

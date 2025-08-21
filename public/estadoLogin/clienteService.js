@@ -1,6 +1,8 @@
 
-class ClienteService {
+export class ClienteService {
     static BASE_URL = 'http://localhost:3000/clientes';
+
+    
 
     // Buscar cliente por código
     static async buscarPorCodigo(codigo) {
@@ -51,8 +53,8 @@ class ClienteService {
 
             return text ? JSON.parse(text) : null;
         } catch (error) {
-            console.error('Erro ao buscar cliente por email:', error);
-            throw error;
+            //console.error('Erro ao buscar cliente por email:', error);
+            return error;
         }
     }
 
@@ -73,7 +75,8 @@ class ClienteService {
             }
 
             return await response.json();
-        } catch (error) {
+        }
+        catch (error) {
             console.error('Erro ao verificar senha:', error);
             throw error;
         }
@@ -166,9 +169,117 @@ class ClienteService {
             throw error;
         }
     }
+
+    static async fazerLogin(email, senha) {
+        try {
+            // Validação dos inputs
+            if (!email || !senha) {
+                return {
+                    success: false,
+                    error: 'Email e senha são obrigatórios',
+                    errorType: 'MISSING_CREDENTIALS',
+                    statusCode: 400
+                };
+            }
+
+            // Validação do formato do email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                return {
+                    success: false,
+                    error: 'Formato de email inválido',
+                    errorType: 'INVALID_EMAIL_FORMAT',
+                    statusCode: 400
+                };
+            }
+
+            // Validação do comprimento da senha
+            if (senha.length < 5) {
+                return {
+                    success: false,
+                    error: 'Senha deve ter pelo menos 5 caracteres',
+                    errorType: 'INVALID_PASSWORD_LENGTH',
+                    statusCode: 400
+                };
+            }
+
+            // Buscar usuário por email
+            const usuario = await this.buscarPorEmail(email);
+            console.log(usuario);
+
+            if (usuario == "Error: Pessoa não encontrada") {
+                return {
+                    success: false,
+                    error: 'Email não encontrado',
+                    errorType: 'EMAIL_NOT_FOUND',
+                    statusCode: 404
+                };
+            }
+
+            // Verificar senha
+            const resultadoSenha = await this.verificarSenha(email, senha);
+
+            if (!resultadoSenha.senhaValida) {
+                return {
+                    success: false,
+                    error: 'Senha incorreta',
+                    errorType: 'INVALID_PASSWORD',
+                    statusCode: 401,
+                    //tentativasRestantes: resultadoSenha.tentativasRestantes || 3
+                };
+            }
+
+            // Autenticação bem-sucedida
+            return {
+                success: true,
+                user: email,
+                message: 'Login realizado com sucesso',
+                statusCode: 200
+            };
+
+        } catch (error) {
+            // Se já for um erro estruturado, apenas propaga
+            if (error.success === false) {
+                throw error;
+            }
+
+            // Erro inesperado do banco/sistema
+            console.error('Erro na autenticação:', error);
+            return {
+                success: false,
+                error: 'Erro interno do servidor',
+                errorType: 'INTERNAL_SERVER_ERROR',
+                statusCode: 500
+            };
+        }
+
+
+
+    } catch(error) {
+        console.error('Erro no login:', error);
+
+        // Identifica o tipo de erro
+        let errorMessage = 'Erro durante o login';
+        let errorType = 'UNKNOWN_ERROR';
+
+        if (error.message.includes('Cliente não encontrado')) {
+            errorMessage = 'Email não encontrado';
+            errorType = 'EMAIL_NOT_FOUND';
+            return 1;
+        } else if (error.message.includes('network')) {
+            errorMessage = 'Problema de conexão. Verifique sua internet';
+            errorType = 'NETWORK_ERROR';
+            return 2;
+        } else if (error.message.includes('fetch')) {
+            errorMessage = 'Servidor indisponível no momento';
+            errorType = 'SERVER_ERROR';
+            return 3;
+        }
+
+        return 4;
+    }
 }
 
 
-ClienteService.verificarSenha('felipe@gmail.com',"12345678")
-    .then(cliente => console.log(cliente))
-    .catch(error => console.error(error));
+const r = ClienteService.verificarSenha("cecilia@gmail.com", 'cecilia123')
+console.log(r.senhaValida)
