@@ -25,7 +25,6 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
-            /* Fundo escuro semitransparente */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -57,8 +56,9 @@
 
         .popupINF div input {
             width: 70%;
+            height: 38px;
             border-radius: 16px;
-            padding: 10px 15px 5px 20px;
+            padding: 15px ;
             background-color: rgba(255, 255, 255, 0.6);
             border: none;
             border-bottom: 2px solid #000;
@@ -69,12 +69,12 @@
             text-decoration: none;
             color: white;
             background: #628067;
-            padding: 10px 30px;
+            padding:10px;
             border-radius: 30px;
-            font-size: 17px;
-            width: 200px;
+            font-size: 15px;
+            width: 170px;
             text-align: center;
-            margin-left: 25%;
+            margin-left: 30%;
             margin-top: 20px;
             border: none;
             border-bottom: 2px solid #000;
@@ -89,7 +89,7 @@
             font-size: 3rem;
             cursor: pointer;
             color: rgb(255, 255, 255, 0.8);
-            text-shadow: 1px 1px 8px #000000;
+            text-shadow: 2px 2px 8px #000000;
         }
 
         h2 {
@@ -107,19 +107,38 @@
             .popupINF div {
                 flex-direction: column;
                 flex-wrap: wrap;
+                margin-top: -5px;
             }
 
             .popupINF div label {
-                margin-left: -230px;
+                margin-left: -330px;
+                margin-bottom: 5px;
+                font-size: 14px;
             }
 
             .popupINF div input {
+                height: 28px;
                 width: 90%;
+                padding: 12px;
+                font-size: 14px;
             }
 
             .close-btn {
                 right: 110px;
                 top: 0px;
+            }
+
+            #br {
+                margin-left: -315px;
+            }
+            #ba {
+                margin-left: -320px;
+            }
+            #nu {
+                margin-left: -310px;
+            }
+            #co {
+                margin-left: -273px;
             }
         }
 
@@ -132,14 +151,32 @@
             .popupINF div {
                 flex-direction: column;
                 flex-wrap: wrap;
+                margin-top: 0
             }
 
             .popupINF div label {
-                margin-left: -150px;
+                margin: 0 0 5px -240px;
+                font-size: 0.8em;
+            }
+
+            #br {
+                margin-left: -225px;
+            }
+            #ba {
+                margin-left: -230px;
+            }
+            #nu {
+                margin-left: -220px;
+            }
+            #co {
+                margin-left: -185px;
             }
 
             .popupINF div input {
-                width: 70%;
+                height: 25px;
+                width: 270px;
+                font-size: 0.8em;
+                padding: 10px
             }
         }
     </style>
@@ -151,7 +188,7 @@
         <div class="popupINF">
             <button id="closePopup" class="close-btn" onclick="closePopup()">×</button>
             <h2>Editar meus dados</h2>
-            <form action="minhaConta.html" id="formEdicao">
+            <form id="formEdicao">
                 <div>
                     <label for="cep">CEP:</label>
                     <input type="text" id="cep" placeholder="00000-000" maxlength="9">
@@ -161,23 +198,23 @@
                     <input type="text" id="rua" required>
                 </div>
                 <div>
-                    <label for="bairro">Bairro:</label>
+                    <label for="bairro" id="ba">Bairro:</label>
                     <input type="text" id="bairro" required>
                 </div>
                 <div>
-                    <label for="cidade">Cidade:</label>
+                    <label for="cidade" id="br">Cidade:</label>
                     <input type="text" id="cidade" required>
                 </div>
                 <div>
-                    <label for="estado">Estado:</label>
+                    <label for="estado" id="br">Estado:</label>
                     <input type="text" id="estado" required>
                 </div>
                 <div>
-                    <label for="numero">Número:</label>
+                    <label for="numero" id="nu">Número:</label>
                     <input type="text" id="numero" required>
                 </div>
                 <div>
-                    <label for="complemento">Complemento:</label>
+                    <label for="complemento" id="co">Complemento:</label>
                     <input type="text" id="complemento" placeholder="(opcional)">
                 </div>
 
@@ -279,13 +316,12 @@
             alert('Por favor, insira um CEP válido e aguarde o preenchimento automático dos campos.');
             return;
         }
-        sessionStorage.setItem('end',[cepInput.value,ruaInput.value,bairroInput.value,numeroInput.value,cidadeInput.value,estadoInput.value])
-        window.location.href = "minhaConta.html";
     });
 
     function closePopup() {
         window.location.href = "minhaConta.html";
     }
 </script>
+<script type="module" src="../../public/minhaConta/endereco.js"></script>
 </body>
 </html>

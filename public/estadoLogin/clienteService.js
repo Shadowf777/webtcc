@@ -1,7 +1,7 @@
 export class ClienteService {
     static BASE_URL = 'http://localhost:3000/clientes';
 
-    
+
 
     // Buscar cliente por código
     static async buscarPorCodigo(codigo) {
@@ -25,18 +25,32 @@ export class ClienteService {
     static async buscarPlantasDoCliente(codigo) {
         try {
             const response = await fetch(`${this.BASE_URL}/${codigo}/plantas`);
-            const text = await response.text();
 
-            if(response.status === 404) { return false; }
+            // Primeiro, obtemos o texto/JSON da resposta UMA ÚNICA VEZ
+            const responseData = await response.text();
 
-            if (!response.ok) {
-                const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
-                throw new Error(error.error || 'Erro ao buscar plantas do cliente');
+            // Verifica se é 404 - retorna false
+            if (response.status === 404) {
+                return false;
             }
 
-            return text ? JSON.parse(text) : [];
+            // Verifica outros erros
+            if (!response.ok) {
+                const error = responseData ? JSON.parse(responseData) : { error: 'Erro na requisição' };
+                throw new Error(error.error || `Erro ${response.status} ao buscar plantas`);
+            }
+
+            // Se chegou aqui, é sucesso (200-299)
+            return responseData ? JSON.parse(responseData) : [];
+
         } catch (error) {
             console.error('Erro ao buscar plantas do cliente:', error);
+
+            // Distingue entre erro de rede e outros erros
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                throw new Error('Erro de conexão - verifique sua internet');
+            }
+
             throw error;
         }
     }
@@ -47,7 +61,7 @@ export class ClienteService {
             const response = await fetch(`${this.BASE_URL}/buscar/${encodeURIComponent(email)}`);
             const text = await response.text();
 
-            if(response.status === 404) { return false; }
+            if (response.status === 404) { return false; }
 
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
@@ -91,6 +105,8 @@ export class ClienteService {
             const response = await fetch(`${this.BASE_URL}/${codigo}/endereco`);
             const text = await response.text();
 
+            if( response.status === 404) { return false; }
+
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
                 throw new Error(error.error || 'Erro ao buscar endereço do cliente');
@@ -99,6 +115,57 @@ export class ClienteService {
             return text ? JSON.parse(text) : null;
         } catch (error) {
             console.error('Erro ao buscar endereço do cliente:', error);
+            throw error;
+        }
+    }
+    //Criar endereço do cliente
+    static async criarEndereco(endereco) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/adiciona/endereco`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(endereco)
+            });
+
+            const text = await response.text();
+            console.log(text);
+
+            if (!response.ok) {
+                const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
+                throw new Error(error.error || 'Erro ao criar endereço');
+            }
+
+            return text ? JSON.parse(text) : { message: 'Endereço criado com sucesso' };
+        } catch (error) {
+            console.error('Erro ao criar endereço:', error);
+            throw error;
+        }
+    }
+
+    //Modificar endereço do cliente
+    static async atualizarEndereco(codigo, enderecoData) {
+        try {
+            alert(enderecoData);
+            const response = await fetch(`${this.BASE_URL}/${codigo}/atualiza/endereco`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(enderecoData)
+            });
+
+            const text = await response.text();
+
+            if (!response.ok) {
+                const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
+                throw new Error(error.error || 'Erro ao atualizar endereço');
+            }
+
+            return text ? JSON.parse(text) : { message: 'Endereço atualizado com sucesso' };
+        } catch (error) {
+            console.error('Erro ao atualizar endereço:', error);
             throw error;
         }
     }
@@ -132,7 +199,7 @@ export class ClienteService {
     // Atualizar cliente (exemplo adicional)
     static async atualizarCliente(codigo, dadosAtualizados) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}`, {
+            const response = await fetch(`${this.BASE_URL}/${codigo}/atualiza/cliente`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -157,7 +224,7 @@ export class ClienteService {
     // Remover cliente (exemplo adicional)
     static async removerCliente(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}`, {
+            const response = await fetch(`${this.BASE_URL}/${codigo}/deleta`, {
                 method: 'DELETE'
             });
 
@@ -286,5 +353,3 @@ export class ClienteService {
 }
 
 
-const r = ClienteService.verificarSenha("cecilia@gmail.com", 'cecilia123')
-console.log(r.senhaValida)

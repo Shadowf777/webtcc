@@ -7,10 +7,11 @@
     flex-direction: column;
     align-items: start;
 }
-.lapis
-{
+
+.lapis {
     cursor: pointer;
 }
+
 .minhaConta .titulo {
     font-size: 55px;
     color: #5d5445;
@@ -33,14 +34,13 @@
     margin-right: 50px;
 }
 
-.imagemConta{
-    display:flex;
+.imagemConta {
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#semImagem
-{
+#semImagem {
     background-color: #628067;
     color: white;
     font-weight: bold;
@@ -51,7 +51,7 @@
     border: none;
 }
 
-#semImagem:hover{
+#semImagem:hover {
     background-color: #3d4e40;
 }
 
@@ -59,13 +59,13 @@
 
 .image-container {
     position: relative;
-    display:inline-block;
+    display: inline-block;
     height: 200px;
     width: 200px;
     border-radius: 50%;
 }
 
-.image-container:hover #editar{
+.image-container:hover #editar {
     opacity: 1;
     visibility: visible;
     pointer-events: none;
@@ -115,9 +115,8 @@
     justify-content: center;
 }
 
-#editar .material-symbols-outlined
-{
-    color:white;
+#editar .material-symbols-outlined {
+    color: white;
 
 }
 
@@ -162,27 +161,38 @@
 }
 
 .tituloConta {
-    font-size: 55px;
+    font-size: 40px;
     font-weight: bold;
     color: rgb(53, 46, 42);
     margin: 0px auto 50px auto;
 }
 
-#mais
-{
-    display:flex;
+.naoTem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.naoTem p {
+    text-align: center;
+}
+
+#mais {
+    display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-#mais1{
+#mais1 {
     display: flex;
     justify-content: start;
     padding-top: 30px;
 }
 
-#excluir
-{
+#excluir {
     color: white;
     font-weight: bold;
     background-color: #628067;
@@ -192,13 +202,11 @@
     border-radius: 10px;
 }
 
-#excluir:hover
-{
+#excluir:hover {
     background-color: #3d4e40;
 }
 
-#mudarSenha
-{
+#mudarSenha {
     color: white;
     font-weight: bold;
     background-color: #628067;
@@ -209,8 +217,7 @@
     padding: 5px;
 }
 
-#mudarSenha:hover
-{
+#mudarSenha:hover {
     background-color: #3d4e40;
 }
 
@@ -274,6 +281,11 @@
     margin-bottom: 20px;
 }
 
+.car_Conta_Informacoes .texto {
+    font-size: 1.1em;
+    color: #f0f0f0;
+}
+
 @media(max-width: 1500px) {
     .carrossel {
         margin: auto;
@@ -319,7 +331,8 @@
 
 @media(max-width: 1110px) {
     .minhaConta {
-        margin-left: min(15%, 100px)
+        margin-left: min(15%, 100px);
+        margin: 100px
     }
 
     .informacoesPessoais {
@@ -335,36 +348,34 @@
 
 @media(max-width: 800px) {
 
-    .informacoesPessoais{
+    .informacoesPessoais {
         gap: 40px;
-        flex-direction:column;
+        flex-direction: column;
         justify-content: center;
         margin: 30px 30px 30px 20px;
     }
 
-    .informacoes
-    {
+    .informacoes {
         flex-direction: column;
         flex-wrap: nowrap;
     }
 
-    .infos,.endereco{
+    .infos,
+    .endereco {
         width: 350px;
     }
 
-    .informacoesPessoais1
-    {
+    .informacoesPessoais1 {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .imagemConta
-    {
+
+    .imagemConta {
         align-items: start;
     }
 
-    #semImagem
-    {
+    #semImagem {
         margin-left: 45px;
     }
 }
@@ -374,14 +385,59 @@
 
 @media(max-width: 550px) {
 
-    .minhaConta
-    {
+    .minhaConta {
         margin-top: 100px;
     }
+
+    .image-container {
+        position: relative;
+        display: inline-block;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+    }
+
+    .image-container:hover #editar {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: none;
+
+    }
+
+    .inputFoto {
+        position: static;
+        opacity: 0;
+        height: 120px;
+        width: 120px;
+        border-radius: 50%;
+        background-color: black;
+        z-index: 1;
+
+    }
+
+
+
+
+    .imagem-carregada {
+        position: absolute;
+        width: 100% !important;
+        height: 100% !important;
+        max-height: 200px;
+        object-fit: cover;
+        transform: translateX(-100%);
+        opacity: 1;
+        z-index: 2;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
 
     .informacoes div img {
         width: 130px;
         height: 130px;
+    }
+    .informacoesPessoais p {
+        font-size: 17px;
     }
 
     .carrossel {
@@ -412,26 +468,27 @@
         margin-left: 15px;
     }
 
-    .infos,.endereco{
+    .infos,
+    .endereco {
         width: 100%;
     }
 
-    .tituloConta
-    {
-        font-size: 40px;;
-    }
-    .minhaConta .titulo
-    {
-        font-size: 40px;;
+    .tituloConta {
+        font-size: 30px;
+        ;
     }
 
-    .imagemConta
-    {
+    .minhaConta .titulo {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    .imagemConta {
         align-items: center;
+
     }
 
-    #semImagem
-    {
+    #semImagem {
         margin-left: 0px;
     }
 
@@ -455,13 +512,13 @@
         margin-bottom: 20px;
         margin-left: 15px;
     }
-    .minhaConta
-    {
+
+    .minhaConta {
         margin: 100px 5% 100px 5%;
         width: 90%;
     }
-    .informacoesPessoais1
-    {
+
+    .informacoesPessoais1 {
         margin-left: 20px;
     }
 
@@ -472,13 +529,12 @@
         margin: 0px auto 50px 30px;
     }
 
-    .minhaConta
-    {
+    .minhaConta {
         margin: 100px 5% 100px 5%;
         width: 90%;
     }
-    .informacoesPessoais1
-    {
+
+    .informacoesPessoais1 {
         margin-left: 20px;
     }
 }

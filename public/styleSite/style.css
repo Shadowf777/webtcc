@@ -288,6 +288,13 @@ header {
         font-size: 20px;
         line-height: 30px;;
     }
+    #tituloRodape {
+        font-size: 40px;
+    }
+    #rodape p{
+        line-height: 1.5em;
+        font-size: 20px;
+    };
 }
 
 
@@ -297,12 +304,12 @@ header {
     }
 
     #tituloRodape {
-        font-size: 55px;
+        font-size: 30px;
     }
 
     #rodape p {
-        line-height: 1.6em;
-        font-size: 20px;
+        line-height: 1.5em;
+        font-size: 15px;
     }
 
     .single img {

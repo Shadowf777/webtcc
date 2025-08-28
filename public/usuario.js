@@ -62,9 +62,9 @@ export function apagarConta()
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "(19) 99910-0212","472.763.338-84", "58.501.458-9", "cecilia123",0);
+//const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "(19) 99910-0212","472.763.338-84", "58.501.458-9", "cecilia123",0);
 
-adicionarUsuario(u1);
+//adicionarUsuario(u1);
 
 
 

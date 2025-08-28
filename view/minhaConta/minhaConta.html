@@ -77,27 +77,7 @@
         <div class="tituloConta">Suas Plantas</div>
           <div class="carrossel">
             <div class="carrosselConta">
-              <div class="car_Conta">
-                <img src="../../public/imagens/hortela.jpg" alt="Orquídea">
-                <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Hortelã</div>
-                  <div class="texto">Espécie invasora (plantar em vaso separado). Aroma refrescante.</div>
-                </div>
-              </div>
-              <div class="car_Conta">
-                <img src="../../public/imagens/pimenta.png" alt="Morango">
-                <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Pimenta dedinho-de-moça</div>
-                  <div class="texto">Pode ser cultivada em vaso. Frutos pequenos e picantes.</div>
-                </div>
-              </div>
-              <div class="car_Conta">
-                <img src="../../public/imagens/lavanda.jpg" alt="Planta">
-                <div class="car_Conta_Informacoes">
-                  <div class="tituloCar">Lavanda</div>
-                  <div class="texto">Flores aromáticas, requer ventilação. Usada também como ornamental.</div>
-                </div>
-              </div>
+              
               <!-- colocar mais -->
             </div>
           </div>
@@ -117,111 +97,112 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../../public/minhaConta/scriptMinhaConta.js"></script>
     <script>
+function initializeCarrossel() {
+    console.log("Inicializando carrossel...");
+    const items = Array.from(document.querySelectorAll(".car_Conta"));
+    
+    if (items.length === 0) {
+        console.warn("Nenhum item encontrado no carrossel");
+        return;
+    }
 
-      document.addEventListener('DOMContentLoaded', () =>{
-        console.log("enddd");
-        var string = "$rua, $bairro, $numero, $cep, $cidade - $estado"
-        let a;
-        if(sessionStorage.getItem('end') != "")
-      {
-        a = sessionStorage.getItem("end");
-        let b = a.split(",")
-        console.log(b);
-        string = string.replace("$rua",b[1]);
-        string = string.replace("$bairro",b[2]);
-        string = string.replace("$numero",b[3]);
-        string = string.replace("$cep",b[0]);
-        string = string.replace("$cidade",b[4]);
-        string = string.replace("$estado",b[5]);
-        document.getElementById('enderecoUsuario').textContent = string;
-      }
-        
-      
-      })
+    console.log(`Encontrados ${items.length} itens no carrossel`);
 
+    let currentIndex = 0;
+    let rotateInterval;
 
-      document.addEventListener("DOMContentLoaded", () => {
-  const items = Array.from(document.querySelectorAll(".car_Conta")); // Itens do carrossel
-  let currentIndex = 0; // Índice do item atual
-  let rotateInterval;
+    const updateCarrossel = () => {
+        if (items.length === 1) {
+            // Se só tem um item, centraliza e para aqui
+            items[0].style.transform = "translateX(0px)";
+            items[0].style.opacity = "1";
+            items[0].classList.add("central");
+            return;
+        }
 
-  // Atualiza o carrossel
-  const updateCarrossel = () => {
-    const prevIndex = (currentIndex - 1 + items.length) % items.length; // Índice do item anterior
-    const nextIndex = (currentIndex + 1) % items.length; // Índice do próximo item
+        const prevIndex = (currentIndex - 1 + items.length) % items.length;
+        const nextIndex = (currentIndex + 1) % items.length;
 
-    // Resetar estilos de todos os itens
-    items.forEach((item) => {
-      item.classList.remove("central");
-      item.style.transform = "";
-      item.style.opacity = "0"; // Por padrão, todos ficam invisíveis
-    });
+        // Resetar todos os itens
+        items.forEach((item) => {
+            item.classList.remove("central");
+            item.style.transform = "";
+            item.style.opacity = "0";
+        });
 
-    // Determina as larguras e transformações para cada item
-    const windowWidth = window.innerWidth;
+        // Aplicar transformações
+        const windowWidth = window.innerWidth;
+        const transformations = {
+            prev: windowWidth > 1499 ? "translateX(-500px)" :
+                 windowWidth >= 1041 ? "translateX(-350px)" :
+                 windowWidth >= 700  ? "translateX(-10px)" :
+                 "translateX(-50px)",
+            next: windowWidth > 1499 ? "translateX(500px)" :
+                 windowWidth >= 1041 ? "translateX(350px)" :
+                 windowWidth >= 700  ? "translateX(10px)" :
+                 "translateX(50px)",
+            center: "translateX(0px)",
+        };
 
-    const transformations = {
-      prev: windowWidth > 1499 ? "translateX(-500px)" :
-             windowWidth >= 1041 ? "translateX(-350px)" :
-             windowWidth >= 700  ? "translateX(-10px)" :
-             "translateX(-50px)",
-      next: windowWidth > 1499 ? "translateX(500px)" :
-             windowWidth >= 1041 ? "translateX(350px)" :
-             windowWidth >= 700  ? "translateX(10px)" :
-             "translateX(50px)",
-      center: "translateX(0px)",
+        const isSmallScreen = windowWidth < 1041;
+        const opacityValue = isSmallScreen ? "0" : "1";
+
+        items[prevIndex].style.transform = transformations.prev;
+        items[nextIndex].style.transform = transformations.next;
+        items[prevIndex].style.opacity = opacityValue;
+        items[nextIndex].style.opacity = opacityValue;
+
+        items[currentIndex].style.transform = transformations.center;
+        items[currentIndex].style.opacity = "1";
+        items[currentIndex].classList.add("central");
     };
 
-    // Determina a opacidade para telas pequenas
-    const isSmallScreen = windowWidth < 1041;
-    const opacityValue = isSmallScreen ? "0" : "1";
+    const autoRotate = () => {
+        if (items.length > 1) {
+            currentIndex = (currentIndex + 1) % items.length;
+            updateCarrossel();
+        }
+    };
 
-    // Aplicar transformações e opacidade para os itens
-    items[prevIndex].style.transform = transformations.prev;
-    items[nextIndex].style.transform = transformations.next;
+    const startAutoRotate = () => {
+        if (items.length > 1) {
+            stopAutoRotate();
+            rotateInterval = setInterval(autoRotate, 3000);
+        }
+    };
 
-    items[prevIndex].style.opacity = opacityValue;
-    items[nextIndex].style.opacity = opacityValue;
+    const stopAutoRotate = () => {
+        clearInterval(rotateInterval);
+    };
 
-    // Configurar o item atual
-    items[currentIndex].style.transform = transformations.center;
-    items[currentIndex].style.opacity = "1";
-    items[currentIndex].classList.add("central");
-  };
-
-  // Gira automaticamente o carrossel
-  const autoRotate = () => {
-    currentIndex = (currentIndex + 1) % items.length; // Avança o índice
+    // Inicializar
     updateCarrossel();
-  };
+    startAutoRotate();
 
-  // Inicia o carrossel automático
-  const startAutoRotate = () => {
-    rotateInterval = setInterval(autoRotate, 3000);
-  };
+    // Event listeners
+    items.forEach((item) => {
+        item.addEventListener("mouseenter", stopAutoRotate);
+        item.addEventListener("mouseleave", startAutoRotate);
+    });
 
-  // Para o carrossel automático
-  const stopAutoRotate = () => {
-    clearInterval(rotateInterval);
-  };
+    window.addEventListener("resize", updateCarrossel);
+}
 
-  // Adicionar evento de redimensionamento
-  window.addEventListener("resize", () => {
-    updateCarrossel(); // Atualiza o carrossel ao redimensionar a tela
-  });
-
-  // Inicialização
-  updateCarrossel();
-  startAutoRotate();
-
-  // Pausar rotação ao interagir com o carrossel
-  items.forEach((item) => {
-    item.addEventListener("mouseenter", stopAutoRotate);
-    item.addEventListener("mouseleave", startAutoRotate);
-  });
+// Aguarda o evento customizado das plantas
+window.addEventListener('plantasCarregadas', function(e) {
+    console.log(`Plantas carregadas: ${e.detail.quantidade} itens`);
+    setTimeout(initializeCarrossel, 100); // Pequeno delay para renderização
 });
 
-    </script>
+// Fallback: se já carregou, inicializa após breve delay
+if (document.readyState === 'complete') {
+    setTimeout(() => {
+        if (document.querySelectorAll('.car_Conta').length > 0) {
+            initializeCarrossel();
+        }
+    }, 500);
+}
+</script>
     
 </body>
 </html>
