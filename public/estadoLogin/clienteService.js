@@ -105,7 +105,7 @@ export class ClienteService {
             const response = await fetch(`${this.BASE_URL}/${codigo}/endereco`);
             const text = await response.text();
 
-            if( response.status === 404) { return false; }
+            if (response.status === 404) { return false; }
 
             if (!response.ok) {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
@@ -278,8 +278,9 @@ export class ClienteService {
             // Buscar usuário por email
             const usuario = await this.buscarPorEmail(email);
             console.log(usuario);
+            //(usuario == 'error:"Pessoa não encontrada"')||(usuario == "Error: Cliente não encontrado")
 
-            if (usuario == "Error: Pessoa não encontrada") {
+            if (!usuario) {
                 return {
                     success: false,
                     error: 'Email não encontrado',
@@ -327,7 +328,27 @@ export class ClienteService {
 
 
 
-    } 
+    } catch(error) {
+        console.error('Erro no login:', error);
+
+        // Identifica o tipo de erro
+        let errorMessage = 'Erro durante o login';
+        let errorType = 'UNKNOWN_ERROR';
+
+        if ((error.message.includes('Cliente não encontrado'))||(error.message.includes('Pessoa não encontrada'))) {
+            errorMessage = 'Email não encontrado';
+            errorType = 'EMAIL_NOT_FOUND';
+            return 1;
+        } else if (error.message.includes('network')) {
+            errorMessage = 'Problema de conexão. Verifique sua internet';
+            errorType = 'NETWORK_ERROR';
+            return 2;
+        } else if (error.message.includes('fetch')) {
+            errorMessage = 'Servidor indisponível no momento';
+            errorType = 'SERVER_ERROR';
+            return 3;
+        }
+    }
 
 
     //imagem
@@ -353,7 +374,7 @@ export class ClienteService {
             return text ? JSON.parse(text) : { message: 'Imagem enviada com sucesso' };
         } catch (error) {
             console.error('Erro ao fazer upload da imagem:', error);
-            
+
             // Tratamento específico para erros comuns
             if (error.message.includes('tamanho')) {
                 throw new Error('A imagem é muito grande. Tamanho máximo: 5MB');
@@ -362,7 +383,7 @@ export class ClienteService {
             } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
                 throw new Error('Erro de conexão. Verifique sua internet');
             }
-            
+
             throw error;
         }
     }
@@ -384,11 +405,11 @@ export class ClienteService {
             return text ? JSON.parse(text) : { message: 'Imagem removida com sucesso' };
         } catch (error) {
             console.error('Erro ao remover imagem:', error);
-            
+
             if (error.name === 'TypeError' && error.message.includes('fetch')) {
                 throw new Error('Erro de conexão. Verifique sua internet');
             }
-            
+
             throw error;
         }
     }

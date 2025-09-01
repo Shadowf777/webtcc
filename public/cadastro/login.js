@@ -128,7 +128,7 @@ async function handleLogin(email, senha) {
 
                     
                 case 'EMAIL_NOT_FOUND':
-                    console.log('Email não encontrado');
+                    console.log('Email não encontradooo');
                     msgSenha.textContent = "O e-mail informado não está cadastrado.";
                     limpar(2);
                     return;
