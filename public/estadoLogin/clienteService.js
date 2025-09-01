@@ -327,28 +327,98 @@ export class ClienteService {
 
 
 
-    } catch(error) {
-        console.error('Erro no login:', error);
+    } 
 
-        // Identifica o tipo de erro
-        let errorMessage = 'Erro durante o login';
-        let errorType = 'UNKNOWN_ERROR';
 
-        if (error.message.includes('Cliente não encontrado')) {
-            errorMessage = 'Email não encontrado';
-            errorType = 'EMAIL_NOT_FOUND';
-            return 1;
-        } else if (error.message.includes('network')) {
-            errorMessage = 'Problema de conexão. Verifique sua internet';
-            errorType = 'NETWORK_ERROR';
-            return 2;
-        } else if (error.message.includes('fetch')) {
-            errorMessage = 'Servidor indisponível no momento';
-            errorType = 'SERVER_ERROR';
-            return 3;
+    //imagem
+    static async uploadImagemPerfil(codigo, arquivoImagem) {
+        try {
+            const formData = new FormData();
+            formData.append('profileImage', arquivoImagem);
+
+            const response = await fetch(`${this.BASE_URL}/${codigo}/upload-image`, {
+                method: 'POST',
+                body: formData
+                // Note: Não definir Content-Type header, o browser fará isso automaticamente
+                // com o boundary correto para FormData
+            });
+
+            const text = await response.text();
+
+            if (!response.ok) {
+                const error = text ? JSON.parse(text) : { error: 'Erro no upload da imagem' };
+                throw new Error(error.error || 'Erro ao fazer upload da imagem');
+            }
+
+            return text ? JSON.parse(text) : { message: 'Imagem enviada com sucesso' };
+        } catch (error) {
+            console.error('Erro ao fazer upload da imagem:', error);
+            
+            // Tratamento específico para erros comuns
+            if (error.message.includes('tamanho')) {
+                throw new Error('A imagem é muito grande. Tamanho máximo: 5MB');
+            } else if (error.message.includes('imagem')) {
+                throw new Error('Formato de arquivo não suportado. Use JPG, PNG ou GIF');
+            } else if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                throw new Error('Erro de conexão. Verifique sua internet');
+            }
+            
+            throw error;
+        }
+    }
+
+    // REMOVER IMAGEM DE PERFIL
+    static async removerImagemPerfil(codigo) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/${codigo}/remove-image`, {
+                method: 'DELETE'
+            });
+
+            const text = await response.text();
+
+            if (!response.ok) {
+                const error = text ? JSON.parse(text) : { error: 'Erro ao remover imagem' };
+                throw new Error(error.error || 'Erro ao remover imagem de perfil');
+            }
+
+            return text ? JSON.parse(text) : { message: 'Imagem removida com sucesso' };
+        } catch (error) {
+            console.error('Erro ao remover imagem:', error);
+            
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                throw new Error('Erro de conexão. Verifique sua internet');
+            }
+            
+            throw error;
+        }
+    }
+
+    // OBTER URL COMPLETA DA IMAGEM (helper function)
+    static getUrlImagemPerfil(nomeArquivo) {
+        if (!nomeArquivo) return null;
+        return `${this.BASE_URL.replace('/clientes', '')}/uploads/profiles/${nomeArquivo}`;
+    }
+
+    // VALIDAR IMAGEM ANTES DO UPLOAD (client-side validation)
+    static validarImagem(arquivo) {
+        // Verificar se é um arquivo
+        if (!arquivo || !(arquivo instanceof File)) {
+            throw new Error('Nenhum arquivo selecionado');
         }
 
-        return 4;
+        // Verificar tamanho (máximo 5MB)
+        const tamanhoMaximo = 5 * 1024 * 1024; // 5MB
+        if (arquivo.size > tamanhoMaximo) {
+            throw new Error('A imagem deve ter no máximo 5MB');
+        }
+
+        // Verificar tipo do arquivo
+        const tiposPermitidos = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        if (!tiposPermitidos.includes(arquivo.type)) {
+            throw new Error('Formato de imagem não suportado. Use JPG, PNG, GIF ou WebP');
+        }
+
+        return true;
     }
 }
 
