@@ -1,5 +1,5 @@
 import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
-import { getUsuario, Usuario, adicionarUsuario } from "../usuario.js";
+import { getUsuario, Usuario } from "../usuario.js";
 import { setUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 import { ClienteService } from "../estadoLogin/clienteService.js"
 
