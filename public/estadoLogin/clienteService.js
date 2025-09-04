@@ -2,11 +2,29 @@ export class ClienteService {
     static BASE_URL = 'http://localhost:3000/clientes';
 
 
+    static setAuthToken(token) {
+        this.authToken = token;
+        if (token) {
+            localStorage.setItem('authToken', token);
+        } else {
+            localStorage.removeItem('authToken');
+        }
+    }
+
+    // Recuperar token do localStorage
+    static getStoredToken() {
+        return localStorage.getItem('authToken');
+    }
+
+    // Verificar se está autenticado
+    static isAuthenticated() {
+        return !!this.getStoredToken();
+    }
 
     // Buscar cliente por código
     static async buscarPorCodigo(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}`);
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}`);
             const text = await response.text();
 
             if (!response.ok) {
@@ -24,7 +42,7 @@ export class ClienteService {
     // Buscar plantas do cliente
     static async buscarPlantasDoCliente(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/plantas`);
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/plantas`);
 
             // Primeiro, obtemos o texto/JSON da resposta UMA ÚNICA VEZ
             const responseData = await response.text();
@@ -58,7 +76,7 @@ export class ClienteService {
     // Buscar cliente por email
     static async buscarPorEmail(email) {
         try {
-            const response = await fetch(`${this.BASE_URL}/buscar/${encodeURIComponent(email)}`);
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/buscar/${encodeURIComponent(email)}`);
             const text = await response.text();
 
             if (response.status === 404) { return false; }
@@ -77,32 +95,11 @@ export class ClienteService {
     }
 
 
-    static async verificarSenha(email, senha) {
-        try {
-            const response = await fetch(`${this.BASE_URL}/verificar-senha`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, senha })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Erro ao verificar senha');
-            }
-
-            return await response.json();
-        }
-        catch (error) {
-            console.error('Erro ao verificar senha:', error);
-            throw error;
-        }
-    }
+    
     // Buscar endereço do cliente
     static async buscarEnderecoDoCliente(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/endereco`);
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/endereco`);
             const text = await response.text();
 
             if (response.status === 404) { return false; }
@@ -121,7 +118,7 @@ export class ClienteService {
     //Criar endereço do cliente
     static async criarEndereco(endereco) {
         try {
-            const response = await fetch(`${this.BASE_URL}/adiciona/endereco`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/adiciona/endereco`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -148,7 +145,7 @@ export class ClienteService {
     static async atualizarEndereco(codigo, enderecoData) {
         try {
             alert(enderecoData);
-            const response = await fetch(`${this.BASE_URL}/${codigo}/atualiza/endereco`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/atualiza/endereco`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -173,7 +170,7 @@ export class ClienteService {
     // Adicionar novo cliente
     static async adicionarCliente(novoCliente) {
         try {
-            const response = await fetch(`${this.BASE_URL}/adiciona/cliente`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/adiciona/cliente`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -199,7 +196,7 @@ export class ClienteService {
     // Atualizar cliente (exemplo adicional)
     static async atualizarCliente(codigo, dadosAtualizados) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/atualiza/cliente`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/atualiza/cliente`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -224,7 +221,7 @@ export class ClienteService {
     // Remover cliente (exemplo adicional)
     static async removerCliente(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/deleta`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/deleta`, {
                 method: 'DELETE'
             });
 
@@ -242,74 +239,42 @@ export class ClienteService {
         }
     }
 
-    // Método fazerLogin CORRIGIDO
+    // Método fazerLogin 
     static async fazerLogin(email, senha) {
         try {
-            // Validação dos inputs
-            if (!email || !senha) {
-                return {
-                    success: false,
-                    error: 'Email e senha são obrigatórios',
-                    errorType: 'MISSING_CREDENTIALS',
-                    statusCode: 400
-                };
-            }
-
-            // CORREÇÃO: Faça a requisição diretamente para /login
-            const loginData = {
-                EMAIL: email,
-                SENHA: senha
-            };
-
-            const response = await fetch(`${this.BASE_URL}/login`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(loginData)
+                body: JSON.stringify({ EMAIL: email, SENHA: senha })
             });
 
-            const responseData = await response.json();
+            const data = await response.json();
 
             if (response.ok) {
-                // Login bem-sucedido
+                this.setAuthToken(data.token);
                 return {
                     success: true,
-                    user: responseData.user, // ← Dados completos do usuário
-                    message: responseData.message,
-                    statusCode: response.status
+                    user: data.user,
+                    message: data.message
                 };
             } else {
-                // Login falhou
                 return {
                     success: false,
-                    error: responseData.error || 'Erro no login',
-                    errorType: 'LOGIN_FAILED',
+                    error: data.error,
                     statusCode: response.status
                 };
             }
 
         } catch (error) {
             console.error('Erro no login:', error);
-
-            // Tratamento de erros de rede
-            if (error.name === 'TypeError' && error.message.includes('fetch')) {
-                return {
-                    success: false,
-                    error: 'Erro de conexão. Verifique sua internet',
-                    errorType: 'NETWORK_ERROR',
-                    statusCode: 0
-                };
-            }
-
             return {
                 success: false,
-                error: 'Erro interno do servidor',
-                errorType: 'INTERNAL_ERROR',
-                statusCode: 500
+                error: 'Erro de conexão'
             };
         }
-    } catch(error) {
+    }catch(error) {
         console.error('Erro no login:', error);
 
         // Identifica o tipo de erro
@@ -332,13 +297,70 @@ export class ClienteService {
     }
 
 
+    static async fazerLogout() {
+        try {
+            await this.authenticatedFetch(`${this.BASE_URL}/logout`, {
+                method: 'POST',
+                credentials: 'include'
+            });
+        } catch (error) {
+            console.error('Erro no logout:', error);
+        } finally {
+            this.setAuthToken(null);
+        }
+    }
+
+    // Verificar autenticação
+    static async verificarAutenticacao() {
+        try {
+            const token = this.getStoredToken();
+            if (!token) return false;
+
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/auth/check`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            return response.ok;
+
+        } catch (error) {
+            console.error('Erro ao verificar autenticação:', error);
+            return false;
+        }
+    }
+
+    // Request helper com autenticação
+    static async authenticatedFetch(url, options = {}) {
+        const token = this.getStoredToken();
+        const defaultOptions = {
+            headers: {
+                'Authorization': token ? `Bearer ${token}` : '',
+                'Content-Type': 'application/json',
+                ...options.headers
+            },
+            credentials: 'include',
+            ...options
+        };
+
+        const response = await this.authenticatedFetch(url, defaultOptions);
+        
+        if (response.status === 401) {
+            this.setAuthToken(null);
+            window.location.href = '../../view/login/login.html';
+            throw new Error('Não autorizado');
+        }
+
+        return response;
+    }
+
     //imagem
     static async uploadImagemPerfil(codigo, arquivoImagem) {
         try {
             const formData = new FormData();
             formData.append('profileImage', arquivoImagem);
 
-            const response = await fetch(`${this.BASE_URL}/${codigo}/upload-image`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/upload-image`, {
                 method: 'POST',
                 body: formData
                 // Note: Não definir Content-Type header, o browser fará isso automaticamente
@@ -372,7 +394,7 @@ export class ClienteService {
     // REMOVER IMAGEM DE PERFIL
     static async removerImagemPerfil(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/remove-image`, {
+            const response = await this.authenticatedFetch(`${this.BASE_URL}/${codigo}/remove-image`, {
                 method: 'DELETE'
             });
 
