@@ -1,4 +1,4 @@
-import { getLoggedIn, getUsuarioLogado, setFotoPerfil } from "../estadoLogin/estadoLogin.js";
+import { getLoggedIn, getUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 import { ClienteService } from "../estadoLogin/clienteService.js";
 
 var imgMenu = document.querySelectorAll('.imgMenu');

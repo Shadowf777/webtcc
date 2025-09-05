@@ -1,6 +1,5 @@
 import { ClienteService } from "../estadoLogin/clienteService.js";
 import { setLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
-import { apagarConta } from "../usuario.js";
 
 document.getElementById("excluir").addEventListener('click', excluir);
 document.getElementById("mudarSenha").addEventListener('click', mudarSenha);

@@ -1,4 +1,4 @@
-import { Usuario, adicionarUsuario, getUsuario } from "../usuario.js";
+import { Usuario  } from "../usuario.js";
 import { getLoggedIn, setLoggedIn } from "../estadoLogin/estadoLogin.js";
 import { ClienteService } from "../estadoLogin/clienteService.js";
 //import { setLoginOuCadastro } from "../estadoLogin/estadoLogin.js";

@@ -1,18 +1,14 @@
-import { setLoggedIn, getLoggedIn, logout } from "../estadoLogin/estadoLogin.js";
-import { getUsuario, Usuario } from "../usuario.js";
+import { setLoggedIn, getLoggedIn, logout, getUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 import { setUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 import { ClienteService } from "../estadoLogin/clienteService.js"
 
-
-const u1 = new Usuario("Cecília Pignatelli de Oliveira", "cecilia@gmail.com", "(19) 99910-0212", "472.763.338-84", "58.501.458-9", "cecilia123");
-
-adicionarUsuario(u1);
 
 
 /////////////////////////////////////////////////
 
 
 var login;
+
 
 export function fazerLogin(event) {
     login = getLoggedIn();
@@ -59,7 +55,6 @@ export function fazerLogin(event) {
 
 
             check = true;
-            var usuarios = getUsuario();
 
             handleLogin(email, senha)
         }
@@ -96,7 +91,7 @@ async function handleLogin(email, senha) {
 
             setUsuarioLogado(email);
             console.log("LOGIN");
-            mudar();
+            window.location.href = "../minhaConta/minhaConta.html";
 
             return "LOGIN";
 
@@ -165,14 +160,16 @@ async function handleLogin(email, senha) {
     }
 }
 
-// Exemplo de chamada
-//handleLogin('cecilia@gmail.com', 'cecilia123');
-
 ////////////////////////////////////////////////
 
 function mudar() {
     window.location.href = "../minhaConta/minhaConta.html";
 }
 
-document.getElementById('formLogin').addEventListener('submit', fazerLogin);
+document.addEventListener('DOMContentLoaded', function() {
+    const formLogin = document.getElementById('formLogin');
+    if (formLogin) {
+        formLogin.addEventListener('submit', fazerLogin);
+    }
+});
 

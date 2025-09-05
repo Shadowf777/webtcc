@@ -1,5 +1,5 @@
 import { getUsuarioLogado } from "../estadoLogin/estadoLogin.js";
-import { getUsuario } from "../usuario.js";
+
 import { ClienteService } from "../estadoLogin/clienteService.js";
 import SSAAPassNode from "three/examples/jsm/tsl/display/SSAAPassNode.js";
 
@@ -15,7 +15,7 @@ const usuario = getUsuarioLogado();
 async function loadDadosEditar() {
     try {
         const usuarioDados = await ClienteService.buscarPorEmail(usuario);
-        console.log(usuarioDados);
+        //console.log(usuarioDados);
         nome.value = usuarioDados.NOME;
         email.value = usuarioDados.EMAIL;
         cpf.value = usuarioDados.CPF_CNPJ;
@@ -41,7 +41,7 @@ document.getElementById('formEdicao').addEventListener('submit', () => {
     var uLogado = 0;
     pegarCodigo(usuario).then(codigo => {
         uLogado = codigo;
-        console.log(uLogado);
+        //console.log(uLogado);
         ClienteService.atualizarCliente(uLogado, usuarioAtualizado)
             .then(response => {
                 console.log("Usuário atualizado com sucesso:", response);
