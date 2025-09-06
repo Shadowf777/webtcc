@@ -422,4 +422,75 @@ export class ClienteService {
 
         return true;
     }
+
+    //recuperação de senha
+    static async solicitarRecuperacaoSenha(email) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/solicitar-recuperacao`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Erro ao solicitar recuperação');
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Erro ao solicitar recuperação:', error);
+            throw error;
+        }
+    }
+
+    static async verificarCodigoRecuperacao(email, code) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/verificar-codigo`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, code })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Erro ao verificar código');
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Erro ao verificar código:', error);
+            throw error;
+        }
+    }
+
+    static async redefinirSenha(email, code, newPassword) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/redefinir-senha`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, code, newPassword })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Erro ao redefinir senha');
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Erro ao redefinir senha:', error);
+            throw error;
+        }
+    }
+
 }

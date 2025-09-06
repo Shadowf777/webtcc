@@ -1,31 +1,23 @@
-
-import { getUsuario } from "../usuario.js";
+import { ClienteService } from "../estadoLogin/clienteService";
 
 document.getElementById("formEmail").addEventListener("submit", verificarEmail);
 
-function verificarEmail(e)
+async function verificarEmail(e)
 {
 e.preventDefault();
 var emailD = document.getElementById("email").value;
 var msg = document.getElementById("msg");
 msg.textContent = "";
-
-const usuarios = getUsuario();
-var v = false;
-
-const emailE = usuarios.find(u => u.email === emailD);
-
-if(emailE == null)
-{
-    msg.textContent = "Não foi encontrada uma conta vinculada ao e-mail digitado. Tente novamente.";
-    msg.style.color = "red";
-    document.getElementById("email").value = "";
+console.log("entrou em pedir codigo")
+try{
+    const r = await ClienteService.solicitarRecuperacaoSenha(emailD);
+    alert(r.message);
+    //window.location.href="./codigo.html";
 }
+catch (error) {
+        alert(error.message);
+    }
 
-else
-{
-    window.location.href="codigo.html";
-}
 
 
 }
