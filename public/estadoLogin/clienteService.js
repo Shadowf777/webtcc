@@ -463,7 +463,8 @@ export class ClienteService {
                 throw new Error(data.error || 'Erro ao verificar código');
             }
 
-            return data;
+            alert (data.valid)
+            return data.valid;
         } catch (error) {
             console.error('Erro ao verificar código:', error);
             throw error;
