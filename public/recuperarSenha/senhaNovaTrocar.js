@@ -1,8 +1,11 @@
-import { getUsuarioLogado } from '../estadoLogin/estadoLogin.js'
+import { getUsuarioLogado, getLoggedIn } from '../estadoLogin/estadoLogin.js'
+import { ClienteService } from '../estadoLogin/clienteService.js';
 
-document.getElementById("formSenha").addEventListener("submit", verificarEmail);
 
-function verificarEmail(e) {
+const email = sessionStorage.getItem("emailTroca");
+const codigo = sessionStorage.getItem("codigo");
+
+async function verificarEmail(e) {
     e.preventDefault();
     var emailD = document.getElementById("email").value;
     var msg = document.getElementById("msg");
@@ -11,7 +14,7 @@ function verificarEmail(e) {
     const usuarioLogado = getUsuarioLogado();
     var v = false;
 
-    const emailE = usuarioLogado === emailD ? true : false;
+    const emailE = email === emailD ? true : false;
 
     if (!emailE) {
         msg.textContent = "O e-mail inserido é diferente do e-mail da sua conta. Tente novamente.";
@@ -34,7 +37,23 @@ function verificarEmail(e) {
     }
 
      if (document.getElementById('senha').value === document.getElementById('senha2').value) {
-        window.location.href = "../minhaConta/minhaConta.html";
+
+        try{
+            const r = await ClienteService.redefinirSenha(email,codigo,document.getElementById("senha").value);
+            sessionStorage.removeItem("codigo");
+            sessionStorage.removeItem("emailTroca");
+            alert("senha modificada com sucesso!")
+            if(getLoggedIn())
+                {
+                    window.location.href = "../minhaConta/minhaConta.html";
+                }
+                else window.location.href = "../login/login.html";
+
+        }
+        catch(e){
+            alert (e);
+        }
+        
         return;
 
     }
@@ -42,3 +61,5 @@ function verificarEmail(e) {
 
 
 }
+
+document.getElementById("formSenha").addEventListener("submit", verificarEmail);

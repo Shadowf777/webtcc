@@ -100,8 +100,9 @@ async function handleLogin(email, senha) {
 
         } else {
             // Login falhou
+            console.log(resultado.error)
 
-            switch (resultado.errorType) {
+            switch (resultado.error) {
 
                 case 'MISSING_CREDENTIALS':
                     console.log('Email e senha são obrigatórios');
@@ -122,13 +123,13 @@ async function handleLogin(email, senha) {
                     return;
 
                     
-                case 'EMAIL_NOT_FOUND':
-                    console.log('Email não encontradooo');
+                case 'Cliente não encontrado':
+                    console.log('Email não encontrado');
                     msgSenha.textContent = "O e-mail informado não está cadastrado.";
                     limpar(2);
                     return;
                     
-                case 'INVALID_PASSWORD':
+                case 'Senha incorreta':
                     console.log('Senha incorreta');
                     msgSenha.textContent = "A senha e o e-mail não são compatíveis.";
                     limpar(2);
@@ -140,15 +141,7 @@ async function handleLogin(email, senha) {
                     return;
             }
 
-            console.error('Falha no login:', resultado.error);
-            alert(resultado.error);
-            msgSenha.textContent = "A senha ou o e-mail estão incorretos.";
-                limpar(2);
-                console.log("NAO FEZ LOGIN");
-                return "NAO FEZ LOGIN";
         }
-
-        return resultado;
 
     } catch (error) {
         console.error('Erro durante o login:', error);

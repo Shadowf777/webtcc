@@ -105,18 +105,17 @@
   </div>
   <script src="../../public/appBarRodape.js"></script>
 
-  <!--<script type="module">
-    import { ProtectedRoute } from '../../public/estadologin/protectedRoute.js';
+  <script type="module">
+    import { getLoggedIn } from '../../public/estadologin/estadoLogin.js';
 
     document.addEventListener('DOMContentLoaded', async () => {
-      const isAuthenticated = await ProtectedRoute.checkAuth();
-
-      if (isAuthenticated) {
-        // Carregar dados do usuário
-        console.log('Usuário autenticado, carregando dados...');
+      if (!getLoggedIn()) {
+        alert("Faça login para acessar esta página");
+        window.location.href = "../login/login.html"
       }
+
     });
-  </script>-->
+  </script>
 
   <script type="module" src="../../public/minhaConta/dados.js"></script>
   <script type="module" src="../../public/minhaConta/fotoPerfil.js"></script>

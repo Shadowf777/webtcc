@@ -255,7 +255,7 @@ export class ClienteService {
                 };
             }
 
-            // CORREÇÃO: Faça a requisição diretamente para /login
+           
             const loginData = {
                 EMAIL: email,
                 SENHA: senha
@@ -448,28 +448,72 @@ export class ClienteService {
     }
 
     static async verificarCodigoRecuperacao(email, code) {
+    try {
+        console.log('Iniciando verificação para email:', email, 'código:', code);  // DEBUG: Log inicial
+
+        const response = await fetch(`${this.BASE_URL}/verificar-codigo`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email, code })
+        });
+
+        console.log('Status da resposta:', response.status);  // DEBUG: Status HTTP
+        console.log('OK?', response.ok);  // DEBUG: OK?
+
+        // Pega o texto da resposta PRIMEIRO para debugar
+        const responseText = await response.text();
+        console.log('Texto da resposta:', responseText);  // DEBUG: Conteúdo cru (JSON ou erro)
+
+        let data;
         try {
-            const response = await fetch(`${this.BASE_URL}/verificar-codigo`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, code })
-            });
+            data = responseText ? JSON.parse(responseText) : {};
+        } catch (parseError) {
+            console.error('Erro ao parsear JSON:', parseError);  // DEBUG: Se JSON inválido
+            throw new Error(`Resposta inválida do servidor: ${responseText.substring(0, 200)}`);  // Trunca para não poluir
+        }
 
-            const data = await response.json();
+        if (response.ok) {
+            // Sucesso: código válido
+            console.log('Código válido!');  // DEBUG
+            return {
+                success: true,
+                valid: data.valid || true,
+                message: data.message || 'Código verificado com sucesso'
+            };
+        } else if (response.status === 400) {
+            // Código inválido/expirado: não fatal
+            console.log('Código inválido (400)');  // DEBUG
+            return {
+                success: false,
+                valid: false,
+                error: data.error || 'Código inválido ou expirado'
+            };
+        } else {
+            // Outros erros (ex.: 500)
+            console.error('Erro HTTP não tratado:', response.status, data);  // DEBUG
+            throw new Error(data.error || `Erro ${response.status} do servidor`);
+        }
+    } catch (error) {
+        console.error('Erro completo na verificação:', {
+            message: error.message,
+            name: error.name,
+            stack: error.stack,
+            email: email,
+            code: code  // Mas não logue o código real em prod!
+        });  // Linha ~478: Este é o log que você vê
 
-            if (!response.ok) {
-                throw new Error(data.error || 'Erro ao verificar código');
-            }
-
-            alert (data.valid)
-            return data.valid;
-        } catch (error) {
-            console.error('Erro ao verificar código:', error);
-            throw error;
+        // Tipos de erro comuns:
+        if (error.name === 'TypeError' && error.message.includes('fetch')) {
+            return { success: false, valid: false, error: 'Erro de conexão. Verifique sua internet' };
+        } else if (error.name === 'SyntaxError') {
+            return { success: false, valid: false, error: 'Resposta inválida do servidor' };
+        } else {
+            return { success: false, valid: false, error: error.message || 'Erro ao verificar código' };
         }
     }
+}
 
     static async redefinirSenha(email, code, newPassword) {
         try {
