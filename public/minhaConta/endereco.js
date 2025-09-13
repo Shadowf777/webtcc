@@ -17,8 +17,13 @@ async function loadEnderecoEditar() {
         const usuarioEndereco = await ClienteService.buscarPorEmail(usuario);
 
         var codigo = usuarioEndereco.CODIGO;
-        const enderecoDados = await ClienteService.buscarEnderecoDoCliente(codigo);
-        if (!enderecoDados) {
+        const end = await ClienteService.buscarEnderecoDoCliente(codigo);
+        var enderecoDados = {};
+        if (end && Array.isArray(end) && end.length > 0) {
+            enderecoDados = end[0];  // Primeiro endereço
+            console.log(end.CEP);  // Deve logar "13083-060"
+        }
+        if (!enderecoDados || enderecoDados.CEP === undefined || enderecoDados.CEP === null) {
             cep.value = "";
             r.value = "";
             c.value = "";

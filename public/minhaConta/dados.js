@@ -4,21 +4,27 @@ import { ClienteService } from "../estadoLogin/clienteService.js";
 
 
 const usuarioLogado = getUsuarioLogado();
-loadConta(usuarioLogado);
 
 
-async function loadConta(usuario) {
+document.addEventListener('DOMContentLoaded', async () => {
+
   var nome = "";
   var email = "";
   var primeiro = "";
 
   try {
-    const uT = await ClienteService.buscarPorEmail(usuario);
-    const end = await ClienteService.buscarEnderecoDoCliente(uT.CODIGO);
+    const uT = await ClienteService.buscarPorEmail(usuarioLogado);
+    var endd = await ClienteService.buscarEnderecoDoCliente(uT.CODIGO);
+    var end = {};
+    if (endd && Array.isArray(endd) && endd.length > 0) {
+      end = endd[0];  // Primeiro endereço
+      console.log(end.CEP);  // Deve logar "13083-060"
+    }
+    //end = JSON.parse(end);
     nome = uT.NOME;
-    email = usuario;
+    email = usuarioLogado;
     primeiro = nome.split(' ')[0];
-    //nome.split(' ')[0];
+
 
     document.getElementById("nomeUsuario").textContent = primeiro;
 
@@ -58,12 +64,12 @@ async function loadConta(usuario) {
       car.innerHTML = "<div class='naoTem'><p>Você não possui plantas cadastradas...</p><p>Tente acessar o aplicativo Mobile para adicionar uma nova planta.</p></div>";
     }
 
-    if (!end) {
-            document.getElementById("enderecoUsuario").textContent = "Nenhum endereço cadastrado.";
- // Pega o primeiro endereço, caso haja mais de um
-    } 
+    if (end.CEP === undefined || end.CEP === null) {
+      document.getElementById("enderecoUsuario").textContent = "Nenhum endereço cadastrado.";
+      // Pega o primeiro endereço, caso haja mais de um
+    }
     else {
-            document.getElementById("enderecoUsuario").textContent = `${end.RUA}, ${end.NUMERO} - ${end.CIDADE}, ${end.ESTADO} - CEP: ${end.CEP}`;
+      document.getElementById("enderecoUsuario").textContent = `${end.RUA}, ${end.NUMERO} - ${end.CIDADE}, ${end.ESTADO} - CEP: ${end.CEP}`;
 
     }
 
@@ -78,7 +84,7 @@ async function loadConta(usuario) {
     `;
   }
 
-}
+})
 
 
 

@@ -111,8 +111,8 @@ export class ClienteService {
                 const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
                 throw new Error(error.error || 'Erro ao buscar endereço do cliente');
             }
-
-            return text ? JSON.parse(text) : null;
+            const t = text ? JSON.parse(text) : null;  // Parse aqui
+            return t;
         } catch (error) {
             console.error('Erro ao buscar endereço do cliente:', error);
             throw error;
@@ -147,7 +147,6 @@ export class ClienteService {
     //Modificar endereço do cliente
     static async atualizarEndereco(codigo, enderecoData) {
         try {
-            alert(enderecoData);
             const response = await fetch(`${this.BASE_URL}/${codigo}/atualiza/endereco`, {
                 method: 'PUT',
                 headers: {
@@ -255,7 +254,7 @@ export class ClienteService {
                 };
             }
 
-           
+
             const loginData = {
                 EMAIL: email,
                 SENHA: senha
@@ -448,72 +447,72 @@ export class ClienteService {
     }
 
     static async verificarCodigoRecuperacao(email, code) {
-    try {
-        console.log('Iniciando verificação para email:', email, 'código:', code);  // DEBUG: Log inicial
-
-        const response = await fetch(`${this.BASE_URL}/verificar-codigo`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, code })
-        });
-
-        console.log('Status da resposta:', response.status);  // DEBUG: Status HTTP
-        console.log('OK?', response.ok);  // DEBUG: OK?
-
-        // Pega o texto da resposta PRIMEIRO para debugar
-        const responseText = await response.text();
-        console.log('Texto da resposta:', responseText);  // DEBUG: Conteúdo cru (JSON ou erro)
-
-        let data;
         try {
-            data = responseText ? JSON.parse(responseText) : {};
-        } catch (parseError) {
-            console.error('Erro ao parsear JSON:', parseError);  // DEBUG: Se JSON inválido
-            throw new Error(`Resposta inválida do servidor: ${responseText.substring(0, 200)}`);  // Trunca para não poluir
-        }
+            console.log('Iniciando verificação para email:', email, 'código:', code);  // DEBUG: Log inicial
 
-        if (response.ok) {
-            // Sucesso: código válido
-            console.log('Código válido!');  // DEBUG
-            return {
-                success: true,
-                valid: data.valid || true,
-                message: data.message || 'Código verificado com sucesso'
-            };
-        } else if (response.status === 400) {
-            // Código inválido/expirado: não fatal
-            console.log('Código inválido (400)');  // DEBUG
-            return {
-                success: false,
-                valid: false,
-                error: data.error || 'Código inválido ou expirado'
-            };
-        } else {
-            // Outros erros (ex.: 500)
-            console.error('Erro HTTP não tratado:', response.status, data);  // DEBUG
-            throw new Error(data.error || `Erro ${response.status} do servidor`);
-        }
-    } catch (error) {
-        console.error('Erro completo na verificação:', {
-            message: error.message,
-            name: error.name,
-            stack: error.stack,
-            email: email,
-            code: code  // Mas não logue o código real em prod!
-        });  // Linha ~478: Este é o log que você vê
+            const response = await fetch(`${this.BASE_URL}/verificar-codigo`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, code })
+            });
 
-        // Tipos de erro comuns:
-        if (error.name === 'TypeError' && error.message.includes('fetch')) {
-            return { success: false, valid: false, error: 'Erro de conexão. Verifique sua internet' };
-        } else if (error.name === 'SyntaxError') {
-            return { success: false, valid: false, error: 'Resposta inválida do servidor' };
-        } else {
-            return { success: false, valid: false, error: error.message || 'Erro ao verificar código' };
+            console.log('Status da resposta:', response.status);  // DEBUG: Status HTTP
+            console.log('OK?', response.ok);  // DEBUG: OK?
+
+            // Pega o texto da resposta PRIMEIRO para debugar
+            const responseText = await response.text();
+            console.log('Texto da resposta:', responseText);  // DEBUG: Conteúdo cru (JSON ou erro)
+
+            let data;
+            try {
+                data = responseText ? JSON.parse(responseText) : {};
+            } catch (parseError) {
+                console.error('Erro ao parsear JSON:', parseError);  // DEBUG: Se JSON inválido
+                throw new Error(`Resposta inválida do servidor: ${responseText.substring(0, 200)}`);  // Trunca para não poluir
+            }
+
+            if (response.ok) {
+                // Sucesso: código válido
+                console.log('Código válido!');  // DEBUG
+                return {
+                    success: true,
+                    valid: data.valid || true,
+                    message: data.message || 'Código verificado com sucesso'
+                };
+            } else if (response.status === 400) {
+                // Código inválido/expirado: não fatal
+                console.log('Código inválido (400)');  // DEBUG
+                return {
+                    success: false,
+                    valid: false,
+                    error: data.error || 'Código inválido ou expirado'
+                };
+            } else {
+                // Outros erros (ex.: 500)
+                console.error('Erro HTTP não tratado:', response.status, data);  // DEBUG
+                throw new Error(data.error || `Erro ${response.status} do servidor`);
+            }
+        } catch (error) {
+            console.error('Erro completo na verificação:', {
+                message: error.message,
+                name: error.name,
+                stack: error.stack,
+                email: email,
+                code: code  // Mas não logue o código real em prod!
+            });  // Linha ~478: Este é o log que você vê
+
+            // Tipos de erro comuns:
+            if (error.name === 'TypeError' && error.message.includes('fetch')) {
+                return { success: false, valid: false, error: 'Erro de conexão. Verifique sua internet' };
+            } else if (error.name === 'SyntaxError') {
+                return { success: false, valid: false, error: 'Resposta inválida do servidor' };
+            } else {
+                return { success: false, valid: false, error: error.message || 'Erro ao verificar código' };
+            }
         }
     }
-}
 
     static async redefinirSenha(email, code, newPassword) {
         try {
@@ -534,6 +533,31 @@ export class ClienteService {
             return data;
         } catch (error) {
             console.error('Erro ao redefinir senha:', error);
+            throw error;
+        }
+    }
+
+    static async criarContato(contato) {
+        try {
+            const response = await fetch(`${this.BASE_URL}/contato`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(contato)
+            });
+
+            const text = await response.text();
+            console.log(text);
+
+            if (!response.ok) {
+                const error = text ? JSON.parse(text) : { error: 'Erro na requisição' };
+                throw new Error(error.error || 'Erro ao adicionar contato');
+            }
+
+            return text ? JSON.parse(text) : { message: 'Contato adicionado com sucesso' };
+        } catch (error) {
+            console.error('Erro ao adicionar contato:', error);
             throw error;
         }
     }

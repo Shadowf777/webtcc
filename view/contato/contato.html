@@ -29,7 +29,7 @@
           <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" />
         </svg> Para dúvidas, comentários, feedback, elogios ou bate-papo.</h3>
       <div class="formas">
-        <form class="formulario">
+        <form id="formContato" class="formulario">
 
           <input id="nome" type="text" placeholder="Nome completo" required><br>
 
@@ -40,8 +40,9 @@
           <div id="msg">
             <textarea id="mensagem" placeholder="Mensagem" required></textarea>
           </div>
+          <div id="alerta"></div>
 
-          <input onclick="formulario()" id="enviar" type="submit" value="Enviar">
+          <input id="enviar" type="submit" value="Enviar">
         </form>
 
         <div class="span">
@@ -92,6 +93,7 @@
 
 
   <script src="../../public/appBarRodape.js"></script>
+  <script type="module" src="../../public/contato/contato.js"></script>
   <script type="module" src="../../public/styleSite/stylePop.js"></script>
   <script src="../../public/scriptPopUp.js"></script>
   <script src="../../public/menuResponsivo.js"></script>
