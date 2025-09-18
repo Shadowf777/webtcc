@@ -1,5 +1,5 @@
 export class PlantaService {
-    static BASE_URL = 'http://localhost:3000/plantas';
+    static BASE_URL = 'https://eco-api-production-a96c.up.railway.app/plantas';
 
     static async buscarPlantaPorCodigo(codigoPlanta) {
         try {
