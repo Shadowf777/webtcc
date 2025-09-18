@@ -41,5 +41,10 @@ export class PlantaService {
         }
     }
 
+    static getUrlImagemPlanta(nomeArquivo) {
+        if (!nomeArquivo) return null;
+        return `${this.BASE_URL.replace('/plantas', '')}/${nomeArquivo}`;
+    }
+
 
 }

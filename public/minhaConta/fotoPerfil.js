@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Atualizar a imagem de perfil
     const urlImagem = ClienteService.getUrlImagemPerfil(usuario.URL_IMAGE);
     document.getElementById('imagemCarregada').src = urlImagem;
-
+console.log(urlImagem)
     if(!urlImagem)
     {
       document.getElementById('imagemCarregada').src = imgDefault;

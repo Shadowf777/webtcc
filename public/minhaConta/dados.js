@@ -1,6 +1,7 @@
 
 import { getUsuarioLogado } from "../estadoLogin/estadoLogin.js";
 import { ClienteService } from "../estadoLogin/clienteService.js";
+import { PlantaService } from "../estadoLogin/plantaService.js";
 
 
 const usuarioLogado = getUsuarioLogado();
@@ -45,9 +46,14 @@ document.addEventListener('DOMContentLoaded', async () => {
       car.innerHTML = "<div class='naoTem'><p>Você não possui plantas cadastradas...</p><p>Tente acessar o aplicativo Mobile para adicionar uma nova planta.</p></div>";
     } else if (plantas && plantas.length > 0) {
       console.log(plantas);
-      carrossel.innerHTML = plantas.map(plant => `
+      var p = plantas.map(plant => {
+        PlantaService.getUrlImagemPlanta(plant.URL_IMAGE);
+      });
+
+      carrossel.innerHTML = 
+      plantas.map(plant => `
         <div class="car_Conta">
-          <img src="../../public/imagens/${plant.URL_IMAGE}" alt="${plant.NOME}">
+          <img src="${PlantaService.getUrlImagemPlanta(plant.URL_IMAGE)}" alt="${plant.NOME}">
           <div class="car_Conta_Informacoes">
             <div class="tituloCar">${plant.NOME}</div>
             <div class="texto">${plant.OBSERVACOES}</div>
