@@ -85,6 +85,7 @@
 .plantas {
     text-align: center;
     margin-top: 30px;
+    width: 100%;
 }
 
 .tituloPlantas {
@@ -99,9 +100,10 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 80%;
+    width: 100%;
     margin: auto;
     margin-top: 100px;
+    overflow: hidden;
 }
 
 .carrossel-inner {
@@ -110,7 +112,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    height: 450px;
+    height: 600px;
     gap: 50px;
     transition: transform 0.5s ease;
 }
@@ -118,8 +120,8 @@
 .car_planta {
     background-color: #807668;
     border-radius: 30px;
-    width: 370px;
-    height: 470px;
+    width: 320px;
+    height: 430px;
     color: white;
     display: flex;
     flex-direction: column;
@@ -133,7 +135,8 @@
 }
 
 .car_planta img {
-    height: 80%;
+    height: 410px;
+    width: 250px;
     border-radius: 20px;
     object-fit: cover;
     overflow: hidden;
@@ -147,13 +150,13 @@
 .car_planta .texto {
     margin: -15px;
     padding: 0;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-align: center;
     color: rgb(208, 208, 208);
 }
 
 .car_planta .tituloCar {
-    font-size: 2em;
+    font-size: 1.7em;
     font-weight: 500;
 }
 
@@ -279,17 +282,37 @@
 
     .plantas {
         margin: 10%;
+        width: 80%;
         align-items: center;
         justify-content: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .carrossel-inner{
+        width: 80%;
+    }
+    .car_planta {
+        width: 250px;
+        height: calc(250px * 1.4);
+
     }
 
-    .car_planta {
-        max-width: 600px;
+    .car_planta .tituloCar {
+        font-size: 1.4em;
+    }
 
+    .car_planta .texto {
+        font-size: 1.1em;
+    }
+    .car_planta img{
+        height: 420px;
+        width: 190px;
     }
 
     .tituloPlantas {
         text-align: center;
+        font-size: 3em;
+        margin-bottom: -100px;
     }
 
     #car_lados {
@@ -386,15 +409,26 @@
     }
 
     .car_planta {
-        width: 50vw;
+        width: 40vw;
         min-width: 220px;
         height: calc(50vw / 0.78);
         min-height: 320px;
-        padding: 10% 5% 0 5%;
+        padding-top: 25px
     }
 
     .car_planta .tituloCar {
-        font-size: 1.5em;
+        font-size: 1.3em;
+
+    }
+    .car_planta .texto {
+        font-size: 1em;
+        margin-top: 0px
+    }
+
+    .car_planta img {
+        height: 350px;
+        width: 180px;
+        
 
     }
 
@@ -402,9 +436,6 @@
         margin-top: -13px;
     }
 
-    .car_planta .texto {
-        font-size: 1.3em;
-    }
 
     .tituloComprar,
     .tituloPlantas {
@@ -451,11 +482,37 @@
         line-height: 1.6;
     }
 
+    .tituloPlantas {
+        font-size: 35px;
+        margin-bottom:-170px;
+    }
+
     .treJs {
-        width: 320px;
+        width: 200px;
         aspect-ratio: 4/4;
     }
     .treJs canvas{
         border-radius: 0px;
+    }
+    .car_planta{
+        width: 40vw;
+        height: calc(70vw / 0.8);
+        min-width: 200px;
+        min-height: 0px;
+        padding: 10% 5% 0 5%;
+    }
+
+    .car_planta img {
+        height: 300px;
+        width: 150px;
+    }
+
+    .car_planta .tituloCar {
+        font-size: 1.2em;
+    }
+
+    .car_planta .texto {
+        font-size: 1em;
+        margin-top: -10px;
     }
 }

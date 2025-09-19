@@ -251,7 +251,6 @@
 .car_Conta {
     background-color: #807668;
     border-radius: 30px;
-    padding: 0px 20px;
     width: 450px;
     height: 225px;
     color: white;
@@ -270,19 +269,19 @@
 
 .car_Conta img {
     width: 170px;
-    height: 75%;
-    border-radius: 20px;
+    height: 100%;
+    border-radius: 20px 0 0 20px;
     object-fit: cover;
     margin-right: 20px;
 }
 
 .car_Conta_Informacoes .tituloCar {
-    font-size: 2em;
+    font-size: 1.6em;
     margin-bottom: 20px;
 }
 
 .car_Conta_Informacoes .texto {
-    font-size: 1.1em;
+    font-size: 1em;
     color: #f0f0f0;
 }
 
@@ -295,18 +294,13 @@
 
 
     .car_Conta {
-        flex-direction: column;
         width: 300px;
-        height: fit-content;
-        padding: 20px;
-        padding-top: 35px;
+        height: 200px;
     }
 
     .car_Conta img {
-        width: 220px;
-        height: 75%;
-        margin-bottom: 20px;
-        margin-left: 15px;
+        width:100px;
+        height: 100%;
     }
 
 }
@@ -314,7 +308,6 @@
 @media (max-width: 1041px) {
 
     .car_Conta {
-        padding: 0px 20px;
         width: 450px;
         height: 225px;
         flex-direction: row;
@@ -322,8 +315,7 @@
 
     .car_Conta img {
         width: 170px;
-        height: 75%;
-        border-radius: 20px;
+        height: 100%;
         margin-right: 20px;
     }
 
@@ -342,6 +334,25 @@
     .informacoes div img {
         width: 160px;
         height: 160px;
+    }
+
+    .car_Conta {
+        width: 300px;
+        height: 180px;
+        flex-direction: row;
+    }
+
+    .car_Conta img {
+        width: 150px;
+        height: 100%;
+        margin-right: 20px;
+    }
+    .car_Conta_Informacoes .tituloCar {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+    }
+    .car_Conta_Informacoes .texto {
+        font-size: 0.9em;
     }
 }
 
@@ -453,19 +464,21 @@
 
     .car_Conta {
         flex-direction: column;
-        width: 300px;
-        height: fit-content;
-        padding: 20px;
-        padding-top: 35px;
+        width: 260px;
+        height: 360px;
+        padding: 150px 20px 20px 20px
     }
 
     .car_Conta img {
-        width: 220px;
-        height: 75%;
-        border-radius: 20px;
+        width: 100%;
+        height: 170px;
+        border-radius: 20px 20px 0 0;
         object-fit: cover;
         margin-bottom: 20px;
         margin-left: 15px;
+        position: inherit;
+        top: 0;
+        left: -15px
     }
 
     .infos,
@@ -498,16 +511,14 @@
 
     .car_Conta {
         width: 220px;
-        height: fit-content;
+        height: 300px;
         padding: 20px;
-        padding-left: 24px;
-        padding-top: 26px;
+        padding-top: 110px;
     }
 
     .car_Conta img {
-        width: 180px;
-        height: 75%;
-        border-radius: 20px;
+        width: 100%;
+        height:130px;
         object-fit: cover;
         margin-bottom: 20px;
         margin-left: 15px;

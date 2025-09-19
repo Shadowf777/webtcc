@@ -44,45 +44,8 @@
     <div class="plantas">
       <div class="tituloPlantas">Algumas de nossas plantas</div>
       <div class="carrossel">
-        <div class="carrossel-inner">
-          <div class="car_planta" id="item-1">
-            <img src="../../public/imagens/orquidea.jpg" alt="Orquídea">
-            <div class="txtCaro">
-              <div class="tituloCar">Orquídea Borboleta</div>
-              <div class="texto">Phalaenopsis</div>
-            </div>
-          </div>
-          <div class="car_planta" id="item-2">
-            <img src="../../public/imagens/tomate2.jpg" alt="Tomate">
-            <div class="txtCaro">
-              <div class="tituloCar">Tomate Roma</div>
-              <div class="texto">Solanum lycopersicum</div>
-            </div>
-          </div>
-
-          <div class="car_planta" id="item-3">
-            <img src="../../public/imagens/jacinto.jpg" alt="Rosa">
-            <div class="txtCaro">
-              <div class="tituloCar">Jacinto</div>
-              <div class="texto">Hyacinthus orientalis</div>
-            </div>
-          </div>
-
-          <div class="car_planta" id="item-3">
-            <img src="../../public/imagens/morango.jpg" alt="Preto">
-            <div class="txtCaro">
-              <div class="tituloCar">Morango</div>
-              <div class="texto">Fragaria x ananassa</div>
-            </div>
-          </div>
-          <div class="car_planta" id="item-3">
-            <img src="../../public/imagens/samambaia.jpg" alt="Branco">
-            <div class="txtCaro">
-              <div class="tituloCar">Mini Samambaia</div>
-              <div class="texto">Nephrolepis </div>
-            </div>
-          </div>
-          <!-- Adicione quantas imagens precisar -->
+        <div class="carrossel-inner" id ="carrossel">
+          
         </div>
       </div>
     </div>
@@ -138,7 +101,16 @@
       });
     }
 
-    function updateCarrossel() {
+    /*function updateCarrossel() {
+      console.log("Inicializando carrossel...");
+      const items = Array.from(document.querySelectorAll(".car_planta"));
+
+      if (items.length === 0) {
+        console.warn("Nenhum item encontrado no carrossel");
+        return;
+      }
+
+      console.log(`Encontrados ${items.length} itens no carrossel`);
       items.forEach((item) => {
         item.classList.remove('central');
         item.style.transform = '';
@@ -180,7 +152,7 @@
 
     window.addEventListener('resize', updateCarrossel);
 
-    updateCarrossel();
+    updateCarrossel();*/
   </script>
 
 

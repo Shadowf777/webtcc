@@ -41,6 +41,21 @@ export class PlantaService {
         }
     }
 
+    static async buscarPlantas()
+    {
+        try {
+            const response = await fetch(`${this.BASE_URL}/todos`);
+            if (!response.ok) {
+                throw new Error(`Erro ${response.status} ao buscar plantas`);
+            }
+            const plantas = await response.json();
+            return plantas;
+        } catch (error) {
+            console.error('Erro ao buscar plantas:', error);
+            throw new Error('Erro ao buscar plantas. Tente novamente mais tarde.');
+        }
+    }
+
     static getUrlImagemPlanta(nomeArquivo) {
         if (!nomeArquivo) return null;
         return `${this.BASE_URL.replace('/plantas', '')}/${nomeArquivo}`;
