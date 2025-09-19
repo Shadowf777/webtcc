@@ -1,5 +1,5 @@
 export class ClienteService {
-    static BASE_URL = 'https://eco-api-production-a96c.up.railway.app/clientes';
+    static BASE_URL = 'http://localhost:3000/clientes';
 
 
 
