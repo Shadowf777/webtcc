@@ -68,7 +68,7 @@ class Rodape extends HTMLElement{
         <div class="single">
             <img src="../../public/imagens/feliepe.png">
             <span class="nomeDes">Felipe Cassio</span>
-            Desenvolvimento Mobile e Arduíno
+            Desenvolvimento Esp-32
 
 
         </div>
@@ -84,10 +84,13 @@ class Rodape extends HTMLElement{
         <div class="single">
             <img src="../../public/imagens/samuel.jpg">
             <span class="nomeDes">Samuel Gilvane</span>
-            Desenvolvimento Mobile e Web
+            Desenvolvimento Mobile
 
 
         </div>
+        <br><br>
+        Note que, todos os alunos participaram do planejamento, pesquisa e todas as etapas do desenvolvimento. 
+        Estes apontados são os responsáveis principais por cada parte do projeto.
 
 
     </div>

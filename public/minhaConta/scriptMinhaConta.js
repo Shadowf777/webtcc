@@ -62,7 +62,3 @@ async function apagarCliente() {
 
 
 
-
-// imagem
-
-

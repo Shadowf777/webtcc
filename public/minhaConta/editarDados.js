@@ -27,8 +27,9 @@ async function loadDadosEditar() {
     }
 }
 loadDadosEditar();
-document.getElementById('formEdicao').addEventListener('submit', () => {
+document.getElementById('formEdicao').addEventListener('submit', async (event) => {
     event.preventDefault();
+    
     const usuarioAtualizado = {
         NOME: nome.value,
         EMAIL: email.value,
@@ -38,27 +39,47 @@ document.getElementById('formEdicao').addEventListener('submit', () => {
         SENHA: "",
         URL_IMAGE: "",
     };
-    var uLogado = 0;
-    pegarCodigo(usuario).then(codigo => {
-        uLogado = codigo;
-        //console.log(uLogado);
-        ClienteService.atualizarCliente(uLogado, usuarioAtualizado)
-            .then(response => {
-                console.log("Usuário atualizado com sucesso:", response);
-                alert("Dados atualizados com sucesso!");
-                window.location.href = "minhaConta.html"; // Redireciona para a página de conta
-            })
-            .catch(error => {
-                console.error("Erro ao atualizar usuário:", error);
-                alert("Erro ao atualizar dados. Tente novamente.");
-            });
-    });
 
+    try {
+        const codigo = await pegarCodigo(usuario);
+        const response = await ClienteService.atualizarCliente(codigo, usuarioAtualizado);
+        
+        console.log("Usuário atualizado com sucesso:", response);
+        
+        const result = await Swal.fire({
+            title: "Dados atualizados com sucesso!",
+            text: "Suas informações foram atualizadas.",
+            icon: "success",
+            confirmButtonText: "Ok",
+            customClass: {
+                popup: 'my-swal-popup',
+                title: 'my-swal-title',
+                content: 'my-swal-content',
+                confirmButton: 'my-swal-confirm-button',
+            }
+        });
 
-
-}
-
-)
+        if (result.isConfirmed) {
+            window.location.href = "minhaConta.html";
+        }
+        
+    } catch (error) {
+        console.error("Erro:", error);
+        
+        await Swal.fire({
+            title: "Erro!",
+            text: error.message || "Erro ao atualizar dados. Tente novamente.",
+            icon: "error",
+            confirmButtonText: "Entendi",
+            customClass: {
+                popup: 'my-swal-popup',
+                title: 'my-swal-title',
+                content: 'my-swal-content',
+                confirmButton: 'my-swal-confirm-button',
+            }
+        });
+    }
+});
 async function pegarCodigo(uLogado) {
     try {
         const usuarioDados = await ClienteService.buscarPorEmail(uLogado);

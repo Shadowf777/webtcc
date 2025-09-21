@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         <div class="car_Conta">
           <img src="${PlantaService.getUrlImagemPlanta(plant.URL_IMAGE)}" alt="${plant.NOME}">
           <div class="car_Conta_Informacoes">
-            <div class="tituloCar">${plant.NOME}</div>
-            <div class="texto">${plant.OBSERVACOES}</div>
+            <div class="tituloCar">${plant.NOME.length > 15 ? plant.NOME.slice(0, 12) + "..." : plant.NOME}</div>
+            <div class="texto">${plant.NOME.length > 15 ? plant.OBSERVACOES.slice(0,60) + "..." : plant.OBSERVACOES.slice(0,90) + "..."}</div>
           </div>
         </div>
       `).join('');

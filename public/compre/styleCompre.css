@@ -68,6 +68,24 @@
     background: rgb(73, 97, 77);
 }
 
+#explicacao
+{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.exp
+{
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    margin-top: 30px;
+}
+#explicacao p
+{
+    width: 50%;
+}
+
 @media (max-width: 1070px)
 {
     .compree {
@@ -133,5 +151,23 @@
     
     .compree p {
         font-size: 18px;
+    }
+    .treJs {
+        width: 200px;
+        aspect-ratio: 4/4;
+    }
+    .treJs canvas{
+        border-radius: 0px;
+    }
+
+    .exp
+    {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #explicacao p
+    {
+        width: 100%;
     }
 }

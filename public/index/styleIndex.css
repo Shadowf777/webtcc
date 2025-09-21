@@ -481,7 +481,19 @@
         font-size: 20px;
         line-height: 1.6;
     }
+    .comprar img
+    {
+        display: none
+    }
 
+    .comprar{
+        margin-top: -40px
+    }
+
+    .tituloComprar
+    {
+        font-size: 35px;
+    }
     .tituloPlantas {
         font-size: 35px;
         margin-bottom:-170px;
@@ -494,21 +506,27 @@
     .treJs canvas{
         border-radius: 0px;
     }
+    .tituloPlantas
+    {
+        font-size: 2em;
+    }
     .car_planta{
         width: 40vw;
         height: calc(70vw / 0.8);
         min-width: 200px;
         min-height: 0px;
-        padding: 10% 5% 0 5%;
+        padding: 0;
     }
 
     .car_planta img {
-        height: 300px;
-        width: 150px;
+        height: 220px;
+        width: 100%;
+        border-radius: 20px 20px 0 0;
     }
 
     .car_planta .tituloCar {
         font-size: 1.2em;
+    
     }
 
     .car_planta .texto {

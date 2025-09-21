@@ -50,11 +50,10 @@ loadEnderecoEditar();
 
 
 
-document.getElementById('formEdicao').addEventListener('submit', (event) => {
+document.getElementById('formEdicao').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const enderecoAtualizado = {
-
         CEP: cep.value,
         RUA: r.value,
         NUMERO: n.value,
@@ -65,14 +64,61 @@ document.getElementById('formEdicao').addEventListener('submit', (event) => {
         PAIS: "Brasil",
         COMPLEMENTO: comp.value,
     };
-    pegarCodigo(enderecoAtualizado).then(() => {
-        alert("Endereço atualizado com sucessoo!");
-        window.location.href = "minhaConta.html"; // Redireciona para a página de conta
-    }).catch(error => {
-        console.error("Erro ao atualizar endereço:", error);
-        alert("Erro ao atualizar endereço. Tente novamente.");
+
+    // Mostra loading
+    Swal.fire({
+        title: "Atualizando...",
+        text: "Por favor, aguarde.",
+        allowOutsideClick: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
     });
-})
+
+    try {
+        // pegarCodigo já faz a atualização e retorna o resultado
+        const resultado = await pegarCodigo(enderecoAtualizado);
+        
+        // Fecha o loading
+        Swal.close();
+
+        const result = await Swal.fire({
+            title: "Endereço atualizado!",
+            text: "Seu endereço foi atualizado com sucesso.",
+            icon: "success",
+            confirmButtonText: "Ok",
+            customClass: {
+                popup: 'my-swal-popup',
+                title: 'my-swal-title',
+                content: 'my-swal-content',
+                confirmButton: 'my-swal-confirm-button',
+            }
+        });
+
+        if (result.isConfirmed) {
+            window.location.href = "minhaConta.html";
+        }
+
+    } catch (error) {
+        // Fecha o loading em caso de erro
+        Swal.close();
+        
+        console.error("Erro ao atualizar endereço:", error);
+        
+        await Swal.fire({
+            title: "Erro!",
+            text: error.message || "Erro ao atualizar endereço. Tente novamente.",
+            icon: "error",
+            confirmButtonText: "Entendi",
+            customClass: {
+                popup: 'my-swal-popup',
+                title: 'my-swal-title',
+                content: 'my-swal-content',
+                confirmButton: 'my-swal-confirm-button',
+            }
+        });
+    }
+});
 
 async function pegarCodigo(end) {
 
@@ -92,7 +138,7 @@ async function pegarCodigo(end) {
         }
     }
     catch (error) {
-        alert("Erro ao carregar dados do usuário:", error);
+        console.error("Erro ao carregar dados do usuário:", error);
     }
 }
 

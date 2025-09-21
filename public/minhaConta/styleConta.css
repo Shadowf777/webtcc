@@ -261,6 +261,7 @@
     position: absolute;
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 1;
+    padding-right: 15px
 }
 
 .car_Conta:hover {
@@ -273,6 +274,8 @@
     border-radius: 20px 0 0 20px;
     object-fit: cover;
     margin-right: 20px;
+    left: 0;
+    position: relative;
 }
 
 .car_Conta_Informacoes .tituloCar {
@@ -283,6 +286,8 @@
 .car_Conta_Informacoes .texto {
     font-size: 1em;
     color: #f0f0f0;
+    display: block;
+  width: 100%;
 }
 
 @media(max-width: 1500px) {
@@ -537,7 +542,7 @@
 
 @media(max-width: 336px) {
     .tituloConta {
-        margin: 0px auto 50px 30px;
+        margin: 0px auto 50px 68px;
     }
 
     .minhaConta {
@@ -547,5 +552,9 @@
 
     .informacoesPessoais1 {
         margin-left: 20px;
+    }
+
+    .car_Conta{
+        padding: 150px 30px 30px 30px
     }
 }

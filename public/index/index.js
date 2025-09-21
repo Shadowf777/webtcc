@@ -12,7 +12,7 @@ async function carregarCarrossel() {
                     <div class="car_planta ${index === 1 ? 'central' : ''}" data-index="${index}">
                         <img src="${PlantaService.getUrlImagemPlanta(plant.URL_IMAGE)}" alt="${plant.NOME}">
                         <div class="txtCaro">
-                            <div class="tituloCar">${plant.NOME}</div>
+                            <div class="tituloCar">${plant.NOME.length > 12 ? plant.NOME.slice(0,12) + "..." : plant.NOME}</div>
                             <div class="texto">${plant.NOME_CIENTIFICO}</div>
                         </div>
                     </div>

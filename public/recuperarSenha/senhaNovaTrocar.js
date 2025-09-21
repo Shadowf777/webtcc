@@ -24,9 +24,8 @@ async function verificarEmail(e) {
         return;
     }
 
-   if(document.getElementById('senha').value.length < 8)
-    {
-        msg.textContent="A senha deve ter mais de oito caracteres.";
+    if (document.getElementById('senha').value.length < 8) {
+        msg.textContent = "A senha deve ter mais de oito caracteres.";
         return;
     }
 
@@ -36,24 +35,40 @@ async function verificarEmail(e) {
         return;
     }
 
-     if (document.getElementById('senha').value === document.getElementById('senha2').value) {
+    if (document.getElementById('senha').value === document.getElementById('senha2').value) {
 
-        try{
-            const r = await ClienteService.redefinirSenha(email,codigo,document.getElementById("senha").value);
+        try {
+            const r = await ClienteService.redefinirSenha(email, codigo, document.getElementById("senha").value);
             sessionStorage.removeItem("codigo");
             sessionStorage.removeItem("emailTroca");
-            alert("senha modificada com sucesso!")
-            if(getLoggedIn())
-                {
-                    window.location.href = "../minhaConta/minhaConta.html";
+            Swal.fire({
+                icon: 'success',
+                title: 'Senha alterada com sucesso!',
+                confirmButtonText: "Ok",
+                customClass: {
+                    popup: 'my-swal-popup',
+                    title: 'my-swal-title',
+                    content: 'my-swal-content',
+                    confirmButton: 'my-swal-confirm-button',
                 }
-                else window.location.href = "../login/login.html";
+            }
+            ).then((result) => {
+
+                if (result.isConfirmed) {
+                    if (getLoggedIn()) {
+                        window.location.href = "../minhaConta/minhaConta.html";
+                    }
+                    else window.location.href = "../login/login.html";
+                }
+
+            });
+
 
         }
-        catch(e){
-            alert (e);
+        catch (e) {
+            console.error(e);
         }
-        
+
         return;
 
     }

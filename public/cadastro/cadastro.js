@@ -12,28 +12,6 @@ var emailStyle = document.getElementById('email').style;
 var msg = document.getElementById('msg');
 msg.style.color = "red";
 var u1;//usuario para o cadastro
-//var usuarios = ClienteService.buscarTodos();
-//console.log(usuarios);
-async function teste(email){
-    try{
-        const t = await ClienteService.buscarPorEmail(email);
-        if(t){
-            console.log("Usuario encontrado: ", t);
-            return true;
-        }
-        else{
-            console.log("Usuario naãoo encontrado");
-            return false;
-        }
-    }
-    catch(error){
-        console.error('Erro ao buscar usuário:', error);
-        return false;
-    }
-}
-
-
-
 
 //adicionarUsuario(u1);
 
@@ -123,22 +101,6 @@ async function cadastro(event) {
 
 document.getElementById('formCadastro').addEventListener('submit', function (event) { cadastro(event) });
 
-async function verificarCadastro(email) {
-    try {
-        const r = await ClienteService.buscarPorEmail(email);
-
-        if (!r) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    catch (error) {
-        console.error('Erro ao verificar email:', error);
-        return false;
-    }
-}
  async function fazerCadastro(usuario)
  {
     try{

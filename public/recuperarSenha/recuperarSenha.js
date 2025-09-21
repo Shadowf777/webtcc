@@ -11,29 +11,45 @@ async function verificarEmail(e) {
 
     try {
         const e = await ClienteService.buscarPorEmail(emailD);
-        if(!e){
+        if (!e) {
             msg.textContent = "Este e-mail não está cadastrado!"
             return;
         }
-        if(getLoggedIn())
-        {
-            if(emailD !== getUsuarioLogado())
-        {
-            msg.textContent = "Este e-mail não está vinculado à sua conta!"
-            return;
+        if (getLoggedIn()) {
+            if (emailD !== getUsuarioLogado()) {
+                msg.textContent = "Este e-mail não está vinculado à sua conta!"
+                return;
+            }
         }
-        }
-        
-        
+
+
         document.querySelectorAll(".loader")[0].style.display = "inherit";
         const r = await ClienteService.solicitarRecuperacaoSenha(emailD);
-        alert(r.message);
-        sessionStorage.setItem("emailTroca",emailD);
+        Swal.fire({
+            icon: 'success',
+            title: 'Aguarde!',
+            text: r.message,
+            confirmButtonText: "Ok",
+            customClass: {
+                popup: 'my-swal-popup',
+                title: 'my-swal-title',
+                content: 'my-swal-content',
+                confirmButton: 'my-swal-confirm-button',
+            }
+        }
+        ).then((result) => {
 
-        window.location.href = "../../view/mudarASenha/codigo.html";
+            if (result.isConfirmed) {
+                sessionStorage.setItem("emailTroca", emailD);
+
+                window.location.href = "../../view/mudarASenha/codigo.html";
+            }
+
+        });
+
     }
     catch (error) {
-        alert(error.message);
+        console.error(error.message);
     }
 
 }

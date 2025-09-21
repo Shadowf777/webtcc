@@ -24,7 +24,7 @@ export class ClienteService {
     // Buscar plantas do cliente
     static async buscarPlantasDoCliente(codigo) {
         try {
-            const response = await fetch(`${this.BASE_URL}/${codigo}/plantas`);
+            const response = await fetch(`${this.BASE_URL}/${codigo}/plantas/estado`);
 
             // Primeiro, obtemos o texto/JSON da resposta UMA ÚNICA VEZ
             const responseData = await response.text();
